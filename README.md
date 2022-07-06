@@ -4,6 +4,7 @@
 
 ## Hardware
 For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
+With advanced function, we update this Duckiebot with Lidar (RPLIDAR A1).
 
 ## Results
 How the LSTM-SAC agent trained in the simulation -> [Video](https://youtu.be/Ypl9kf5JDdM)
