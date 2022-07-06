@@ -2,6 +2,9 @@
 
 ## About the work
 
+## Hardware
+For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
+
 ## Results
 How the LSTM-SAC agent trained in the simulation -> [Video](https://youtu.be/Ypl9kf5JDdM)
 
