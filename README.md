@@ -2,6 +2,10 @@
 
 ## About the work
 
+## System Requirments
+
+
+
 ## Hardware
 For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
 
