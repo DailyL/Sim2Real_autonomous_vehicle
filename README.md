@@ -1,4 +1,4 @@
-# **Robust Sim2Real transfer with deep reinforcement learning for Autonomous vehicles**
+# <strong>Robust Sim2Real transfer with deep reinforcement learning for Autonomous vehicles</strong>
 
 ## About the work
 
