@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="veh" doc="Name of vehicle. ex: megaman" default = "david"/>
+
+
+
+
+
+  <include file="$(find duckiebot_control)/launch/gazebo_lane_following_david.launch">
+        </include>
+
+
+  <remap from="~centers" to= "/$(arg veh)/vehicle_detection_node/centers"/>
+	<remap from="~lane_pose" to= "/$(arg veh)/lane_filter_node/lane_pose"/>
+	<node pkg="rl_duckietown" type="train_continuous_duckie_gym.py" name="gym_overtaking" output="screen" />
+
+
+  <remap from="~image" to= "/$(arg veh)/camera_node/image/raw/compressed"/>
+  <include file="$(find vehicle_detection)/launch/vehicle_detection_node.launch">
+  <arg name="veh" value="$(arg veh)"/>
+  </include>
+
+
+
+</launch>	

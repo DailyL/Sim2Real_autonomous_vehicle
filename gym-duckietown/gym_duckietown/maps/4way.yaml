@@ -1,0 +1,29 @@
+# 5x5 counter-clockwise loop with a 4-way intersection in the middle
+# Designed to test the 4-way intersection tile and traffic light
+tiles:
+  - [curve_left/W , straight/W, 3way_left/W   , straight/W, curve_left/N]
+  - [straight/S   , asphalt   , straight/N    , asphalt   , straight/N]
+  - [3way_left/S  , straight/W, 4way          , straight/E, 3way_left/N]
+  - [straight/S   , asphalt   , straight/S    , asphalt   , straight/N]
+  - [curve_left/S , straight/E, 3way_left/E   , straight/E, curve_left/E]
+
+objects:
+  trafficlight:
+    kind: trafficlight
+    place:
+      tile: [2,2]
+      relative:
+        ~SE2Transform:
+          p: [-0.18,-0.18]
+          theta_deg: 135
+
+    #    rotate: 45
+    height: 0.4
+    optional: true
+ duckiebot:   
+  kind: duckiebot
+  pos: [2.5, 2.75]
+  rotate: -45
+  height: 0.12
+  static: False
+tile_size: 0.585

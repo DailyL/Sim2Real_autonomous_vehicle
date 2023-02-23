@@ -1,0 +1,6 @@
+description: Localization in straight lane
+constructor: localization_templates.TemplateStraight
+parameters:
+  tile_name: DT17_scenario_straight_straight
+  default_x: -0.25
+#     tile_name: DT17_tile_straight

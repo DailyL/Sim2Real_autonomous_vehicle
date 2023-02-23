@@ -1,0 +1,25 @@
+<launch>
+	<arg name="pkg_name" value="keyboard_mapper"/>
+	<arg name="node_name" default="keyboard_mapper_node"/>
+		
+	<arg name="veh" doc="Name of vehicle. ex: megaman" default="david"/>
+	<arg name="local" default="true" doc="true for running on laptop. false for running on vehicle."/>
+	<arg name="config" default="baseline" doc="Specify a config."/>
+	<arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman"/>
+
+	<!-- Run on local (laptop) -->
+	<node if="$(arg local)" ns="$(arg veh)" pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen" clear_params="true" required="true">
+		<rosparam command="load" file="$(find duckietown)/config/$(arg config)/$(arg pkg_name)/$(arg node_name)/$(arg param_file_name).yaml"/>
+	</node>
+
+	<!-- Run on remote (vehicle) -->
+	<include unless="$(arg local)" file="$(find duckietown)/machines"/>
+	<node unless="$(arg local)" ns="$(arg veh)" machine="$(arg veh)" pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen" clear_params="true" required="true">
+		<rosparam command="load" file="$(find duckietown)/config/$(arg config)/$(arg pkg_name)/$(arg node_name)/$(arg param_file_name).yaml"/>
+	</node>	
+
+	<!-- Subscribe Topics -->
+	<!-- "teleop_node/teleop": geometry_msgs/Twist. The command read from keyboard -->
+	<!-- Publish Topics -->
+	<!-- "~wheels_cmd": duckietown_msgs/WheelsCmd. Wheels command for duckiebot -->
+</launch>

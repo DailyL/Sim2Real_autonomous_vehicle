@@ -1,0 +1,8 @@
+prefix=/home/dianzhaoli/duckie_catkin_ws/devel
+
+Name: ddpg_lanefollowing
+Description: Description of ddpg_lanefollowing
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

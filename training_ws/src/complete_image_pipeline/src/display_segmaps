@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+# @create-shortcut-for-this
+
+from duckietown_segmaps.cli import DisplayTileAndMaps
+from duckietown_code_utils.cli import d8app_run
+
+if __name__ == "__main__":
+    d8app_run(DisplayTileAndMaps)

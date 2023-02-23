@@ -1,0 +1,20 @@
+# This is a closed loop (no intersections) with a few obstacles directly
+# on the road, which have to be avoided.
+
+tiles:
+- [asphalt  , asphalt       , asphalt     , asphalt     , asphalt         , asphalt     , asphalt         , asphalt  ]
+- [asphalt  , curve_left/W, straight/W, straight/W, straight/W    , straight/W, curve_left/N  , asphalt  ]
+- [asphalt  , straight/S  , asphalt     , asphalt     , asphalt         , asphalt     , straight/N    , asphalt  ]
+- [asphalt  , straight/S  , asphalt     , asphalt     , asphalt         , asphalt     , straight/N    , asphalt  ]
+- [asphalt  , straight/S  , asphalt     , asphalt     , curve_right/N , straight/E, curve_left/E  , asphalt  ]
+- [asphalt  , curve_left/S, straight/E, straight/E, curve_left/E  , asphalt     , asphalt         , asphalt  ]
+- [asphalt  , asphalt       , asphalt     , asphalt     , asphalt         , asphalt     , asphalt         , asphalt  ]
+start_tile: [1, 1]
+start_pose: [[0.14625, 0, 0.585], -45]
+objects:
+- kind: duckiebot
+  pos: [4.5, 5.75]
+  rotate: -45
+  height: 0.12
+  static: False
+tile_size: 0.585

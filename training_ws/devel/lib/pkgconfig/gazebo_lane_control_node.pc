@@ -1,0 +1,8 @@
+prefix=/home/dianzhaoli/duckie_catkin_ws/devel
+
+Name: gazebo_lane_control_node
+Description: Description of gazebo_lane_control_node
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,11 @@
+#Header header
+string state
+
+# pseudo constants
+string WAY_TO_MAINTENANCE="WAY_TO_MAINTENANCE"
+string WAY_TO_CHARGING="WAY_TO_CHARGING"
+string CHARGING="CHARGING"
+string WAY_TO_CALIBRATING="WAY_TO_CALIBRATING"	
+string CALIBRATING="CALIBRATING"	
+string WAY_TO_CITY="WAY_TO_CITY"
+string NONE="NONE"

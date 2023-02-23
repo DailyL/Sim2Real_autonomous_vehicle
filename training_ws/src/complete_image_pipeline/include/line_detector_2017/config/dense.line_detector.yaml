@@ -1,0 +1,17 @@
+description: This is the baseline line detector (2018).
+constructor: line_detector_2017.LineDetector2Dense
+parameters:
+
+  configuration:
+    dilation_kernel_size: 3
+    canny_thresholds: [80,200]
+    sobel_threshold: 40.
+
+    hsv_white1:  [0,0,150]
+    hsv_white2:  [180,60,255]
+    hsv_yellow1: [25,140,100]
+    hsv_yellow2: [45,255,255]
+    hsv_red1:    [0,140,100]
+    hsv_red2:    [15,255,255]
+    hsv_red3:    [165,140,100]
+    hsv_red4:    [180,255,255]

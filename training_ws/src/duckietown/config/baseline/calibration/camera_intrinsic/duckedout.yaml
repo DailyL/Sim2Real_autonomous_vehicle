@@ -1,0 +1,20 @@
+image_width: 640
+image_height: 480
+camera_name: /duckedout/camera_node
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [310.37182280053196, 0.0, 303.23948422630866, 0.0, 310.8897359882639, 221.47137820699243, 0.0, 0.0, 1.0]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.2572242480135451, 0.04765503993727538, 0.0008253133494795717, 0.0006776496755543792, 0.0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [214.9592742919922, 0.0, 304.133744736333, 0.0, 0.0, 247.3832550048828, 210.84492228110048, 0.0, 0.0, 0.0, 1.0, 0.0]

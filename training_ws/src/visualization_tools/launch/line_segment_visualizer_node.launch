@@ -1,0 +1,7 @@
+<launch>
+	<arg name="veh" default="megaman"/>
+	<node ns="$(arg veh)" name="line_segment_visualizer_node" pkg="visualization_tools" type="line_segment_visualizer_node.py" output="screen">
+		<param name="~veh_name" value="$(arg veh)"/>
+	</node>
+	<node pkg="tf" type="static_transform_publisher" name="$(arg veh)_to_map" args = "0 0 0 0 0 0 1 map $(arg veh) 10" />
+</launch>

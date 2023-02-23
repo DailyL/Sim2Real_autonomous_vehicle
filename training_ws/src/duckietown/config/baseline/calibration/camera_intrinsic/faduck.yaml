@@ -1,0 +1,23 @@
+camera_matrix:
+  cols: 3
+  data: [312.44214366654717, 0.0, 297.288371942598, 0.0, 316.02904037096965, 221.22925685218325,
+    0.0, 0.0, 1.0]
+  rows: 3
+camera_name: faduck/camera_node
+distortion_coefficients:
+  cols: 5
+  data: [-0.27210998616372456, 0.05184695915794369, -0.0020639992189294683, 0.002662640851825011,
+    0.0]
+  rows: 1
+distortion_model: plumb_bob
+image_height: 480
+image_width: 640
+projection_matrix:
+  cols: 4
+  data: [215.3552703857422, 0.0, 300.0825445917508, 0.0, 0.0, 246.88002014160156,
+    205.55819023610638, 0.0, 0.0, 0.0, 1.0, 0.0]
+  rows: 3
+rectification_matrix:
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  rows: 3

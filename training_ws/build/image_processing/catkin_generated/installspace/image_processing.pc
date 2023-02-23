@@ -1,0 +1,8 @@
+prefix=/home/dianzhaoli/duckie_catkin_ws/install
+
+Name: image_processing
+Description: Description of image_processing
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

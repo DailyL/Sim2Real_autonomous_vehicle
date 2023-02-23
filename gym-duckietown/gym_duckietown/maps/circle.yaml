@@ -1,0 +1,6 @@
+# 2x2 tiles with left turns at the corners going in a counter-clockwise loop
+tiles:
+- [curve_left/W , curve_left/N]
+- [curve_left/S , curve_left/E]
+
+tile_size: 0.585

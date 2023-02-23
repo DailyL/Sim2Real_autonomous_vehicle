@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="check_board_precise">
+    <static>true</static>
+    <pose>-20 -20 0 0 0 0</pose>
+    <link name="board">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://check_board_2times/meshes/check_board_2times_collision.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://check_board_2times/meshes/check_board_2times.dae</uri>
+          </mesh>
+        </geometry>
+        <cast_shadows>false</cast_shadows>
+      </visual>
+    </link>
+  </model>
+</sdf>
+

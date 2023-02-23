@@ -1,0 +1,7 @@
+set(visualization_tools_SETUP_PY_SETUP_MODULE "distutils.core")
+set(visualization_tools_SETUP_PY_VERSION "1.0.0")
+set(visualization_tools_SETUP_PY_SCRIPTS "")
+set(visualization_tools_SETUP_PY_PACKAGES "visualization_tools")
+set(visualization_tools_SETUP_PY_PACKAGE_DIRS "include/visualization_tools")
+set(visualization_tools_SETUP_PY_MODULES "")
+set(visualization_tools_SETUP_PY_MODULE_DIRS "")

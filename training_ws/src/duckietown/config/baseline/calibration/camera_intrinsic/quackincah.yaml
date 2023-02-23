@@ -1,0 +1,20 @@
+camera_matrix:
+  cols: 3
+  data: [300.46287015028213, 0.0, 308.30218520428116, 0.0, 308.74910244867505, 259.82623752224174, 0.0, 0.0, 1.0]
+  rows: 3
+camera_name: /quackincah/camera_node
+distortion_coefficients:
+  cols: 5
+  data: [-0.22739791586725688, 0.03286913594463442, -0.007561528084563974, -0.00010355727784058272, 0.0]
+  rows: 1
+distortion_model: plumb_bob
+image_height: 480
+image_width: 640
+projection_matrix:
+  cols: 4
+  data: [198.5755615234375, 0.0, 313.5675233564398, 0.0, 0.0, 254.28109741210938, 260.7705548356025, 0.0, 0.0, 0.0, 1.0, 0.0]
+  rows: 3
+rectification_matrix:
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  rows: 3

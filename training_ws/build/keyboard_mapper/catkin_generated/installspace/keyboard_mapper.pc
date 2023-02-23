@@ -1,0 +1,8 @@
+prefix=/home/dianzhaoli/duckie_catkin_ws/install
+
+Name: keyboard_mapper
+Description: Description of keyboard_mapper
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

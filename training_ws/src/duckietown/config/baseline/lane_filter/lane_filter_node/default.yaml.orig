@@ -1,0 +1,21 @@
+# default parameters for lane_filter/lane_filter_node
+mean_d_0: 0
+mean_phi_0: 0
+sigma_d_0: 0.1
+sigma_phi_0: 0.1
+delta_d: 0.02
+delta_phi: 0.05
+d_max: 0.3
+d_min: -0.3
+phi_min: -1.5
+phi_max: 1.5
+cov_v: 0.5
+linewidth_white: 0.05
+linewidth_yellow: 0.025
+lanewidth: 0.20
+<<<<<<< HEAD
+min_max: 0.3
+=======
+min_max: 0.4
+>>>>>>> devel-nav
+min_segs: 10

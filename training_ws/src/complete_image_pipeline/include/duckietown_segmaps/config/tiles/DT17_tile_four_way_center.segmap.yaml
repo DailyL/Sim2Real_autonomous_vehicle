@@ -1,0 +1,9 @@
+description: The center of a 4-way intersection
+constructor: duckietown_segmaps.get_map_intersection_center
+parameters:
+  tile_size: 0.558 # outer white to outer white
+  tile_spacing: 0.584
+  width_yellow: 0.024
+  width_white: 0.048
+  width_red: 0.048
+  num_roads: 4

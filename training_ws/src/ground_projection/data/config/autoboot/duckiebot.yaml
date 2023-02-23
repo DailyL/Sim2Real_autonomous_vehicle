@@ -1,0 +1,126 @@
+version: '3.2'
+services:
+
+  portainer:
+    image: portainer/portainer:linux-arm-1.24.1
+    container_name: portainer
+    command: ["--host=unix:///var/run/docker.sock", "--no-auth"]
+    restart: always
+    network_mode: host
+    volumes:
+      # docker socket
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  dashboard:
+    image: duckietown/dt-device-dashboard:daffy-arm32v7
+    container_name: dashboard
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      HTTP_PORT: 8080
+    volumes:
+      - /data:/data
+      - /secrets:/secrets
+      # compose volume
+      - compose-data:/user-data/databases
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+  files-api:
+    image: duckietown/dt-files-api:daffy-arm32v7
+    container_name: files-api
+    restart: always
+    network_mode: host
+    volumes:
+      - /data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+  code-api:
+    image: duckietown/dt-code-api:daffy-arm32v7
+    container_name: code-api
+    restart: always
+    network_mode: host
+    volumes:
+      - /data:/data
+      - /code:/user_code
+      # docker socket
+      - /var/run/docker.sock:/var/run/docker.sock
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+  device-proxy:
+    image: duckietown/dt-device-proxy:daffy-arm32v7
+    container_name: device-proxy
+    restart: always
+    network_mode: host
+    volumes:
+      - /data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+  device-health:
+    image: duckietown/dt-device-health:daffy-arm32v7
+    container_name: device-health
+    restart: always
+    network_mode: host
+    privileged: true
+    volumes:
+      - /data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+  device-online:
+    image: duckietown/dt-device-online:daffy-arm32v7
+    container_name: device-online
+    restart: always
+    network_mode: host
+    volumes:
+      - /data:/data
+      - /secrets:/secrets
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+  ros:
+    image: duckietown/dt-ros-commons:daffy-arm32v7
+    container_name: ros
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+  duckiebot-interface:
+    image: duckietown/dt-duckiebot-interface:daffy-arm32v7
+    container_name: duckiebot-interface
+    restart: unless-stopped
+    network_mode: host
+    privileged: true
+    volumes:
+      - /data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+  car-interface:
+    image: duckietown/dt-car-interface:daffy-arm32v7
+    container_name: car-interface
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+  rosbridge-websocket:
+    image: duckietown/dt-rosbridge-websocket:daffy-arm32v7
+    container_name: rosbridge-websocket
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+
+volumes:
+  compose-data:

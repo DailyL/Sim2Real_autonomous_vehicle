@@ -1,0 +1,23 @@
+camera_matrix:
+  cols: 3
+  data: [325.6206609014622, 0.0, 316.8196114248231, 0.0, 354.75736108901503, 214.81604320836468,
+    0.0, 0.0, 1.0]
+  rows: 3
+camera_name: dtpd/camera_node
+distortion_coefficients:
+  cols: 5
+  data: [-0.2623692734604969, 0.044926370483611144, 0.0009366026448146682, 0.0013363756052175283,
+    0.0]
+  rows: 1
+distortion_model: plumb_bob
+image_height: 480
+image_width: 640
+projection_matrix:
+  cols: 4
+  data: [213.5639975578664, 0.0, 319.5236257779281, 0.0, 0.0, 298.91267746284706,
+    204.47402126325605, 0.0, 0.0, 0.0, 1.0, 0.0]
+  rows: 3
+rectification_matrix:
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  rows: 3

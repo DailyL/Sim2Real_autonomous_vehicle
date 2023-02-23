@@ -1,0 +1,381 @@
+<robot
+  name="duckiebot_1">
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>10</updateRate>
+      <leftJoint>lwheel_joint</leftJoint>
+      <rightJoint>rwheel_joint</rightJoint>
+      <wheelSeparation>0.4</wheelSeparation>
+      <wheelDiameter>0.2</wheelDiameter>
+      <torque>10</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="camera">
+    <material>Gazebo/Blue</material>
+    <sensor name="camera_1" type="camera">
+      <update_rate>30</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.7</horizontal_fov>
+        <image>
+          <width>1920</width>
+          <height>1440</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>200</far>
+        </clip>
+      </camera>
+      <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>front/camera_node</cameraName>
+        <imageTopicName>image/raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="camera_2">
+    <material>Gazebo/Red</material>
+    <sensor name="camera_2" type="camera">
+      <update_rate>30</update_rate>
+      <camera name="head_2">
+        <horizontal_fov>1.7</horizontal_fov>
+        <image>
+          <width>1920</width>
+          <height>1440</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>200</far>
+        </clip>
+      </camera>
+      <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>back/camera_node</cameraName>
+        <imageTopicName>image/raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0101024393214371 2.77555756156289E-17 -0.00724903839291099"
+        rpy="0 0 0" />
+      <mass
+        value="22.4144467859455" /> <!--0.224144467859455-->
+      <inertia
+        ixx="0.0262333315558155"  
+        ixy="-9.46739929586217E-20" 
+        ixz="1.25847877839234E-05"
+        iyy="0.0594458638144052"
+        iyz="3.28272538130837E-20"
+        izz="0.0839695132659337" /><!--xx yy zz*100-->
+    </inertial>
+    <visual>
+      <ori
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="lwheel_link">
+    <inertial>
+      <origin
+        xyz="0 -0.01 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="5.57789775644867" /> <!--0.055778977-->
+      <inertia
+        ixx="145.803923229503E-05"
+        ixy="-1.99984150579823E-21"
+        ixz="1.05546145898492E-21"
+        iyy="254.421861416015E-05"
+        iyz="-3.05243290373849E-21"
+        izz="145.803923229503E-05" /> <!--xx yy zz*100-->
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/lwheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/lwheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lwheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.037 0.076 -0.02"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lwheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="rwheel_link">
+    <inertial>
+      <origin
+        xyz="0 0.01 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="5.57789775644868" />  <!--0.055778977-->
+      <inertia
+        ixx="145.803923229503E-05"
+        ixy="4.60062935577484E-21"
+        ixz="-6.46471806336693E-23"
+        iyy="254.421861416015E-05"
+        iyz="-3.87738072626345E-21"
+        izz="145.803923229503E-05" /> 
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/rwheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/rwheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rwheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.037 -0.076 -0.02"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rwheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheelconnect_link">
+    <inertial>
+      <origin
+        xyz="1.50048594515827E-05 0 -0.010847034957063"
+        rpy="0 0 0" />
+      <mass
+        value="0.913938040025901" /> <!--0.009139380-->
+      <inertia
+        ixx="160.355093188034E-06"
+        ixy="-7.73413872737081E-23"
+        ixz="1.58787191951214E-09"
+        iyy="110.422623295413E-06"
+        iyz="1.24825890806269E-22"
+        izz="179.481242782248E-06" /> <!--xx yy zz*100-->
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/wheelconnect_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/wheelconnect_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="connect_joint"
+    type="continuous">
+    <origin
+      xyz="-0.087 0 -0.021"
+      rpy="-5.39137043987863E-16 -2.12238359091467E-18 -0.00393661064679745" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheelconnect_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="swheel_link">
+    <inertial>
+      <origin
+        xyz="-2.16840434497101E-18 -0.00500000000000003 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.31101767270539" />  <!--0.00311017-->
+      <inertia
+        ixx="104.450101750227E-07"
+        ixy="-2.25665210862123E-23"
+        ixz="-1.86856433439062E-23"
+        iyy="157.063924716222E-07"
+        iyz="5.78702483149728E-23"
+        izz="104.450101750227E-07" />   <!--xx yy zz*100-->
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/swheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://duckiebot_1/meshes/swheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="swheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.00500000000000001 0.005 -0.019"
+      rpy="-9.86076131526265E-32 0 5.8113236445223E-17" />
+    <parent
+      link="wheelconnect_link" />
+    <child
+      link="swheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link name="camera">
+    <collision>
+      <origin rpy="0 0.1 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <box_inertia m="0.1" x="0.02" y="0.02" z="0.02"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 0 0"/>
+    <origin rpy="0 0.9 0" xyz=".12 0 .1"/>
+    <parent link="base_link"/>
+    <child link="camera"/>
+  </joint>
+
+  <link name="camera_2">
+    <collision>
+      <origin rpy="0 0.1 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <box_inertia m="0.1" x="0.02" y="0.02" z="0.02"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+  <joint name="camera_joint_2" type="fixed">
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 1 3.14159" xyz="-0.18 0 .08"/>
+    <parent link="base_link"/>
+    <child link="camera_2"/>
+  </joint>
+
+</robot>

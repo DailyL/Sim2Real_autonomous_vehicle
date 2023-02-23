@@ -1,0 +1,11 @@
+<package>
+  <name>keyboard_control</name>
+  <version>0.1.0</version>
+  <description>
+  keyboard_control for jack
+  </description>
+  <maintainer email="dianzhao.li@tu-dresden.de">Dianzhao Li</maintainer>
+  <license>None</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

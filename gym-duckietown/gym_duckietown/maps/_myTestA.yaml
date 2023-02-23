@@ -1,0 +1,14 @@
+tiles:
+- [curve_left/W, straight/W, straight/W, curve_left/N]
+- [straight/S  , asphalt     , asphalt     , straight/N  ]
+- [curve_left/S, straight/E, straight/E, curve_left/E]
+
+objects:
+- kind: duckiebot
+  pos: [2.5, 2.75]
+  rotate: -45
+  height: 0.12
+  static: False
+start_pose: [[0.14625, 0, 0.585], -45]
+tile_size: 0.585
+

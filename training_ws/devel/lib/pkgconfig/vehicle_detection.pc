@@ -1,0 +1,8 @@
+prefix=/home/dianzhaoli/duckie_catkin_ws/devel
+
+Name: vehicle_detection
+Description: Description of vehicle_detection
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

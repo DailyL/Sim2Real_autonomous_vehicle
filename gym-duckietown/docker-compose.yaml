@@ -1,0 +1,41 @@
+version: '3.2'
+services:
+
+  ros:
+    image: duckietown/dt-ros-commons:daffy-amd64
+    container_name: ros
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+    environment:
+      - VEHICLE_NAME=fakebot
+
+  core:
+    image: duckietown/dt-core:daffy-amd64
+    container_name: lane_following
+    restart: unless-stopped
+    network_mode: host
+    privileged: true
+    command: dt-launcher-default
+    volumes:
+      - ./data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+    environment:
+      - VEHICLE_NAME=fakebot
+
+  car-interface:
+    image: duckietown/dt-car-interface:daffy-amd64
+    container_name: car-interface
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./data:/data
+      # avahi socket
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+    environment:
+      - VEHICLE_NAME=fakebot
+

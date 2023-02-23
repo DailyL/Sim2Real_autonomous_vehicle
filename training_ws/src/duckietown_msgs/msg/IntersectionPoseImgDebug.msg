@@ -1,0 +1,10 @@
+Header header
+float32 x
+float32 y
+float32 theta
+uint8 type
+float32 likelihood
+float32 x_init
+float32 y_init
+float32 theta_init
+sensor_msgs/CompressedImage img

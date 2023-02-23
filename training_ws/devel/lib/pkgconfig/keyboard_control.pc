@@ -1,0 +1,8 @@
+prefix=/home/dianzhaoli/duckie_catkin_ws/devel
+
+Name: keyboard_control
+Description: Description of keyboard_control
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

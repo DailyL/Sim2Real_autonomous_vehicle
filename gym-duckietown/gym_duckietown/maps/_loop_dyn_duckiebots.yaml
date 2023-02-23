@@ -1,0 +1,44 @@
+# This is a closed loop (no intersections) with a few obstacles directly
+# on the road, which have to be avoided.
+
+tiles:
+- [floor  , floor       , floor     , floor     , floor         , floor     , floor         , floor  ]
+- [floor  , curve_left/W, straight/W, straight/W, straight/W    , straight/W, curve_left/N  , floor  ]
+- [floor  , straight/S  , floor     , floor     , floor         , floor     , straight/N    , floor  ]
+- [floor  , straight/S  , floor     , floor     , floor         , floor     , straight/N    , floor  ]
+- [floor  , straight/S  , floor     , floor     , curve_right/N , straight/E, curve_left/E  , floor  ]
+- [floor  , curve_left/S, straight/E, straight/E, curve_left/E  , floor     , floor         , floor  ]
+- [floor  , floor       , floor     , floor     , floor         , floor     , floor         , floor  ]
+
+# NOTE: obstacles cannot be optional, because they will change for
+# every episode, and this will interfere with imitation learning
+
+# Coordinates: [Column, Row]
+#  [0., 0.] is the top left corner of the top left tile
+#  The coordinates are rescaled based on the tile size, such that coordinates [0.5, 1.5]
+#  would mean middle of the first column of tiles, middle of the second row
+# Directions:
+#  ->: 0
+#  ^: 90
+#  v: -90=270
+#  <-: 180
+objects:
+
+
+# Inner lane
+# Start: top straight
+- kind: duckiebot
+  pos: [3.5, 1.75]
+  rotate: 0
+  height: 0.12
+  static: False
+
+# Outer lane
+# Start: top straight
+- kind: duckiebot
+  pos: [3.5, 1.25]
+  rotate: 175
+  height: 0.12
+  static: False
+
+tile_size: 0.585

@@ -1,0 +1,8 @@
+prefix=/home/dianzhaoli/duckie_catkin_ws/devel
+
+Name: duckiebot_1
+Description: Description of duckiebot_1
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

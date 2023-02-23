@@ -1,0 +1,13 @@
+    material Grid/Image
+    {
+      technique
+      {
+        pass
+        {
+          texture_unit
+          {
+            texture circlegrid.jpg
+          }
+        }
+      }
+    }

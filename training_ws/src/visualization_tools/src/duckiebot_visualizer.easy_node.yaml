@@ -1,0 +1,22 @@
+description:
+
+parameters:
+    veh_name:
+        desc:
+        default: megaman
+        type: str
+
+publishers:
+    pub_seg_list:
+        desc:
+        topic: ~segment_list_markers
+        type: visualization_msgs/MarkerArray
+        queue_size: 1
+
+subscriptions:
+    seg_list:
+        desc:
+        topic: ~segment_list
+        type: duckietown_msgs/SegmentList
+
+contracts: {}

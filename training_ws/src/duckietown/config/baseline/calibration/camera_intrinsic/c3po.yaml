@@ -1,0 +1,23 @@
+camera_matrix:
+  cols: 3
+  data: [318.3825679258738, 0.0, 311.0761251400407, 0.0, 320.1441503539712, 232.7942119975866,
+    0.0, 0.0, 1.0]
+  rows: 3
+camera_name: c3po/camera_node
+distortion_coefficients:
+  cols: 5
+  data: [-0.26366012840063036, 0.0445117545633977, 0.006483855009892687, 0.001576652749173079,
+    0.0]
+  rows: 1
+distortion_model: plumb_bob
+image_height: 480
+image_width: 640
+projection_matrix:
+  cols: 4
+  data: [212.55747985839844, 0.0, 317.6900433249575, 0.0, 0.0, 257.72802734375, 236.2803911876399,
+    0.0, 0.0, 0.0, 1.0, 0.0]
+  rows: 3
+rectification_matrix:
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  rows: 3

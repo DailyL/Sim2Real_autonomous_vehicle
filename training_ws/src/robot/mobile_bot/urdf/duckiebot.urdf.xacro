@@ -1,0 +1,540 @@
+<?xml version="1.0"?>
+<robot name="duckiebot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--
+    Required arguments are:
+
+        - veh:      Vehicle name (e.g., autobot04)
+        - model:    Robot configuration (e.g., DB18)
+
+    -->
+
+    <xacro:macro name="duckiebot" params="veh model">
+
+        <!-- START: Duckiebot -->
+
+        <xacro:if value="${model in ['DB18', 'DB19']}" >
+
+            <!-- START: Duckiebot: DB1X -->
+
+            <xacro:property name="plate_thickness" value="0.003" />
+
+            <!-- ~/footprint is located at the projection of the wheels axis' center on the ground -->
+            <link name="${veh}/footprint"/>
+
+            <!-- /base link is attached to the bottom of the bottom plate -->
+            <link name="${veh}/base"/>
+            <joint name="${veh}_footprint_to_base" type="fixed">
+                <parent link="${veh}/footprint" />
+                <child link="${veh}/base" />
+                <origin xyz="0 0 0.042" />
+            </joint>
+
+            <!-- bottom plate -->
+            <link name="${veh}/bottom_plate">
+                <visual>
+                    <origin xyz="0 0 -${plate_thickness}" />
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/bottom_plate.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_base_to_bottom_plate" type="fixed">
+                <parent link="${veh}/base" />
+                <child link="${veh}/bottom_plate" />
+                <origin xyz="0 0 ${plate_thickness}" />
+            </joint>
+
+            <!-- top plate -->
+            <link name="${veh}/top_plate">
+                <visual>
+                    <origin xyz="0 0 -${plate_thickness}" />
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/top_plate.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_bottom_plate_to_top_plate" type="fixed">
+                <parent link="${veh}/bottom_plate" />
+                <child link="${veh}/top_plate" />
+                <origin xyz="0 0 0.034" />
+            </joint>
+
+            <!-- left motor -->
+            <link name="${veh}/left_motor">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/motor.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_base_to_left_motor" type="fixed">
+                <parent link="${veh}/base" />
+                <child link="${veh}/left_motor" />
+                <origin xyz="0 0.023 -0.01" />
+            </joint>
+
+            <!-- right motor -->
+            <link name="${veh}/right_motor">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/motor.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_base_to_right_motor" type="fixed">
+                <parent link="${veh}/base" />
+                <child link="${veh}/right_motor" />
+                <origin xyz="0 -0.023 -0.01" />
+            </joint>
+
+            <!-- left wheel -->
+            <link name="${veh}/left_wheel_axis"/>
+            <joint name="${veh}_left_motor_to_left_wheel" type="fixed">
+                <parent link="${veh}/left_motor" />
+                <child link="${veh}/left_wheel_axis" />
+                <origin xyz="0 0.015 0" />
+            </joint>
+            <link name="${veh}/left_wheel">
+                <visual>
+                    <origin rpy="0 0 ${pi}" />
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/wheel.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_left_wheel_axis_to_left_wheel"
+                   type="${'fixed' if model == 'DB18' else 'continuous'}">
+                <parent link="${veh}/left_wheel_axis" />
+                <child link="${veh}/left_wheel" />
+                <axis xyz="0 1 0" />
+            </joint>
+
+            <!-- right wheel -->
+            <link name="${veh}/right_wheel_axis"/>
+            <joint name="${veh}_right_motor_to_right_wheel" type="fixed">
+                <parent link="${veh}/right_motor" />
+                <child link="${veh}/right_wheel_axis" />
+                <origin xyz="0 -0.015 0" />
+            </joint>
+            <link name="${veh}/right_wheel">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/wheel.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_right_wheel_axis_to_right_wheel"
+                   type="${'fixed' if model == 'DB18' else 'continuous'}">
+                <parent link="${veh}/right_wheel_axis" />
+                <child link="${veh}/right_wheel" />
+                <axis xyz="0 1 0" />
+            </joint>
+
+            <!-- caster wheel -->
+            <link name="${veh}/caster_wheel">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/caster_wheel.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_bottom_plate_to_caster_wheel" type="fixed">
+                <parent link="${veh}/bottom_plate" />
+                <child link="${veh}/caster_wheel" />
+                <origin xyz="-0.083 0 -${plate_thickness}" />
+            </joint>
+
+            <!-- front bumper -->
+            <link name="${veh}/front_bumper">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/front_bumper.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_bottom_plate_to_front_bumper" type="fixed">
+                <parent link="${veh}/bottom_plate" />
+                <child link="${veh}/front_bumper" />
+                <origin xyz="0.043 0 0.0155" />
+            </joint>
+
+            <!-- back bumper -->
+            <link name="${veh}/back_bumper">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/back_bumper.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_bottom_plate_to_back_bumper" type="fixed">
+                <parent link="${veh}/bottom_plate" />
+                <child link="${veh}/back_bumper" />
+                <origin xyz="-0.1 0 0.0155" rpy="0 0 ${pi}" />
+            </joint>
+
+            <!-- tag mount -->
+            <link name="${veh}/tag_mount"/>
+            <joint name="${veh}_top_plate_to_tag_mount" type="fixed">
+                <parent link="${veh}/top_plate" />
+                <child link="${veh}/tag_mount" />
+                <origin xyz="0.008 0 0.051" rpy="${pi} 0 -${0.5 * pi}" />
+            </joint>
+
+            <!-- camera mount -->
+            <link name="${veh}/camera_mount">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/camera_mount.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_top_plate_to_camera_mount" type="fixed">
+                <parent link="${veh}/top_plate" />
+                <child link="${veh}/camera_mount" />
+                <origin xyz="0.045 0 0" />
+            </joint>
+
+            <!-- camera support -->
+            <link name="${veh}/camera_support"/>
+            <joint name="${veh}_camera_mount_to_camera_support" type="fixed">
+                <parent link="${veh}/camera_mount" />
+                <child link="${veh}/camera_support" />
+                <origin xyz="0.01 0 0.023" />
+            </joint>
+
+            <!-- camera frame -->
+            <link name="${veh}/camera_frame">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/fish_eye_camera.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <!-- TODO: this should not be fixed (floating), rotation should be computed from the extrinsics calibration of the camera -->
+            <joint name="${veh}_camera_support_to_camera_frame" type="fixed">
+                <parent link="${veh}/camera_support" />
+                <child link="${veh}/camera_frame" />
+                <origin rpy="0 0.26 0" />
+            </joint>
+
+            <!-- camera optical frame -->
+            <link name="${veh}/camera_optical_frame"/>
+            <joint name="${veh}_camera_frame_to_camera_optical_frame" type="fixed">
+                <parent link="${veh}/camera_frame" />
+                <child link="${veh}/camera_optical_frame" />
+                <origin xyz="0.017 0 0" rpy="-${0.5 * pi} 0 -${0.5 * pi}" />
+            </joint>
+
+            <!-- END: Duckiebot: DB1X -->
+
+        </xacro:if>
+
+        <xacro:if value="${model in ['DB21M', 'DB21J', 'DB21R']}" >
+
+            <!-- START: Duckiebot: DB21X -->
+
+            <xacro:property name="plate_thickness" value="0.003" />
+
+            <!-- ~/footprint is located at the projection of the wheels axis' center on the ground -->
+            <link name="${veh}/footprint"/>
+
+            <!-- /base link is attached to the bottom of the bottom plate -->
+            <link name="${veh}/base"/>
+            <joint name="${veh}_footprint_to_base" type="fixed">
+                <parent link="${veh}/footprint" />
+                <child link="${veh}/base" />
+                <origin xyz="0 0 0.042" />
+            </joint>
+
+            <!-- bottom plate -->
+            <link name="${veh}/bottom_plate">
+                <visual>
+                    <origin xyz="0 0 -${plate_thickness}" />
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/bottom_plate.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_base_to_bottom_plate" type="fixed">
+                <parent link="${veh}/base" />
+                <child link="${veh}/bottom_plate" />
+                <origin xyz="0 0 ${plate_thickness}" />
+            </joint>
+
+            <!-- side plate (left) -->
+            <link name="${veh}/side_plate_left">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/side_plate_left.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_bottom_plate_to_side_plate_left" type="fixed">
+                <parent link="${veh}/bottom_plate" />
+                <child link="${veh}/side_plate_left" />
+                <origin xyz="-0.001 0.034 0" />
+            </joint>
+
+            <!-- side plate (right) -->
+            <link name="${veh}/side_plate_right">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/side_plate_right.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_bottom_plate_to_side_plate_right" type="fixed">
+                <parent link="${veh}/bottom_plate" />
+                <child link="${veh}/side_plate_right" />
+                <origin xyz="-0.001 -0.034 0" />
+            </joint>
+
+            <!-- top plate -->
+            <link name="${veh}/top_plate">
+                <visual>
+                    <origin xyz="0 0 -${plate_thickness}" />
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/top_plate.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_bottom_plate_to_top_plate" type="fixed">
+                <parent link="${veh}/bottom_plate" />
+                <child link="${veh}/top_plate" />
+                <origin xyz="0 0 0.031" />
+            </joint>
+
+            <!-- side cover (left) -->
+            <link name="${veh}/side_cover_left">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/side_cover_left.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_top_plate_to_side_cover_left" type="fixed">
+                <parent link="${veh}/top_plate" />
+                <child link="${veh}/side_cover_left" />
+                <origin xyz="-0.001 0.042 0" />
+            </joint>
+
+            <!-- side cover (right) -->
+            <link name="${veh}/side_cover_right">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/side_cover_right.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_top_plate_to_side_cover_right" type="fixed">
+                <parent link="${veh}/top_plate" />
+                <child link="${veh}/side_cover_right" />
+                <origin xyz="-0.001 -0.042 0" />
+            </joint>
+
+            <!-- interaction plate -->
+            <link name="${veh}/interaction_plate">
+                <visual>
+                    <origin xyz="0 0 -${plate_thickness}" />
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/interaction_plate.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_top_plate_to_interaction_plate" type="fixed">
+                <parent link="${veh}/top_plate" />
+                <child link="${veh}/interaction_plate" />
+                <origin xyz="0 0 0.044" />
+            </joint>
+
+            <!-- hat plate -->
+            <link name="${veh}/hat_support">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/hat_support.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_top_plate_to_hat_support" type="fixed">
+                <parent link="${veh}/top_plate" />
+                <child link="${veh}/hat_support" />
+                <origin xyz="-0.12 0 0.01" />
+            </joint>
+
+            <!-- left motor -->
+            <link name="${veh}/left_motor">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/motor.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_base_to_left_motor" type="fixed">
+                <parent link="${veh}/base" />
+                <child link="${veh}/left_motor" />
+                <origin xyz="0 0.026 -0.01" />
+            </joint>
+
+            <!-- right motor -->
+            <link name="${veh}/right_motor">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/motor.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_base_to_right_motor" type="fixed">
+                <parent link="${veh}/base" />
+                <child link="${veh}/right_motor" />
+                <origin xyz="0 -0.026 -0.01" />
+            </joint>
+
+            <!-- left wheel -->
+            <link name="${veh}/left_wheel_axis"/>
+            <joint name="${veh}_left_motor_to_left_wheel" type="fixed">
+                <parent link="${veh}/left_motor" />
+                <child link="${veh}/left_wheel_axis" />
+                <origin xyz="0 0.015 0" />
+            </joint>
+            <link name="${veh}/left_wheel">
+                <visual>
+                    <origin rpy="0 0 ${pi}" />
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/wheel.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_left_wheel_axis_to_left_wheel" type="continuous">
+                <parent link="${veh}/left_wheel_axis" />
+                <child link="${veh}/left_wheel" />
+                <axis xyz="0 1 0" />
+            </joint>
+
+            <!-- right wheel -->
+            <link name="${veh}/right_wheel_axis"/>
+            <joint name="${veh}_right_motor_to_right_wheel" type="fixed">
+                <parent link="${veh}/right_motor" />
+                <child link="${veh}/right_wheel_axis" />
+                <origin xyz="0 -0.015 0" />
+            </joint>
+            <link name="${veh}/right_wheel">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/wheel.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_right_wheel_axis_to_right_wheel" type="continuous">
+                <parent link="${veh}/right_wheel_axis" />
+                <child link="${veh}/right_wheel" />
+                <axis xyz="0 1 0" />
+            </joint>
+
+            <!-- caster wheel -->
+            <link name="${veh}/caster_wheel">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/caster_wheel.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_bottom_plate_to_caster_wheel" type="fixed">
+                <parent link="${veh}/bottom_plate" />
+                <child link="${veh}/caster_wheel" />
+                <origin xyz="-0.085 0 -${plate_thickness}" />
+            </joint>
+
+            <!-- front bumper -->
+            <link name="${veh}/front_bumper">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/front_bumper.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_top_plate_to_front_bumper" type="fixed">
+                <parent link="${veh}/top_plate" />
+                <child link="${veh}/front_bumper" />
+                <origin xyz="0.057 0 0" />
+            </joint>
+
+            <!-- back bumper -->
+            <link name="${veh}/back_bumper">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/back_bumper.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_top_plate_to_back_bumper" type="fixed">
+                <parent link="${veh}/top_plate" />
+                <child link="${veh}/back_bumper" />
+                <origin xyz="-0.113 0 0" rpy="0 0 ${pi}" />
+            </joint>
+
+            <!-- tag mount -->
+            <link name="${veh}/tag_mount"/>
+            <joint name="${veh}_interaction_plate_to_tag_mount" type="fixed">
+                <parent link="${veh}/interaction_plate" />
+                <child link="${veh}/tag_mount" />
+                <origin xyz="-0.084 0 0" rpy="${pi} 0 -${0.5 * pi}" />
+            </joint>
+
+            <!-- camera mount -->
+            <link name="${veh}/camera_mount">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB21M/camera_mount.obj" />
+                    </geometry>
+                </visual>
+            </link>
+            <joint name="${veh}_top_plate_to_camera_mount" type="fixed">
+                <parent link="${veh}/top_plate" />
+                <child link="${veh}/camera_mount" />
+                <origin xyz="0.058 0 0" />
+            </joint>
+
+            <!-- camera support -->
+            <link name="${veh}/camera_support"/>
+            <joint name="${veh}_camera_mount_to_camera_support" type="fixed">
+                <parent link="${veh}/camera_mount" />
+                <child link="${veh}/camera_support" />
+                <origin xyz="0.006 0 0.028" />
+            </joint>
+
+            <!-- camera frame -->
+            <link name="${veh}/camera_frame">
+                <visual>
+                    <geometry>
+                        <mesh filename="package://duckietown/urdf/meshes/duckiebot/DB18/fish_eye_camera.dae" />
+                    </geometry>
+                </visual>
+            </link>
+            <!-- TODO: this should not be fixed (floating), rotation should be computed from the extrinsics calibration of the camera -->
+            <joint name="${veh}_camera_support_to_camera_frame" type="fixed">
+                <parent link="${veh}/camera_support" />
+                <child link="${veh}/camera_frame" />
+                <origin rpy="0 0.26 0" />
+            </joint>
+
+            <!-- camera optical frame -->
+            <link name="${veh}/camera_optical_frame"/>
+            <joint name="${veh}_camera_frame_to_camera_optical_frame" type="fixed">
+                <parent link="${veh}/camera_frame" />
+                <child link="${veh}/camera_optical_frame" />
+                <origin xyz="0.017 0 0" rpy="-${0.5 * pi} 0 -${0.5 * pi}" />
+            </joint>
+
+            <!-- END: Duckiebot: DB21X -->
+
+        </xacro:if>
+
+        <!-- END: Duckiebot -->
+
+    </xacro:macro>
+
+    <!--  Spawn Duckiebot  -->
+    <xacro:duckiebot veh="$(arg veh)" model="$(arg model)" />
+
+</robot>

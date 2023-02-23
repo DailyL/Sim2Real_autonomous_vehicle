@@ -1,0 +1,14 @@
+description: Before a curve left (straight, left, left)
+constructor: duckietown_segmaps.compose_maps
+parameters:
+  grid_spacing: 0.584
+  tiles:
+    - cell: [0, 0]
+      name: DT17_tile_straight
+      rotation: 0
+    - cell: [1, 0]
+      name: DT17_tile_curve_left
+      rotation: 0
+    - cell: [1, 1]
+      name: DT17_tile_straight
+      rotation: +90

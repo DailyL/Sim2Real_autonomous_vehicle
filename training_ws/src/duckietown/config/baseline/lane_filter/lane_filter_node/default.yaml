@@ -1,0 +1,36 @@
+# default parameters for lane_filter/lane_filter_node
+mean_d_0: 0
+mean_phi_0: 0
+sigma_d_0: 0.1
+sigma_phi_0: 0.1
+delta_d: 0.02
+delta_phi: 0.05
+d_max: 0.3
+d_min: -0.15
+phi_min: -1.5
+phi_max: 1.5
+cov_v: 0.5
+linewidth_white: 0.05
+linewidth_yellow: 0.025
+lanewidth: 0.20
+min_max: 0.1
+
+# minimum number of segments for generating measurement:
+use_min_segs: False
+min_segs: 10
+
+# maximum segment distance:
+use_maximum_segment_dist: False
+max_segment_dist: 0.3
+
+# distance weighting:
+use_distance_weighting: False
+zero_val: 1
+l_peak: 1
+peak_val: 10
+l_max: 2
+
+#propagation
+use_propagation: False
+sigma_d_mask: 0.05
+sigma_phi_mask: 0.05

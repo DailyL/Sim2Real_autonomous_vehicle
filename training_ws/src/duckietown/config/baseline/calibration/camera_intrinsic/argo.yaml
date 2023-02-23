@@ -1,0 +1,23 @@
+camera_matrix:
+  cols: 3
+  data: [311.79540001617, 0.0, 345.8227280346179, 0.0, 315.11055812490196, 252.4356357298149,
+    0.0, 0.0, 1.0]
+  rows: 3
+camera_name: argo/camera_node
+distortion_coefficients:
+  cols: 5
+  data: [-0.2560983686542547, 0.04291063716066118, -0.00164425244027036, 0.0013520066238633646,
+    0.0]
+  rows: 1
+distortion_model: plumb_bob
+image_height: 480
+image_width: 640
+projection_matrix:
+  cols: 4
+  data: [211.7010955810547, 0.0, 341.82650757122974, 0.0, 0.0, 251.8916778564453,
+    257.6392143229805, 0.0, 0.0, 0.0, 1.0, 0.0]
+  rows: 3
+rectification_matrix:
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  rows: 3

@@ -1,0 +1,20 @@
+<launch>
+    <arg name="veh" default = "david" doc="Name of vehicle. ex: megaman"/>
+    <arg name="local" default="true" doc="true for running on laptop. false for running on vehicle."/>
+    <arg name="config" default="baseline" doc="Specify a config."/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+    <arg name="joy_mapper_param_file_name" default="$(arg param_file_name)" doc="Specify a joy_mapper param file. ex:high_speed" />
+
+    <!-- joy -->
+    <node ns="$(arg veh)" if="$(arg local)" pkg="joy" type="joy_node" name="joy" output="screen">
+        <rosparam command="load" file="$(find duckiebot_control)/config/$(arg config)/gazebo_joy_mapper/gazebo_joy_mapper_node/$(arg param_file_name).yaml"/>
+    </node>
+
+    <!-- joy_mapper -->
+    <include file="$(find gazebo_joy_mapper)/launch/gazebo_joy_mapper_node.launch">
+        <arg name="veh" value="$(arg veh)"/>
+        <arg name="local" value="$(arg local)"/>
+        <arg name="config" value="$(arg config)"/>
+        <arg name="param_file_name" value="$(arg joy_mapper_param_file_name)"/>
+    </include>
+</launch>

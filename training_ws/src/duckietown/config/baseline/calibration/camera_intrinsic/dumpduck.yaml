@@ -1,0 +1,23 @@
+camera_matrix:
+  cols: 3
+  data: [317.2657423830729, 0.0, 319.75526476219966, 0.0, 334.73038665991646, 239.42987514889853,
+    0.0, 0.0, 1.0]
+  rows: 3
+camera_name: dumpduck/camera_node
+distortion_coefficients:
+  cols: 5
+  data: [-0.26239195500488804, 0.04587526176289274, -0.0030259438642085564, 7.597682897771433e-05,
+    0.0]
+  rows: 1
+distortion_model: plumb_bob
+image_height: 480
+image_width: 640
+projection_matrix:
+  cols: 4
+  data: [210.72659301757812, 0.0, 319.4706154928572, 0.0, 0.0, 277.150634765625, 235.2310217544873,
+    0.0, 0.0, 0.0, 1.0, 0.0]
+  rows: 3
+rectification_matrix:
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  rows: 3

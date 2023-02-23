@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="veh" doc="Name of vehicle. ex: megaman"/>
+
+
+	<include file="$(find duckiebot_gazebo)/launch/duckietown_world_mobile_bot_only_follower.launch">
+  </include>
+	
+	<!-- Spawn the follower car with control node -->
+        <include file="$(find duckiebot_control)/launch/gazebo_lane_following_david.launch">
+        </include>
+
+  <!-- Spawn the leader car with control node -->
+
+	<remap from="~cmd" to="david/david/velocity_controller/cmd_vel"/>
+	<remap from="~lane_pose" to="/david/lane_filter_node/lane_pose"/>
+	
+	<node name="rl_lane_following_node" pkg="rl_duckietown" type="train_continuous_duckie.py" output="screen" clear_params="true" required="true">
+	</node>
+
+
+</launch>	

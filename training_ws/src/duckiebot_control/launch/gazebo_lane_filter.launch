@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="veh" doc="Name of vehicle. ex: megaman"/>
+	<arg name="local" default="true" doc="true for running everything you possibly can on laptop. false for everything running on vehicle."/>
+	<arg name="config" default="baseline" doc="Specify a config."/>
+	<arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+	<arg name="live" default="true" doc="if set to true, run the camera and do live detection. "/>
+ 	<arg name="camera_topic" default="camera_node"/>
+	<arg name="view_markers" default="true" doc="should we output markers for rviz?"/>
+	<arg name="only" default="false" doc="Only run the ground_projection part when set to true."/>
+	<arg name="verbose" value="true" />
+
+
+        <!-- Start anti-instagram -->
+	  <!-- NOT LOADING PARAMS FROM A YAML FILE -->
+       <remap from="anti_instagram_node/uncorrected_image" to="camera_node/image/raw/compressed" />
+       <include file="$(find anti_instagram)/launch/anti_instagram_node.launch">
+			<arg name="veh" value="$(arg veh)"/>
+       </include>
+
+	<!-- Line Detector -->
+	<remap from="~image" to="camera_node/image/raw/compressed"/>
+	<remap from="~transform" to="anti_instagram_node/transform"/>
+	<node ns="$(arg veh)" name="line_detector_node" pkg="line_detector" type="line_detector_node.py" output="screen" clear_params="true" required="true">
+		<rosparam command="load" file="$(find duckiebot_control)/config/$(arg config)/gazebo_line_detector/line_detector_node/$(arg param_file_name).yaml"/>
+		<param name="verbose" value="true"/>
+	</node>
+
+	<!-- Ground projection -->
+	
+	<remap from="~camera_info" to="camera_node/camera_info"/>
+	<remap from="~lineseglist_in" to="line_detector_node/segment_list"/>
+	<include file="$(find ground_projection)/launch/ground_projection_node.launch">
+		 <arg name="veh" value="$(arg veh)"/>
+		 <arg name="param_file_name" value="$(arg param_file_name)"/>
+	</include>	
+ 
+	<!-- Duckiebot visualizer (always local) -->
+	<remap from="~segment_list" to="ground_projection_node/lineseglist_out"/>
+	<include file="$(find visualization_tools)/launch/line_segment_visualizer_node.launch">
+		<arg name="veh" value="$(arg veh)" />
+	</include>
+
+	<!-- Lane Filter -->
+	<include file="$(find lane_filter)/launch/lane_filter_node.launch">
+	    <arg name="veh" value="$(arg veh)"/>
+	    <arg name="param_file_name" value="$(arg param_file_name)"/>
+	</include>
+
+	<!-- Visualize -->
+	<remap from="~lane_pose" to="lane_filter_node/lane_pose"/>
+	<include file="$(find lane_filter)/launch/lane_pose_visualizer_node.launch">
+	    <arg name="veh" value="$(arg veh)"/>
+	</include>
+
+</launch>	

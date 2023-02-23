@@ -1,0 +1,8 @@
+prefix=/home/dianzhaoli/duckie_catkin_ws/install
+
+Name: opencv_tests
+Description: Description of opencv_tests
+Version: 1.16.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

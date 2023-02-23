@@ -1,0 +1,6 @@
+<launch>
+	<arg name="veh" default="david"/>
+	<arg name="local" default="true" doc="true for running everything you possibly can on laptop. false for everything running on vehicle."/>
+
+	<node ns="$(arg veh)" pkg="camera_calibration" type="cameracalibrator.py" name="intrinsic_calibrator" args="--size 7x5 --square 0.09 image:=/$(arg veh)/camera_node/image/raw camera:=/$(arg veh)/camera_node"/>
+</launch>

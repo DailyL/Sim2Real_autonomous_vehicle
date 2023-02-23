@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+
+  <!-- Spawn the follower car with control node -->
+    <include file="$(find duckiebot_control)/launch/gazebo_lane_following_david.launch">
+    </include>
+
+  <!-- Spawn the leader car with control node -->
+
+    <include file="$(find duckiebot_control)/launch/gazebo_lane_following.launch">
+    </include>
+
+</launch>

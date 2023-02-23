@@ -1,0 +1,18 @@
+tiles:
+- [floor   , floor   , curve_left/W , straight/W   , curve_left/N , floor   , floor]
+- [floor   , floor   , straight/S   , floor      , straight/N   , floor   , floor]
+- [curve_left/W , straight/W   , curve_left/E , floor      , curve_left/S , straight/W   , curve_left/N]
+- [straight/S   , floor      , floor      , floor      , floor      , floor      , straight/N]
+- [curve_left/S , straight/E   , curve_left/N , floor      , curve_left/W , straight/E   , curve_left/E]
+- [floor   , floor   , straight/S   , floor      , straight/N   , floor   , floor]
+- [floor   , floor   , curve_left/S , straight/E   , curve_left/E , floor   , floor]
+
+start_tile: [0, 3]
+start_pose: [[0.14625, 0, 0.585], -45]
+objects:
+- kind: duckiebot
+  pos: [4.5, 5.75]
+  rotate: 45
+  height: 0.12
+  static: False
+tile_size: 0.585

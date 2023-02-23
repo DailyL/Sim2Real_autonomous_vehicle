@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+    <node pkg="keyboard_control" type="duckie_keyboard.py" name="duckie_keyboard_node" output="screen">
+  </node>
+</launch>

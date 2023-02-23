@@ -1,0 +1,18 @@
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman" value="david" />
+	<arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman"/>
+    <arg name="pkg_name" value="duckiebot_detection"/>
+    <arg name="node_name" default="duckiebot_detection_node"/>
+    <arg name="verbose" default="false"/>
+
+    <group ns="$(arg veh)">
+        <node  name="duckiebot_detection_node" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen" required="true">
+			<param name="verbose" value="$(arg verbose)"/>
+		</node>
+    </group>
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+
+</launch>
