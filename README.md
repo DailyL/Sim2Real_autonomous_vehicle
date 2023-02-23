@@ -2,6 +2,7 @@
 
 ## About the work
 
+Deep Reinforcement Learning (DRL) has provided inspiring solutions to various complex tasks in different research fields, but the application of DRL agents to the real world is still a challenge due to the established discrepancies between the simulation and the real world. In this work, we propose a robust DRL framework that uses task-relevant information from the platform-dependent perception module and trains a lane following and overtaking agent in the simulation. Afterward, the DRL agent can be transferred to another simulated environment as well as the real-world environment effectively with minimal effort. For evaluation, different driving scenarios in the evaluation simulator and real-world environment are designed to assess the lane following and overtaking capabilities of the DRL agent. Furthermore, the proposed agent is compared with human players and the PID baseline in the simulation. With the proposed framework, the gaps between different platforms as well as the sim2real gap are narrowed, thus, the trained agent can drive the vehicle with similar performance in simulation and its real counterpart.
 ## System Requirments
 
 
