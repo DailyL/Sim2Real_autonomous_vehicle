@@ -7,7 +7,7 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 ## System Requirments
 
 * Operating System: Ubuntu 20.04
-* Programming Language: Python >= 3.7 (tested on 3.8)
+* Programming Language: Python 3.8
 * [Software Dependencies](/requirements.txt)
 
 
