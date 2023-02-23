@@ -1,0 +1,76 @@
+description: A couple of videos
+constructor: easy_regression.RegressionTest
+parameters:
+    logs:
+
+    # - "2016-04-29-dp3auto-neptunus-1/{3:3.5}"
+    - "tori_ETHZ_2017-12-22-17-18-41/{6:6.5}"
+    - "tori_ETHZ_2017-12-22-17-18-41/{10:10.5}"
+    processors:
+
+     # abs: 1514313605.64  window: 0.00770711898804  fron log: 10.007707119
+    - processor: localization_pipeline_moregeneric_straight
+      prefix_in: ''
+      prefix_out: /moregeneric
+
+    # abs: 1514313605.64  window: 0.00770711898804  fron log: 0.0
+    - processor: localization_pipeline_baseline
+      prefix_in: ''
+      prefix_out: /baseline
+
+
+    - processor: plot_phi_d
+      prefix_in: /moregeneric
+      prefix_out: /moregeneric/plots
+
+    - processor: plot_quality
+      prefix_in: /moregeneric
+      prefix_out: /moregeneric/plots
+
+    - processor: plot_phi_d
+      prefix_in: /baseline
+      prefix_out: /baseline/plots
+
+    - processor: plot_quality
+      prefix_in: /baseline
+      prefix_out: /baseline/plots
+
+    - processor: compare_baseline_moregeneric
+      prefix_in: ''
+      prefix_out: ''
+
+    analyzers:
+    - count_messages
+    - signal_stats
+
+
+    topic_videos:
+    - /baseline/all
+    - /moregeneric/all
+
+    topic_images:
+    - /moregeneric/plots/phi_d
+    - /moregeneric/plots/quality
+    - /baseline/plots/phi_d
+    - /baseline/plots/quality
+    - /comparison
+
+    checks:
+    - desc: Checking some statistics
+      cond: |
+        # min  0.786154027612
+        v:signal_stats/tori_ETHZ_2017-12-22-17-18-41_from600to650/baseline_quality/min >= 0.78
+
+        # min  0.858067276325
+        v:signal_stats/tori_ETHZ_2017-12-22-17-18-41_from600to650/moregeneric_quality/min >= 0.85
+
+
+        v:signal_stats/all/moregeneric_quality/min > v:signal_stats/all/baseline_quality/min
+
+        # strong regression constraint with stability
+        # Actually it is violated - it was 0.954930279519
+        # v:signal_stats/all/moregeneric_quality/mean == v:signal_stats/all/moregeneric_quality/mean?774222bc
+        # Oct 2020: regression from 0.9533 to 0.9523070500156661
+        v:signal_stats/all/moregeneric_quality/mean >= 0.95230 #0.953398928192
+
+        # v:signal_stats/all/moregeneric_quality/mean == v:signal_stats/all/moregeneric_quality/mean@20180105

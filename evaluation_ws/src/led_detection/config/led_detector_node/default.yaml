@@ -1,0 +1,56 @@
+capture_time: 0.5
+DTOL: 15
+useFFT: True
+freqIdentity: []
+cell_size: [18, 18]
+continuous: True
+
+crop_params:
+  # Format: [[,im height]]
+  cropNormalizedRight: [[0.1, 0.67], [0.6, 1.0]]
+  cropNormalizedFront: [[0.1, 0.5], [0.13, 0.5]]
+  cropNormalizedTL: [[0.0, 0.2], [0.0, 0.6]]
+
+# Detector parameters for Duckiebot
+blob_detector_db:
+  minThreshold: 5
+  maxThreshold: 75
+  thresholdStep: 10
+  # Filter by Area.
+  filterByArea: True
+  minArea: 28.2  # 3*3*3.14
+  maxArea: 200.96  # 8*8*3.14
+
+  # Filter by Circularity
+  filterByCircularity: True
+  minCircularity: 0.8
+
+  # Filter by Convexity
+  filterByConvexity: True
+  minConvexity: 0.8
+
+  # Filter by Inertia
+  filterByInertia: False
+  minInertiaRatio: 0.05
+
+# Detector parameters for Traffic light
+blob_detector_tl:
+  minThreshold: 5
+  maxThreshold: 75
+  thresholdStep: 10
+  # Filter by Area.
+  filterByArea: True
+  minArea: 50.24  # 4*4*3.14
+  maxArea: 200.96  # 8*8*3.14
+
+  # Filter by Circularity
+  filterByCircularity: True
+  minCircularity: 0.8
+
+  # Filter by Convexity
+  filterByConvexity: True
+  minConvexity: 0.8
+
+  # Filter by Inertia
+  filterByInertia: False
+  minInertiaRatio: 0.05

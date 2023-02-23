@@ -1,0 +1,15 @@
+string sensor_position
+---
+float32 acceleration_x
+float32 acceleration_y
+float32 acceleration_z
+string timestamp_acceleration
+float32 gyro_x
+float32 gyro_y
+float32 gyro_z
+string timestamp_gyro
+float32 magentic_field_x
+float32 magentic_field_y
+float32 magentic_field_z
+string timestamp_magnetic_field
+float32 temperature

@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+# @create-shortcut-for-this
+
+from duckietown_code_utils.cli import d8app_run
+from complete_image_pipeline.cli_single_image import SingleImagePipeline
+
+
+if __name__ == "__main__":
+    d8app_run(SingleImagePipeline)

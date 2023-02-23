@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/devel
+
+Name: led_detection
+Description: Description of led_detection
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

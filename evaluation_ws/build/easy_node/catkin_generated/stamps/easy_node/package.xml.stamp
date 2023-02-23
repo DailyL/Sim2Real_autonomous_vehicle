@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<package>
+  <name>easy_node</name>
+  <version>1.0.0</version>
+  <description>
+`easy_node` is a framework to make it easier to create and document ROS nodes.
+
+The main idea is to provide a *declarative approach* to describe:
+
+- The node parameters;
+- The node's subscriptions;
+- The node's publishers;
+- The node's assumptions (contracts).
+
+The user describes subscriptions, publishers, and parameters in a YAML file.
+
+The framework then automatically takes care of:
+
+- Calling the necessary boilerplate ROS commands for subscribing and publishing topics.
+- Loading and monitoring configuration.
+- Create the Markdown documentation that describes the nodes.
+- Provide a set of common functionality, such as benchmarking and monitoring latencies.
+
+Using `easy_node` allows to cut 40%-50% of the code required for programming
+a node. For an example, see the package [`line_detector2`](#line_detector2),
+which contains a re-implementation of  `line_detector` using the new framework.
+
+**Transition plan**: The plan is to first use `easy_node` just for
+documenting the nodes. Then, later, convert all the nodes to use it.
+</description>
+    <author email="acensi@idsc.mavt.ethz.ch">Andrea Censi</author>
+  <maintainer email="acensi@idsc.mavt.ethz.ch">Andrea Censi</maintainer>
+
+  <license>GPLv3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>duckietown_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+
+
+  <run_depend>duckietown_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+
+</package>

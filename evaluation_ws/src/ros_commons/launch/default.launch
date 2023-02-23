@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:default." />
+    <arg name="robot_type" default="$(env ROBOT_TYPE)"
+         doc="The type of the robot (e.g., duckiebot, watchtower, traffic_light, ...)"/>
+    <arg name="robot_configuration" default="$(env ROBOT_CONFIGURATION)"
+         doc="The configuration of the robot (e.g., DB19, DB20, WT18, ...)"/>
+
+    <!-- ROS HTTP API: provides an HTTP API through which we can monitor the ROS network -->
+    <include file="$(find ros_http_api)/launch/ros_http_api_node.launch">
+        <arg name="veh" value="$(arg veh)"/>
+        <arg name="param_file_name" value="$(arg param_file_name)"/>
+    </include>
+
+</launch>

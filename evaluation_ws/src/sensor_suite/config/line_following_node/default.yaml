@@ -1,0 +1,14 @@
+polling_hz: 10
+
+inner_left:
+  m: 1.0
+  b: 0.0
+inner_right:
+  m: 1.0
+  b: 0.0
+outer_left:
+  m: 1.0
+  b: 0.0
+outer_right:
+  m: 1.0
+  b: 0.0

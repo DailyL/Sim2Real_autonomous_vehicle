@@ -1,0 +1,10 @@
+\subsubsection usage Usage
+\verbatim
+<node name="laser_filters" pkg="laser_filters" type="laser_filters">
+  <param name="filter_type" type="int" value="0" />
+  <param name="max_range" type="double" value="2.0" />
+  <param name="max_range_difference" type="double" value="0.4" />
+  <param name="filter_window" type="int" value="4" />
+</node>
+\endverbatim
+

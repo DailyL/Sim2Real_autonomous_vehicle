@@ -1,0 +1,21 @@
+!!omap
+- description: The result of running a unit test
+- constructor: easy_regression.rdbe_from_yaml
+- parameters: !!omap
+  - regression_test_name: expect_fail1
+  - date: '2017-08-29'
+  - host: michela
+  - cpu: x86_64
+  - user: andrea
+  - results:
+      count_messages: !!omap
+      - 20160223-amadoa-amadobot-RCDP2: !!omap
+        - num_messages: 5330
+        - num_logs: 1
+        - average_num_messages: 1
+      - all: !!omap
+        - num_messages: 5330
+        - num_logs: 1
+        - average_num_messages: 1
+  - branch: andrea-devel
+  - commit: 4d7943afad97a2e6aee6d9a1c4dd063d7082d25a

@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+# @create-shortcut-for-this
+
+import sys
+
+import duckietown_code_utils as dtu
+from easy_node.user_config.db import get_config_db
+
+
+def easy_node_eval():
+    args = sys.argv[1:]
+
+    if len(args) != 3:
+        msg = """
+Invalid arguments (%d instead of 3).
+
+Usage:
+
+    $ rosrun easy_node eval <package> <node> <sequence>
+
+For example:
+
+    $ rosrun easy_node eval line_detector2 line_detector_node2 andrea:defaults
+
+See: http://purl.org/dth/easy_node-eval
+
+""" % len(
+            args
+        )
+        raise dtu.DTConfigException(msg)
+
+    package_name, node_name, config_sequence = args
+    config_sequence = [_ for _ in config_sequence.split(":") if _.strip()]
+    if not config_sequence:
+        raise dtu.DTConfigException("Empty config sequence.")
+    db = get_config_db()
+    qr = db.resolve(package_name, node_name, config_sequence)
+    s = str(qr)
+    print(s)
+
+
+if __name__ == "__main__":
+    dtu.wrap_script_entry_point(easy_node_eval)

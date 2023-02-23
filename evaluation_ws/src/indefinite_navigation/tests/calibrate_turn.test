@@ -1,0 +1,13 @@
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="type" doc="Turn type"/>
+
+    <include file="$(find duckietown)/launch/calibrate_turn.launch">
+        <arg name="veh" value="$(arg veh)"/>
+    </include>
+
+    <test test-name="indef_navigation_turn_node" pkg="indefinite_navigation" type="test_turn.py">
+    	  <param name="veh" value="$(arg veh)" />
+    	  <param name="type" value="$(arg type)" />
+    </test>
+</launch>   

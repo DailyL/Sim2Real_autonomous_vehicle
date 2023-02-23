@@ -1,0 +1,4 @@
+description: |
+    This identity processor copies input to output.
+constructor: easy_regression.IdentityProcessor
+parameters: {}

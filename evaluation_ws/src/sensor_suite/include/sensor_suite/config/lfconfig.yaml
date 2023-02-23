@@ -1,0 +1,4 @@
+register0 : 0x00
+register1 : 0x02
+register2 : 0x04
+register3 : 0x06

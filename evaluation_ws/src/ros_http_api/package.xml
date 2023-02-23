@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>ros_http_api</name>
+  <version>1.0.0</version>
+  <description>The ros_http_api meta package</description>
+
+  <license>GPLv3</license>
+  <maintainer email="afdaniele@ttic.edu">Andrea F. Daniele</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+</package>

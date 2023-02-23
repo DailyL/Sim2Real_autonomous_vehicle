@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="gazebo_duck">
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+          <scale>0.8333 0.8333 0.8333</scale>
+            <uri>model://gazebo_duck/meshes/duck.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+          <scale>0.8333 0.8333 0.8333</scale>
+            <uri>model://gazebo_duck/meshes/duck.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

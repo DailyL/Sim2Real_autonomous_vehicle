@@ -1,0 +1,11 @@
+\subsubsection usage Usage
+\verbatim
+<node name="laser_filters" pkg="laser_filters" type="laser_filters">
+  <param name="lower_threshold" type="double" value="8000.0" />
+  <param name="upper_threshold" type="double" value="100000.0" />
+  <param name="invert" type="bool" value="False" />
+  <param name="filter_override_range" type="bool" value="True" />
+  <param name="filter_override_intensity" type="bool" value="False" />
+</node>
+\endverbatim
+

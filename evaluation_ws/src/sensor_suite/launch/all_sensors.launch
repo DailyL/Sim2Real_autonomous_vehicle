@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:default." />
+    <arg name="robot_type" default="duckiebot" doc="The type of the robot: should be duckiebot, watchtower, or traffic_light"/>
+
+    <include file="$(find sensor_suite)/launch/encoder_node.launch">
+        <arg name="veh" value="$(arg veh)"/>
+    </include>
+
+    <include file="$(find sensor_suite)/launch/imu_node.launch">
+        <arg name="veh" value="$(arg veh)"/>
+    </include>
+
+    <include file="$(find sensor_suite)/launch/line_following_node.launch">
+        <arg name="veh" value="$(arg veh)"/>
+    </include>
+
+    <include file="$(find sensor_suite)/launch/tof_node.launch">
+        <arg name="veh" value="$(arg veh)"/>
+    </include>
+
+</launch>

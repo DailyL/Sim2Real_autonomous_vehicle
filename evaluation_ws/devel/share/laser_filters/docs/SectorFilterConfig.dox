@@ -1,0 +1,11 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~angle_min" : \b [double] Min angle of the circle sector (radians) min: -3.141592653589793, default: 0.0, max: 3.141592653589793
+- \b "~angle_max" : \b [double] Max angle of the circle sector (radians) min: -3.141592653589793, default: 0.0, max: 3.141592653589793
+- \b "~range_min" : \b [double] Min radius of the circle sector (meter) min: 0.0, default: 0.0, max: 100000.0
+- \b "~range_max" : \b [double] Max radius of the circle sector (meter) min: 0.0, default: 100000.0, max: 100000.0
+- \b "~clear_inside" : \b [bool] True to clear inside of the circle sector, False to clear outside. Default: true min: False, default: True, max: True
+- \b "~invert" : \b [bool] A Boolean to invert the filter min: False, default: False, max: True
+

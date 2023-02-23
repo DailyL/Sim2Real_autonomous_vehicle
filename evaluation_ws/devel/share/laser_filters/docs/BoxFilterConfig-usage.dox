@@ -1,0 +1,14 @@
+\subsubsection usage Usage
+\verbatim
+<node name="laser_filters" pkg="laser_filters" type="laser_filters">
+  <param name="box_frame" type="str" value="base_link" />
+  <param name="min_x" type="double" value="-1.0" />
+  <param name="max_x" type="double" value="1.0" />
+  <param name="min_y" type="double" value="-1.0" />
+  <param name="max_y" type="double" value="1.0" />
+  <param name="min_z" type="double" value="-1.0" />
+  <param name="max_z" type="double" value="1.0" />
+  <param name="invert" type="bool" value="False" />
+</node>
+\endverbatim
+

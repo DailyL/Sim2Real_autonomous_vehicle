@@ -1,0 +1,5 @@
+uint8 EVENT_SINGLE_CLICK = 0
+uint8 EVENT_HELD_3SEC = 10
+uint8 EVENT_HELD_10SEC = 20
+
+uint8 event

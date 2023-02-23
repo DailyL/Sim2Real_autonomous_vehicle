@@ -1,0 +1,23 @@
+<launch>
+	<arg name="pkg_name" value="led_joy_mapper"/>
+	<arg name="node_name" default="led_joy_mapper_node"/>
+		
+	<arg name="veh" doc="Name of vehicle. ex: megaman"/>
+	<arg name="config" default="baseline" doc="Specify a config."/>
+	<arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman"/>
+
+    <node ns="$(arg veh)"  pkg="joy" type="joy_node" name="joy" output="screen">
+        <rosparam command="load" file="$(find duckietown)/config/$(arg config)/joy/joy_node/$(arg param_file_name).yaml"/>
+    </node>
+
+
+	<node  ns="$(arg veh)" pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen" clear_params="true" required="true">
+	</node>
+
+
+	<!-- Subscribe Topics -->
+	<!-- "joy": sensor_msgs/Joy. The command read from joystick -->
+	<!-- Publish Topics -->
+	<!-- "~change_light_frequency": std msg String. Lights command for duckiebot -->
+	<!-- "~change_color_pattern": std msg String. Lights command for duckiebot -->
+</launch>

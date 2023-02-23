@@ -1,0 +1,4 @@
+process_frequency: 2
+circlepattern_dims: [7, 3]
+blobdetector_min_area: 10
+blobdetector_min_dist_between_blobs: 2

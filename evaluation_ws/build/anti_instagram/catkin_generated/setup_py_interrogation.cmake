@@ -1,0 +1,7 @@
+set(anti_instagram_SETUP_PY_SETUP_MODULE "distutils.core")
+set(anti_instagram_SETUP_PY_VERSION "0.0.0")
+set(anti_instagram_SETUP_PY_SCRIPTS "")
+set(anti_instagram_SETUP_PY_PACKAGES "")
+set(anti_instagram_SETUP_PY_PACKAGE_DIRS "")
+set(anti_instagram_SETUP_PY_MODULES "")
+set(anti_instagram_SETUP_PY_MODULE_DIRS "")

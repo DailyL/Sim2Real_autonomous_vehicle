@@ -1,0 +1,20 @@
+<launch>
+	<arg name="veh"/>
+	<arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman"/>
+	<arg name="pkg_name" default="navigation" doc="name of the package"/>
+	<arg name="node_name" default="actions_dispatcher_node" doc="name of the node"/>
+    <param name="veh" value="$(arg veh)"/>
+
+	<group ns="$(arg veh)">
+	    <node pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen" required="true">
+	        <rosparam command="load" file="$(find navigation)/config/$(arg node_name)/$(arg param_file_name).yaml"/>
+	    </node>
+	</group>
+
+	<!-- Publication -->
+	<!-- ~topic: msg_type. Description. -->
+
+	<!-- Subscription -->
+	<!-- ~topic: msg_type. Description. -->
+
+</launch>

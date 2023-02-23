@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>adafruit_drivers</name>
+  <version>1.0.0</version>
+  <description>Module containing all used drivers.</description>
+
+  <author email="yershov@mit.edu">Dmitry Yershov</author>
+  <maintainer email="mack@duckietown.org">Mack</maintainer>
+
+  <license>GPLv3</license>
+
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <run_depend>rospy</run_depend>
+
+</package>

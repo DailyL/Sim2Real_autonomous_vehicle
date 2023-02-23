@@ -1,0 +1,234 @@
+All_red_lights_followTheLeader1-2cv:
+  data:
+    bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-All_red_lights_followTheLeader1-2cv.bag"
+    interval: [0, 3.5]
+  query:
+    frequencies_to_detect: [5.0]
+    min_distance_between_LEDs_pixels: 5
+  expected:
+  -
+    timestamp1: 0
+    timestamp2: 3
+    image_coordinates: [539, 156]
+    image_coordinates_margin: 20 # pixels
+    frequency: 5.0
+    confidence_min: 0.9
+  -
+    timestamp1: 0
+    timestamp2: 3
+    image_coordinates: [289, 57]
+    image_coordinates_margin: 20 # pixels
+    frequency: 5.0
+    confidence_min: 0.9
+
+Single_car_stop1-2cv:
+  data:
+    bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Single_car_stop1-2cv.bag"
+    interval: [0, 3.5]
+  query:
+    frequencies_to_detect: [5.0]
+    min_distance_between_LEDs_pixels: 5
+  expected:
+  -
+    timestamp1: 0
+    timestamp2: 3
+    image_coordinates: [208, 55]
+    image_coordinates_margin: 20 # pixels
+    frequency: 5.0
+    confidence_min: 0.9
+
+Three_cars_conflict_stopS1-tesla:
+  data:
+    bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Three_cars_conflict_stopS1-tesla.bag"
+    interval: [14, 15]
+  query:
+    frequencies_to_detect: [2.8, 5.0]
+    min_distance_between_LEDs_pixels: 5
+  expected:
+  -
+    timestamp1: 14
+    timestamp2: 16
+    image_coordinates: [201, 146]
+    image_coordinates_margin: 20 # pixels
+    frequency: 5.0
+    confidence_min: 0.9
+  -
+    timestamp1: 14
+    timestamp2: 16
+    image_coordinates: [464, 151]
+    image_coordinates_margin: 20 # pixels
+    frequency: 5.0
+    confidence_min: 0.9
+
+Two_car_queue_tLight1-tesla-STOP:
+  data:
+    bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_car_queue_tLight1-tesla.bag"
+    interval: [0, 2]
+  query:
+    frequencies_to_detect: [5.0]
+    min_distance_between_LEDs_pixels: 5
+  expected:
+  -
+    timestamp1: 0
+    timestamp2: 2
+    image_coordinates: [263, 54]
+    image_coordinates_margin: 20 # pixels
+    frequency: 5.0
+    confidence_min: 0.9
+Two_cars_oV_stopS1-tesla:
+  data:
+    bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_cars_oV_stopS1-tesla.bag"
+    interval: [4, 5]
+  query:
+    frequencies_to_detect: [5.0]
+    min_distance_between_LEDs_pixels: 5
+  expected:
+  -
+    timestamp1: 0
+    timestamp2: 2
+    image_coordinates: [254, 134]
+    image_coordinates_margin: 20 # pixels
+    frequency: 5.0
+    confidence_min: 0.9
+Two_cars_oV_stopS2-shamrock-GREEN:
+  data:
+    bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_cars_oV_stopS2-shamrock.bag"
+    interval: [5, 6]
+  query:
+    frequencies_to_detect: [5.0]
+    min_distance_between_LEDs_pixels: 5
+  expected:
+  -
+    timestamp1: 0
+    timestamp2: 2
+    image_coordinates: [266, 131]
+    image_coordinates_margin: 20 # pixels
+    frequency: 5.0
+    confidence_min: 0.9
+Two_cars_oV_stopS2-shamrock-PURPLE:
+    data:
+      bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_cars_oV_stopS2-shamrock.bag"
+      interval: [19, 20]
+    query:
+      frequencies_to_detect: [5.0]
+      min_distance_between_LEDs_pixels: 5
+    expected:
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [266, 131]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9
+Two_cars_oV_stopS2-shamrock-YELLOW:
+    data:
+      bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_cars_oV_stopS2-shamrock.bag"
+      interval: [22, 23]
+    query:
+      frequencies_to_detect: [5.0]
+      min_distance_between_LEDs_pixels: 5
+    expected:
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [266, 131]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9
+Two_cars_oV_stopS2-tesla-GREEN:
+    data:
+      bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_cars_oV_stopS2-tesla.bag"
+      interval: [4, 5]
+    query:
+      frequencies_to_detect: [5.0]
+      min_distance_between_LEDs_pixels: 5
+    expected:
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [283, 136]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9
+Two_cars_oV_stopS2-tesla-PURPLE:
+    data:
+      bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_cars_oV_stopS2-tesla.bag"
+      interval: [8, 9]
+    query:
+      frequencies_to_detect: [5.0]
+      min_distance_between_LEDs_pixels: 5
+    expected:
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [283, 136]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9
+Two_cars_oV_stopS3-shamrock-GREEN:
+    data:
+      bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_cars_oV_stopS3-shamrock.bag"
+      interval: [5, 6]
+    query:
+      frequencies_to_detect: [2.3, 4.1, 5.0]
+      min_distance_between_LEDs_pixels: 5
+    expected:
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [372, 160]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [319, 45]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9
+
+Two_cars_oV_stopS3-shamrock-PURPLE:
+    data:
+      bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_cars_oV_stopS3-shamrock.bag"
+      interval: [11, 12]
+    query:
+      frequencies_to_detect: [2.3, 4.1, 5.0]
+      min_distance_between_LEDs_pixels: 5
+    expected:
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [372, 160]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [319, 45]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9
+Two_cars_oV_stopS3-tesla:
+    data:
+      bag: "${DUCKIETOWN_DATA}/logs/20160400-phase3-logs/dp45/20160406/20160406-226-Two_cars_oV_stopS3-tesla.bag"
+      interval: [11, 12]
+    query:
+      frequencies_to_detect: [2.3, 4.1, 5.0]
+      min_distance_between_LEDs_pixels: 5
+    expected:
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [257, 136]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9
+    -
+      timestamp1: 0
+      timestamp2: 2
+      image_coordinates: [293, 22]
+      image_coordinates_margin: 20 # pixels
+      frequency: 5.0
+      confidence_min: 0.9

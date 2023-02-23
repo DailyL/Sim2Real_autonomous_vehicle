@@ -1,0 +1,6 @@
+bus: 9
+address: 0x29
+sensor_name: "front_left"
+frequency: 10
+mode: "BETTER"
+display_fragment_frequency: 4

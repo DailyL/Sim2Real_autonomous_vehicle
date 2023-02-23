@@ -1,0 +1,7 @@
+set(easy_algo_SETUP_PY_SETUP_MODULE "distutils.core")
+set(easy_algo_SETUP_PY_VERSION "1.0.0")
+set(easy_algo_SETUP_PY_SCRIPTS "")
+set(easy_algo_SETUP_PY_PACKAGES "easy_algo;easy_algo_tests")
+set(easy_algo_SETUP_PY_PACKAGE_DIRS "include/easy_algo;include/easy_algo_tests")
+set(easy_algo_SETUP_PY_MODULES "")
+set(easy_algo_SETUP_PY_MODULE_DIRS "")

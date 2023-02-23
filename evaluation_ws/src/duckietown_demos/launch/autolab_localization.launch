@@ -1,0 +1,22 @@
+<launch>
+	<arg name="veh" default="$(env VEHICLE_NAME)"
+         doc="The name of the robot (e.g., autobot01, watchtower02, ...)"/>
+    <arg name="robot_type" default="$(env ROBOT_TYPE)"
+         doc="The type of the robot (e.g., duckiebot, watchtower, traffic_light, ...)"/>
+	<arg name="verbose" default="false"/>
+	<arg name="demo_name" value="apriltag_detector"/>
+
+	<!-- start basic args -->
+	<include file="$(find duckietown_demos)/launch/master.launch">
+		<!-- Basic parameters -->
+		<arg name="veh" value="$(arg veh)"/>
+        <arg name="verbose" value="$(arg verbose)" />
+        <arg name="demo_name" value="$(arg demo_name)"/>
+
+		<!-- Apriltag Detector -->
+        <arg name="apriltags" value="$(eval arg('robot_type') == 'watchtower')"/>
+
+        <!-- Localization -->
+        <arg name="/localization" value="true"/>
+	</include>
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/devel
+
+Name: indefinite_navigation
+Description: Description of indefinite_navigation
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

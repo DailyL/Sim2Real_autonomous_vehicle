@@ -1,0 +1,6 @@
+description: Shape 200x320, no cutoff.
+constructor: line_detector2.image_prep.ImagePrep
+parameters:
+  shape: [200, 320]
+  top_cutoff: 0
+  resampling_algorithm: nearest

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="road_inter">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.005</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.005</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://road_inter/materials/scripts</uri>
+            <uri>model://road_inter/materials/textures</uri>
+            <name>vrc/inter</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

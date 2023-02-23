@@ -1,0 +1,20 @@
+description: Compare quality results
+constructor: easy_regression.processors.stats_plotter.comparer.Comparer.from_yaml
+parameters:
+    plot_name: comparer
+    signals:
+    - topic: /moregeneric_curve_left/quality
+      units: unitless
+      units_display: unitless
+      label: "Quality (curve left)"
+      color: 'r'
+      min: 0
+      max: 1
+
+    - topic: /moregeneric_straight/quality
+      units: unitless
+      units_display: unitless
+      label: "Quality (straight)"
+      color: 'b'
+      min: 0
+      max: 1

@@ -1,0 +1,88 @@
+events:
+  at_stop_line:
+    topic: "stop_line_filter_node/at_stop_line"
+    msg_type: "BoolStamped"
+    trigger: True
+  joystick_override_on:
+    topic: "joy_mapper_node/joystick_override"
+    msg_type: "BoolStamped"
+    trigger: True
+  intersection_go_explicit:
+    topic: "coordinator_node/intersection_go"
+    msg_type: "BoolStamped"
+    trigger: True
+  joystick_override_off:
+    topic: "joy_mapper_node/joystick_override"
+    msg_type: "BoolStamped"
+    trigger: False
+
+  intersection_done:  ## closed loop new
+    topic: "intersection_navigation_node/intersection_done"
+    msg_type: "BoolStamped"
+    trigger: True
+
+# TODO:
+# - parking_on flag?
+
+gates:
+  at_stop_line_and_parking_off:
+    gate_type: "AND"
+    inputs:
+      - at_stop_line
+      - parking_off
+    output_topic: "~at_stop_line_and_parking_off"
+  at_stop_line_and_parking_on:
+    gate_type: "AND"
+    inputs:
+      - at_stop_line
+      - parking_on
+    output_topic: "~at_stop_line_and_parking_on"
+  joystick_override_on_and_parallel_autonomy_off:
+    gate_type: AND
+    inputs:
+      - joystick_override_on
+      - parallel_autonomy_off
+    output_topic: "~joystick_override_on_and_parallel_autonomy_off"
+  joystick_override_on_and_parallel_autonomy_on:
+    gate_type: AND
+    inputs:
+      - joystick_override_on
+      - parallel_autonomy_on
+    output_topic: "~joystick_override_on_and_parallel_autonomy_on"
+  intersection_go:
+    gate_type: OR
+    inputs:
+      - intersection_go_implicit
+      - intersection_go_explicit
+    output_topic: "~intersection_go"
+  joystick_override_off_and_deep_lane_on:
+    gate_type: "AND"
+    inputs:
+      - joystick_override_off
+      - deep_lane_following_on
+    output_topic: "~joystick_override_off_and_deep_lane_on"
+  joystick_override_off_and_deep_lane_off:
+    gate_type: "AND"
+    inputs:
+      - joystick_override_off
+      - deep_lane_following_off
+    output_topic: "~joystick_override_off_and_deep_lane_off"
+  intersection_done_and_deep_lane_off:
+    gate_type: "AND"
+    inputs:
+      - intersection_done
+      - deep_lane_following_off
+    output_topic: "~intersection_done_and_deep_lane_off"
+  intersection_done_and_deep_lane_on:
+    gate_type: "AND"
+    inputs:
+      - intersection_done
+      - deep_lane_following_on
+    output_topic: "~intersection_done_and_deep_lane_on"
+
+  at_stop_line_and_charging_exit:
+    gate_type: "AND"
+    inputs:
+      - at_stop_line
+      - charging_exit
+    output_topic: "~at_stop_line_and_charging_exit"

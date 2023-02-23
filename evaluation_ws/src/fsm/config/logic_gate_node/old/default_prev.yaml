@@ -1,0 +1,48 @@
+events:
+  intersection_done:
+    topic: "open_loop_intersection_control_node/intersection_done"
+    trigger: True
+  parallel_autonomy_on:
+    topic: "joy_mapper_node/parallel_autonomy"
+    trigger: True
+  parallel_autonomy_off:
+    topic: "joy_mapper_node/parallel_autonomy"
+    trigger: False
+  joystick_override_off: 
+    topic: "joy_mapper_node/joystick_override"
+    msg_type: "BoolStamped"
+    trigger: False
+  deep_lane_following_on: 
+    topic: "joy_mapper_node/joystick_override"
+    msg_type: "BoolStamped"
+    trigger: True
+  deep_lane_following_off: 
+    topic: "joy_mapper_node/joystick_override"
+    msg_type: "BoolStamped"
+    trigger: False
+
+gates:
+  intersection_done_and_parallel_autonomy_on:
+    gate_type: "AND"
+    inputs: 
+      - intersection_done
+      - parallel_autonomy_on
+    output_topic: "~intersection_done_and_parallel_autonomy"
+  intersection_done_and_parallel_autonomy_off:
+    gate_type: "AND"
+    inputs:
+      - intersection_done
+      - parallel_autonomy_off
+    output_topic: "~intersection_done_and_not_parallel_autonomy"
+  joystick_override_off_and_deep_lane_on:
+    gate_type: "AND"
+    inputs:
+      - joystick_override_off
+      - deep_lane_following_on
+    output_topic: "~joystick_override_off_and_deep_lane_on"
+  joystick_override_off_and_deep_lane_off:
+    gate_type: "AND"
+    inputs:
+      - joystick_override_off
+      - deep_lane_following_off
+    output_topic: "~joystick_override_off_and_deep_lane_off"

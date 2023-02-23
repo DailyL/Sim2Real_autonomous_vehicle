@@ -1,0 +1,16 @@
+<launch>
+	<arg name="veh" default="$(env VEHICLE_NAME)"/>
+	<arg name="verbose" default="false"/>
+	<arg name="demo_name" value="apriltag_detector"/>
+
+	<!-- start basic args -->
+	<include file="$(find duckietown_demos)/launch/master.launch">
+		<!-- Basic parameters -->
+		<arg name="veh" value="$(arg veh)"/>
+        <arg name="verbose" value="$(arg verbose)" />
+        <arg name="demo_name" value="$(arg demo_name)"/>
+
+        <!-- Apriltag Detector -->
+        <arg name="apriltags" value="true"/>
+	</include>
+</launch>

@@ -1,0 +1,5 @@
+description: Localization in straight lane at a four way
+constructor: localization_templates.TemplateStraight
+parameters:
+  tile_name: DT17_pattern_four_way
+  default_x: 0 # todo: maybe change

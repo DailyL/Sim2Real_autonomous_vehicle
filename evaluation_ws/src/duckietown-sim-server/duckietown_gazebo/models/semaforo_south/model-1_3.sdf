@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<sdf version="1.3">
+  <model name="Semaforo South">
+    <link name="link">
+      <gravity>false</gravity>
+       <inertial>
+         <mass>0.1</mass>
+       </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://semaforo_south/meshes/semaforo.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://semaforo_south/meshes/semaforo.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

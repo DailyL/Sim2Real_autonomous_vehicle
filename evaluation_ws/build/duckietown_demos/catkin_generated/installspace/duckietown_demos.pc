@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/install
+
+Name: duckietown_demos
+Description: Description of duckietown_demos
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

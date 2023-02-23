@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/devel
+
+Name: led_pattern_switch
+Description: Description of led_pattern_switch
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,28 @@
+<launch>
+	<arg name="pkg_name" value="led_joy_mapper"/>
+	<arg name="veh" doc="Name of vehicle. ex: megaman"/>
+	<arg name="config" default="baseline" doc="Specify a config."/>
+	<arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+
+    <!-- Joystick -->
+    <group ns="$(arg veh)">
+        <node  pkg="joy" type="joy_node" name="joy" output="screen">
+            <rosparam command="load" file="$(find duckietown)/config/$(arg config)/joy/joy_node/$(arg param_file_name).yaml"/>
+        </node>
+
+    </group>
+
+	<!-- Joystick mapper and LED emitter -->
+	<group ns="$(arg veh)">
+		<node  name="led_joy_mapper_node" pkg="led_joy_mapper" type="led_joy_mapper_node.py" output="screen">
+		</node>
+
+		<node   name="led_emitter_node" pkg="led_emitter" type="led_emitter_node.py" output="screen">
+			<remap from="~change_light_frequency" to="led_joy_mapper_node/change_light_frequency"/>
+			<remap from="~change_color_pattern" to="led_joy_mapper_node/change_color_pattern"/>
+			<rosparam command="load" file="$(find duckietown)/config/$(arg config)/led_interpreter/LED_protocol.yaml"/> <!-- is this legit? -->
+		</node>
+
+	</group>
+</launch>
+

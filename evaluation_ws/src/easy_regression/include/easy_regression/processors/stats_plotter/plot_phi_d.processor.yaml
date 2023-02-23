@@ -1,0 +1,28 @@
+description: Plots phi/d/quality in cm/deg.
+constructor: easy_regression.processors.stats_plotter.StatsPlotterFromYaml
+parameters:
+    plot_name: phi_d
+    signals:
+    - topic: /estimate/d
+      units: m
+      units_display: cm
+      label: "Estimated d"
+      color: 'r'
+      min: -10
+      max: +30
+
+    - topic: /estimate/phi
+      units: rad
+      units_display: deg
+      label: "Estimated orientation"
+      color: 'b'
+      min: -90
+      max: +90
+#C
+#     - topic: quality
+#       units: unitless
+#       units_display: unitless
+#       label: "Quality"
+#       color: 'g'
+#       min: 0
+#       max: 1

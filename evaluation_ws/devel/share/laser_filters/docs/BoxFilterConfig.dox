@@ -1,0 +1,13 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~box_frame" : \b [str] The frame in which the box is created (tf frame_id) min: , default: base_link, max: 
+- \b "~min_x" : \b [double] Box starting point in x-axis min: -100.0, default: -1.0, max: 100.0
+- \b "~max_x" : \b [double] Box ending point in x-axis min: -100.0, default: 1.0, max: 100.0
+- \b "~min_y" : \b [double] Box starting point in y-axis min: -100.0, default: -1.0, max: 100.0
+- \b "~max_y" : \b [double] Box ending point in y-axis min: -100.0, default: 1.0, max: 100.0
+- \b "~min_z" : \b [double] Box starting point in z-axis min: -100.0, default: -1.0, max: 100.0
+- \b "~max_z" : \b [double] Box ending point in z-axis min: -100.0, default: 1.0, max: 100.0
+- \b "~invert" : \b [bool] A Boolean to invert the filter min: False, default: False, max: True
+

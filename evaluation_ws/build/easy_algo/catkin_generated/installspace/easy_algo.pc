@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/install
+
+Name: easy_algo
+Description: Description of easy_algo
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

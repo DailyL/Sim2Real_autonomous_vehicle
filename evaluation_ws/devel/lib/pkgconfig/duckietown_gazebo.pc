@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/devel
+
+Name: duckietown_gazebo
+Description: Description of duckietown_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

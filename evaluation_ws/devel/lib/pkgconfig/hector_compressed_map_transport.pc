@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/devel
+
+Name: hector_compressed_map_transport
+Description: Description of hector_compressed_map_transport
+Version: 0.5.2
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs nav_msgs sensor_msgs

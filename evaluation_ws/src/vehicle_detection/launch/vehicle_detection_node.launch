@@ -1,0 +1,17 @@
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+	<arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman"/>
+    <arg name="pkg_name" value="vehicle_detection"/>
+    <arg name="node_name" default="vehicle_detection_node"/>
+
+    <group ns="$(arg veh)">
+        <node  name="vehicle_detection_node" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+			<rosparam command="load" file="$(find vehicle_detection)/config/$(arg node_name)/$(arg param_file_name).yaml"/>
+		</node>
+    </group>
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+
+</launch>

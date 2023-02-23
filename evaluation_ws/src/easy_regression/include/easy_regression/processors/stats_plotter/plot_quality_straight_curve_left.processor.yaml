@@ -1,0 +1,19 @@
+description: Plots quality of curve left vs straight
+constructor: easy_regression.processors.stats_plotter.StatsPlotterFromYaml
+parameters:
+    plot_name: quality
+    signals:
+    - topic: /moregeneric_curve_left/quality
+      units: unitless
+      units_display: unitless
+      label: "Curve left"
+      color: 'b'
+      min: 0
+      max: 1
+    - topic: /moregeneric_straight/quality
+      units: unitless
+      units_display: unitless
+      label: "Straight"
+      color: 'r'
+      min: 0
+      max: 1

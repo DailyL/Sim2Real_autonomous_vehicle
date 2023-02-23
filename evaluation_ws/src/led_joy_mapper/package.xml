@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>led_joy_mapper</name>
+  <version>1.0.0</version>
+  <description>TODO: Add a description of package `led_joy_mapper` in `package.xml`.</description>
+
+  <author email="lapentab@mit.edu">lapentab</author>
+  <maintainer email="mack@duckietown.org">Mack</maintainer>
+
+  <license>GPLv3</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+
+</package>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+  <name>easy_logs</name>
+  <version>1.0.0</version>
+  <description>
+The `easy_logs` packages manages the Duckietown logs.
+
+It indexes them and has a simple interface to query the DB.
+
+Tests should use the `easy_logs` DB to know what logs to work on.
+
+</description>
+
+  <author email="acensi@idsc.mavt.ethz.ch">Andrea Censi</author>
+  <maintainer email="acensi@idsc.mavt.ethz.ch">Andrea Censi</maintainer>
+
+  <license>GPLv3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rospy</build_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>procgraph</run_depend>
+
+</package>

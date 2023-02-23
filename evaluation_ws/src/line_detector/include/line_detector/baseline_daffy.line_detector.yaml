@@ -1,0 +1,9 @@
+description: This is the Daffy baseline line detector (2020).
+constructor: line_detector.LineDetector
+parameters:
+  canny_thresholds: [80,200]
+  canny_aperture_size: 3
+  dilation_kernel_size: 3
+  hough_threshold: 2
+  hough_min_line_length: 3
+  hough_max_line_gap: 1

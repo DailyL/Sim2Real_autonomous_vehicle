@@ -1,0 +1,8 @@
+description: Shape 200x320, cutoff 50 + fuzzy noise
+constructor: line_detector2.image_prep.ImagePrep
+parameters:
+  shape: [200, 320]
+  top_cutoff: 100
+  fuzzy_mult: 20
+  fuzzy_noise: 0.0015
+  resampling_algorithm: nearest

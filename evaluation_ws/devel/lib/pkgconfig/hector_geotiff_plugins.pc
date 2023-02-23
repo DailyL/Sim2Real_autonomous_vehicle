@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/devel
+
+Name: hector_geotiff_plugins
+Description: Description of hector_geotiff_plugins
+Version: 0.5.2
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: hector_geotiff hector_nav_msgs

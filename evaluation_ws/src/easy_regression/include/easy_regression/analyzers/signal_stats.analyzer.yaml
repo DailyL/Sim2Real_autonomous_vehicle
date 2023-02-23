@@ -1,0 +1,4 @@
+description: |
+    Computes statistics for the messages in the bag.
+constructor: easy_regression.SignalStats
+parameters: {}

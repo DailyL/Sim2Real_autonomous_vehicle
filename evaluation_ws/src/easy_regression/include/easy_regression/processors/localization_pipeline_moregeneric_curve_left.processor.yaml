@@ -1,0 +1,7 @@
+description: Try to run the localization pipeline on the log
+constructor: easy_regression.LocalizationPipelineProcessor
+parameters:
+    line_detector: baseline
+    image_prep: baseline
+    lane_filter: moregeneric_before_curve_left
+    anti_instagram: baseline

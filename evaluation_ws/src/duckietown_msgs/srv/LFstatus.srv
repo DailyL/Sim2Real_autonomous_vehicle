@@ -1,0 +1,4 @@
+string sensor_position    #expect sensor position to be one of the following strings: lf_il, lf_ol, lf_ir, lf_ol
+---
+uint16 voltage
+#string timeStamp

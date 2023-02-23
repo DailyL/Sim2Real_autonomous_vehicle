@@ -1,0 +1,97 @@
+LED_protocol:
+
+  colors: # All triplets should be ordered [R,G,B]
+    switchedoff: [0,0,0]
+    white: [1,1,1]
+    green: [0,1,0]
+    red: [1,0,0]
+    blue: [0,0,1]
+    yellow: [1,1,0]
+    purple: [1,0,1]
+    cyan: [0,1,1]
+    pink: [1,0,0.5]
+
+  frequencies:
+    f1: &f1 1.9
+    f2: &f2 4
+    f3: &f3 5.7
+    f4: &f4 7.8
+    f5: &f5 10.6
+
+  signals:
+    CAR_SIGNAL_PRIORITY:
+      color_mask: []
+      color_list: ["purple","red","purple","red","purple"]
+      frequency_mask: [1,0,1,0,1]
+      frequency: *f3
+
+    CAR_SIGNAL_SACRIFICE_FOR_PRIORITY:
+      color_mask: []
+      color_list: ["white","red","white","red","white"]
+      frequency_mask: [1,0,1,0,1]
+      frequency: *f1
+
+    CAR_SIGNAL_A:
+      color_mask: []
+      color_list: ["white","red","white","red","white"]
+      frequency_mask: [1,0,1,0,1]
+      frequency: *f2
+
+    CAR_SIGNAL_GREEN:
+      color_mask: []
+      color_list: "green"
+      frequency_mask: [1,1,1,1,1]
+      frequency: *f3
+
+    CAR_DRIVING:
+      color_mask: []
+      color_list: ["white","red","white","red","white"]
+      frequency_mask: []
+      frequency:  0
+
+    WHITE:
+      color_mask: []
+      color_list: "white"
+      frequency_mask: []
+      frequency:  0
+
+    RED:
+      color_mask: []
+      color_list: "red"
+      frequency_mask: []
+      frequency:  0
+
+    GREEN:
+      color_mask: []
+      color_list: "green"
+      frequency_mask: []
+      frequency:  0
+
+    BLUE:
+      color_mask: []
+      color_list: "blue"
+      frequency_mask: []
+      frequency:  0
+
+    LIGHT_OFF:
+      color_mask: []
+      color_list: "switchedoff"
+      frequency_mask: []
+      frequency:  0
+
+    light_off:
+      color_mask: []
+      color_list: "switchedoff"
+      frequency_mask: []
+      frequency:  0
+
+    traffic_light_go:
+      color_mask: []
+      color_list: "green"
+      frequency_mask: []
+      frequency: *f4
+
+LED_scale: 0.8
+channel_order:
+  duckiebot: "RGB"
+  traffic_light: "GRB"

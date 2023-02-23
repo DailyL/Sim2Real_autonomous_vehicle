@@ -1,0 +1,16 @@
+description:
+    These are properties common to all nodes.
+
+subscriptions: {}
+
+# Parameters that are valid for
+parameters:
+    en_update_params_interval:
+        desc: Interval at which to update the parameters from the parameter server.
+        type: float
+        default: 2.0
+
+
+contracts: {}
+
+publishers: {}

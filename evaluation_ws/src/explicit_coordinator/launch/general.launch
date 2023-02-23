@@ -1,0 +1,47 @@
+<launch>
+    <!-- include -->
+    <arg name="verbose" default="false" />
+    <arg name="joystick" default="true" doc="true for listening to the joystick. False for listening to the coordination."/>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="config" default="baseline" doc="Specify a config."/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+    <arg name="continuous" default="True"/>
+    <arg name="intersectionType" default="trafficLight" />
+
+    <!-- run local -->
+
+    <group ns="$(arg veh)">
+	    <!-- Run coordination node -->
+        <node  name="coordinator_node" pkg="explicit_coordinator" type="coordinator_node.py" output="screen" required="true">
+            <!-- <rosparam command="load" file="$(find duckietown)/config/$(arg config)/explicit_coordination/$(arg node_name)/$(arg param_file_name).yaml"/> -->
+            <param name="verbose" value="false"/>
+            <param name="intersectionType" value="$(arg intersectionType)"/>
+            <!-- Input to coordination node -->
+            <remap from="~signals_detection" to="led_detector_node/led_detection"/>
+        </node>
+
+        <!-- Run with detection node -->
+        <node   pkg="led_detection" type="led_detector_node.py"  name="led_detector_node" output="screen" required="true">
+            <!-- other -->
+            <rosparam command="load" file="$(find duckietown)/config/baseline/led_interpreter/LED_protocol.yaml"/>
+		        <rosparam command="load" file="$(find duckietown)/config/baseline/led_detection/LED_detector_node/default.yaml"/>
+		        <param name="continuous" type="bool" value="$(arg continuous)" />
+            <!-- remap -->
+            <!--<remap from="~led_detection" to=""/>-->
+        </node>
+
+        <!-- Run with emitter node (Giulia) -->
+        <node  pkg="led_emitter" type="led_emitter_node.py"  name="led_emitter_node" output="screen" required="true">
+            <!-- other -->
+            <rosparam command="load" file="$(find duckietown)/config/baseline/led_interpreter/LED_protocol.yaml"/>
+            <!-- Input from coordination node -->
+            <remap from="~change_color_pattern" to="coordinator_node/change_color_pattern"/>
+        </node>
+    </group>
+
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+
+</launch>

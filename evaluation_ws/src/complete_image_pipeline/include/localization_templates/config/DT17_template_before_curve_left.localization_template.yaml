@@ -1,0 +1,5 @@
+description: Localization before left curve
+constructor: localization_templates.TemplateBeforeCurve
+parameters:
+  tile_name: DT17_pattern_before_curve_left
+  direction: left

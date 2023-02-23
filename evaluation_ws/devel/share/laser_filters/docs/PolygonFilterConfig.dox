@@ -1,0 +1,8 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~polygon" : \b [str] A list of coordinates that represents a polygon in the format [ [x1, y1], [x2, y2], ..., [xn, yn] ] min: , default: [], max: 
+- \b "~polygon_padding" : \b [double] Polygon padding in meters min: 0.0, default: 0.0, max: 100.0
+- \b "~invert" : \b [bool] A Boolean to invert the filter min: False, default: False, max: True
+

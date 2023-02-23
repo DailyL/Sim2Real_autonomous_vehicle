@@ -1,0 +1,5 @@
+#default parameters for sensor_suite/encoder_node
+pin_encoder: 19
+radius: 0.022
+holes_per_round: 10.
+polling_hz: 10

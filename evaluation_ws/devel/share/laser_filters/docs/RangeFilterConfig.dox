@@ -1,0 +1,10 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~lower_threshold" : \b [double] Range values lower than this value will be filtered min: 0.0, default: 0.0, max: 100000.0
+- \b "~upper_threshold" : \b [double] Range values greater than this value will be filtered min: 0.0, default: 100000.0, max: 100000.0
+- \b "~use_message_range_limits" : \b [bool] Use the range_min and range_max values from the laserscan message as threshold. Defaults to false min: False, default: False, max: True
+- \b "~lower_replacement_value" : \b [double] Use this value for all measurements <lower_threshold. Default: NaN min: 0.0, default: 0.0, max: 100000.0
+- \b "~upper_replacement_value" : \b [double] Use this value for all measurements >upper_threshold. Default: NaN min: 0.0, default: 100000.0, max: 100000.0
+

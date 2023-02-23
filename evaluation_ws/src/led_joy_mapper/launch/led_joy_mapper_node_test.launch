@@ -1,0 +1,12 @@
+
+   <launch>
+	<arg name="pkg_name" value="led_joy_mapper"/>
+	<arg name="veh" doc="Name of vehicle. ex: megaman"/>
+	<arg name="config" default="baseline" doc="Specify a config."/>
+	<arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+    <!-- joy -->
+    <node ns="$(arg veh)"  pkg="joy" type="joy_node" name="joy" output="screen">
+        <rosparam command="load" file="$(find duckietown)/config/$(arg config)/joy/joy_node/$(arg param_file_name).yaml"/>
+    </node>
+</launch>
+

@@ -1,0 +1,7 @@
+set(duckietown_SETUP_PY_SETUP_MODULE "distutils.core")
+set(duckietown_SETUP_PY_VERSION "1.0.0")
+set(duckietown_SETUP_PY_SCRIPTS "")
+set(duckietown_SETUP_PY_PACKAGES "duckietown_utils;duckietown_utils_tests;duckietown")
+set(duckietown_SETUP_PY_PACKAGE_DIRS "include/duckietown_utils;include/duckietown_utils_tests;include/duckietown")
+set(duckietown_SETUP_PY_MODULES "")
+set(duckietown_SETUP_PY_MODULE_DIRS "")

@@ -1,0 +1,22 @@
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="pkg_name" value="apriltag"/>
+    <arg name="node_name" default="apriltag_detector_node"/>
+    <arg name="config" default="baseline" doc="Specify a config."/>
+    <arg name="param_file_name" default="$(env ROBOT_TYPE)" doc="Specify a param file. ex: duckiebot."/>
+
+    <!-- Subscription -->
+    <!-- "~image_rect": sensor_msgs/CompressedImage. Input rectified compressed image in JPEG format. -->
+    <!-- "~camera_info": sensor_msgs/CompressedImage. Input rectified camera info. -->
+
+    <!-- Publication -->
+    <!-- "tag_detections": duckietown_msgs/AprilTagDetectionArray. Tag detections. -->
+    <!-- "tag_detections/image/compressed": sensor_msgs/CompressedImage. Image with detections superimposed in JPEG format. -->
+
+    <group ns="$(arg veh)">
+        <node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+            <rosparam command="load"
+                file="$(find apriltag)/config/$(arg node_name)/$(arg param_file_name).yaml"/>
+        </node>
+    </group>
+</launch>

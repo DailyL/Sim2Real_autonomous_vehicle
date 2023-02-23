@@ -1,0 +1,61 @@
+description: A couple of videos
+constructor: easy_regression.RegressionTest
+parameters:
+    logs:
+
+    # - "2016-04-29-dp3auto-neptunus-1/{3:3.5}"
+    - "tori_ETHZ_2017-12-22-17-18-41/{6:6.5}"
+    - "tori_ETHZ_2017-12-22-17-18-41/{10:10.5}"
+    processors:
+
+    - processor: localization_pipeline_moregeneric_straight
+      prefix_in: ''
+      prefix_out: /moregeneric
+
+    - processor: localization_pipeline_baseline
+      prefix_in: ''
+      prefix_out: /baseline
+
+    - processor: localization_pipeline_lane_filter_hist_default
+      prefix_in: ''
+      prefix_out: /lane_filter_hist
+
+
+    - processor: plot_phi_d
+      prefix_in: /moregeneric
+      prefix_out: /moregeneric/plots
+
+    - processor: plot_quality
+      prefix_in: /moregeneric
+      prefix_out: /moregeneric/plots
+
+    - processor: plot_phi_d
+      prefix_in: /baseline
+      prefix_out: /baseline/plots
+
+    - processor: plot_quality
+      prefix_in: /baseline
+      prefix_out: /baseline/plots
+
+    - processor: compare_baseline_moregeneric
+      prefix_in: ''
+      prefix_out: ''
+
+    analyzers:
+    - count_messages
+    - signal_stats
+
+
+    topic_videos:
+    - /baseline/all
+    - /moregeneric/all
+    - /lane_filter_hist/all
+
+    topic_images:
+    - /moregeneric/plots/phi_d
+    - /moregeneric/plots/quality
+    - /baseline/plots/phi_d
+    - /baseline/plots/quality
+    - /comparison
+
+    checks: []

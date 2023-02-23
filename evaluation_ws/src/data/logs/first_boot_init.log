@@ -1,0 +1,138 @@
++ echo 'Setting up the robot for its first ever boot...'
+Setting up the robot for its first ever boot...
++ echo 'Setting up the environment...'
+Setting up the environment...
++ setup_etc_hosts
++ cat
+++ cat /etc/hostname
+++ cat /etc/hostname
++ cp /etc/avahi/services/dt.booting.service.disabled /etc/avahi/services/dt.booting.service
++ sgdisk --move-second-header /dev/mmcblk0
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
++ growpart /dev/mmcblk0 1
+CHANGED: partition=1 start=28672 old: size=41914335 end=41943007 new: size=122109919,end=122138591
++ resize2fs /dev/mmcblk0p1
+resize2fs 1.44.1 (24-Mar-2018)
+Filesystem at /dev/mmcblk0p1 is mounted on /; on-line resizing required
+old_desc_blocks = 2, new_desc_blocks = 4
+The filesystem on /dev/mmcblk0p1 is now 15263739 (4k) blocks long.
+
++ partprobe
++ dt-sanitize-files
++ echo 'duckie ALL=(ALL) NOPASSWD:ALL'
++ tee -a /etc/sudoers
+duckie ALL=(ALL) NOPASSWD:ALL
++ dtc -I dts -O dtb -@ -o /boot/duckietown_front_bumper_2_v1.dtbo /boot/duckietown_front_bumper_2_v1.dts
+/boot/duckietown_front_bumper_2_v1.dtbo: Warning (reg_format): "reg" property in /fragment@0/__overlay__/mux@70 has invalid length (4 bytes) (#address-cells == 2, #size-cells == 1)
+/boot/duckietown_front_bumper_2_v1.dtbo: Warning (unit_address_vs_reg): Node /fragment@0 has a unit name, but no reg property
+/boot/duckietown_front_bumper_2_v1.dtbo: Warning (pci_device_reg): Failed prerequisite 'reg_format'
+/boot/duckietown_front_bumper_2_v1.dtbo: Warning (pci_device_bus_num): Failed prerequisite 'reg_format'
+/boot/duckietown_front_bumper_2_v1.dtbo: Warning (simple_bus_reg): Failed prerequisite 'reg_format'
+/boot/duckietown_front_bumper_2_v1.dtbo: Warning (avoid_default_addr_size): Relying on default #address-cells value for /fragment@0/__overlay__/mux@70
+/boot/duckietown_front_bumper_2_v1.dtbo: Warning (avoid_default_addr_size): Relying on default #size-cells value for /fragment@0/__overlay__/mux@70
++ /opt/nvidia/jetson-io/config-by-hardware.py -n 'Duckietown Front Bumper 2 V1'
+Configuration saved to /boot/tegra210-p3448-0003-p3542-0000-duckietown-front-bumper-2-v1.dtb.
++ echo 'Setting up ssh...'
+Setting up ssh...
++ mkdir -p /home/duckie/.ssh
++ touch /home/duckie/.ssh/authorized_keys
++ echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFiaiFeU0Pc3ZjiGbjJOIx28ghcWPoem8jU1OSeJnbTkKT79vrzjIbYjkBg7uBlXb6kLnbHLWHUnPlLk2IUQTxHHvakubEJkJxePdN6XO+q1sKpEvz+1GL60iBKhRljCZ9h/CcJ78kkyNQkexHT15ZDMhOnUd8c9zxwUHxSjzPSOH5ns8bxjU3oSjmzDEojPnQJmY6Evhf5DVcKXenxkzs4XgDEo+ldKo37i30iUoFCL30OsXCP2tPcn1j39qjL7vnaUBO9WqY8eOssOHAX7/K1dNN1lDvNCKspq/2f05Ss8LopSpe6hOiMnPB0RlotJbZn+784kV1B4nJpqLj+EQr DT2018key'
++ tee -a /home/duckie/.ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFiaiFeU0Pc3ZjiGbjJOIx28ghcWPoem8jU1OSeJnbTkKT79vrzjIbYjkBg7uBlXb6kLnbHLWHUnPlLk2IUQTxHHvakubEJkJxePdN6XO+q1sKpEvz+1GL60iBKhRljCZ9h/CcJ78kkyNQkexHT15ZDMhOnUd8c9zxwUHxSjzPSOH5ns8bxjU3oSjmzDEojPnQJmY6Evhf5DVcKXenxkzs4XgDEo+ldKo37i30iUoFCL30OsXCP2tPcn1j39qjL7vnaUBO9WqY8eOssOHAX7/K1dNN1lDvNCKspq/2f05Ss8LopSpe6hOiMnPB0RlotJbZn+784kV1B4nJpqLj+EQr DT2018key
++ chmod 755 /home/duckie
++ chmod 700 /home/duckie/.ssh
++ chmod 600 /home/duckie/.ssh/authorized_keys
++ chown -R duckie:duckie /home/duckie
++ adduser duckie root
+Adding user `duckie' to group `root' ...
+Adding user duckie to group root
+Done.
++ echo 'Adding the user to the docker group...'
+Adding the user to the docker group...
++ adduser duckie docker
+Adding user `duckie' to group `docker' ...
+Adding user duckie to group docker
+Done.
++ echo 'Storing debug information...'
+Storing debug information...
++ cp /proc/buddyinfo /proc/cpuinfo /proc/meminfo /proc/pagetypeinfo /proc/slabinfo /proc/vmallocinfo /proc/zoneinfo /data/proc
++ cat /sys/class/net/eth0/address
++ cat /sys/class/net/wlan0/address
++ cp /etc/nv_tegra_release /data/stats/os-release
++ echo 'Changing the ownership of the user directories...'
+Changing the ownership of the user directories...
++ chown -R 1000:1000 /data /code
++ chmod -R 775 /data /code
++ echo 'Setting up swap...'
+Setting up swap...
++ dd if=/dev/zero of=/swap0 bs=1M count=2048
+2048+0 records in
+2048+0 records out
+2147483648 bytes (2.1 GB, 2.0 GiB) copied, 56.5212 s, 38.0 MB/s
++ chmod 0600 /swap0
++ mkswap /swap0
+Setting up swapspace version 1, size = 2 GiB (2147479552 bytes)
+no label, UUID=c724c788-04fb-4a29-ac7c-d6aa6400577a
++ echo '/swap0 swap swap'
++ swapon -a
+++ free --mega
+++ awk '/^Mem:/{print $2}'
++ PHYMEM_SIZE=1998
+++ python3 -c 'print(int(0.75 * 1998))'
++ TMPFS_SIZE=1498
++ echo 'tmpfs /data/ramdisk tmpfs  defaults,noatime,nosuid,nodev,noexec,mode=0777,size=1498M 0 0'
++ systemctl daemon-reload
++ systemctl enable docker
+Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable docker
++ systemctl restart docker
++ timeout --signal=INT 5s docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
++ systemctl disable nvzramconfig
+Removed /etc/systemd/system/multi-user.target.wants/nvzramconfig.service.
++ dt-init-first-boot
++ echo 'Setting up the containers...'
+Setting up the containers...
++ dt-autoboot
+Launching 'duckietown' stack /data/autoboot/duckiebot.yaml...
+Creating volume "duckietown_portainer-data" with default driver
+Creating volume "duckietown_compose-data" with default driver
+Creating files-api ... 
+Creating dashboard ... 
+Creating device-proxy ... 
+Creating device-online ... 
+Creating ros ... 
+Creating code-api ... 
+Creating car-interface ... 
+Creating duckiebot-interface ... 
+Creating portainer ... 
+Creating device-health ... 
+Creating rosbridge-websocket ... 
+Creating dashboard
+Creating code-api
+Creating ros
+Creating device-proxy
+Creating files-api
+Creating car-interface
+Creating portainer
+Creating device-online
+Creating device-health
+Creating duckiebot-interface
+Creating rosbridge-websocket
+[1A[2KCreating portainer ... [32mdone[0m[1B[1A[2KCreating dashboard ... [32mdone[0m[1B[1A[2KCreating device-health ... [32mdone[0m[1B[1A[2KCreating duckiebot-interface ... [32mdone[0m[1B[1A[2KCreating car-interface ... [32mdone[0m[1B[1A[2KCreating rosbridge-websocket ... [32mdone[0m[1B[1A[2KCreating device-proxy ... [32mdone[0m[1B[1A[2KCreating code-api ... [32mdone[0m[1B[1A[2KCreating files-api ... [32mdone[0m[1B[1A[2KCreating ros ... [32mdone[0m[1B[1A[2KCreating device-online ... [32mdone[0m[1BAutoboot stack should be now up!
++ store_event first_boot
++ type=first_boot
+++ date +%s%N
++ now=1650377842076803702
++ echo '{"type": "first_boot", "stamp": 1650377842076803702}'
++ mkdir -p /data/stats/usage/disk_image
++ mkdir -p /data/stats/usage/init_sd_card
+++ date +%s%N
++ cp /data/stats/disk_image/build.json /data/stats/usage/disk_image/1650377842101060250.json
+++ date +%s%N
++ cp /data/stats/init_sd_card/build.json /data/stats/usage/init_sd_card/1650377842121142452.json
++ echo 'Setting up completed!'
+Setting up completed!

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="node_name" default="ros_http_api_node"/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+
+    <group ns="$(arg veh)">
+        <node pkg="ros_http_api" type="$(arg node_name).py" name="$(arg node_name)" output="screen" required="true" />
+    </group>
+</launch>

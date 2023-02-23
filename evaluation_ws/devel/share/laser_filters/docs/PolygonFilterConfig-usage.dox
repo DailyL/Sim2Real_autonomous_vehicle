@@ -1,0 +1,9 @@
+\subsubsection usage Usage
+\verbatim
+<node name="laser_filters" pkg="laser_filters" type="laser_filters">
+  <param name="polygon" type="str" value="[]" />
+  <param name="polygon_padding" type="double" value="0.0" />
+  <param name="invert" type="bool" value="False" />
+</node>
+\endverbatim
+

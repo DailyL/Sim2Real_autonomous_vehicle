@@ -1,0 +1,35 @@
+description: |
+    **logic_gate_node**
+
+
+    This node handles AND and OR logic gates of events for state transitions. Below is a summary of the basic functionality of the `logic_gate_node`.
+    
+    * Logic AND and OR gates can be defined
+    * For each gate, the input events (and their corresponding topics) are defined
+    * The `logic_gate_node` subscribes to all of these input event topics
+    * When an input topic is published, the `logic_gate_node` checks whether the AND or OR gate is satisfied
+    * If the gate is satisfied, the node publishes `True` on the `~/gate_name` topic, else it publishes `False`  
+
+    The logic gate node publishes on many topics according to the configuration:
+
+        for gate_name, gate_dict in self.gates_dict.items():
+            output_topic_name = gate_dict["output_topic"]
+            self.pub_dict[gate_name] = rospy.Publisher(output_topic_name, BoolStamped, queue_size=1)
+    
+    where `gate_dict.items()` is a dictionary of all gates, and `output_topic_name` is `~/gate_name`. The `fsm_node` then subscribes to `logic_gate_node/*`, where each `gate_name` corresponds to a state transition event. 
+
+parameters:
+    events:
+        desc: These are all the events and corresponding topics (and trigger values) which are inputs to a logic gate event.
+        type: dict
+        default: {}
+    gates:
+        desc: These are the logic gate events. Each gate has a gate_type (AND or OR), input events, and an output topic.
+        type: dict
+        default: {}
+
+subscriptions: {}
+
+publishers: {}
+
+contracts: {}

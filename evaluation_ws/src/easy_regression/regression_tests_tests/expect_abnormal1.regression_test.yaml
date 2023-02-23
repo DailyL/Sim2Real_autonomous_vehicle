@@ -1,0 +1,16 @@
+description: >
+    A regression test that fails abnormally because
+    it refers to an invalid statistic.
+
+constructor: easy_regression.RegressionTest
+parameters:
+    logs:
+    - 2016-04-29-dp3auto-neptunus-1
+    processors: []
+    analyzers:
+    - count_messages
+
+    checks:
+    - desc: The number of messages read should remain the same.
+      cond: |
+        v:count_messages/all/NOT-EXISTING == 16202

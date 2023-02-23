@@ -1,0 +1,12 @@
+\subsubsection usage Usage
+\verbatim
+<node name="laser_filters" pkg="laser_filters" type="laser_filters">
+  <param name="angle_min" type="double" value="0.0" />
+  <param name="angle_max" type="double" value="0.0" />
+  <param name="range_min" type="double" value="0.0" />
+  <param name="range_max" type="double" value="100000.0" />
+  <param name="clear_inside" type="bool" value="True" />
+  <param name="invert" type="bool" value="False" />
+</node>
+\endverbatim
+

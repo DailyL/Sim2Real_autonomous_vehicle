@@ -1,0 +1,87 @@
+# Initial state of the FSM
+
+initial_state: "NORMAL_JOYSTICK_CONTROL"
+
+
+events: # Maps from subscribing topic to signal ids
+  joystick_override_on:
+    topic: "joy_mapper_node/joystick_override"
+    msg_type: "BoolStamped"
+    trigger: True
+  joystick_override_off:
+    topic: "joy_mapper_node/joystick_override"
+    msg_type: "BoolStamped"
+    trigger: False
+  obstacle_exists:
+    topic: "road_anomaly_watcher/obstacle_exists"
+    msg_type: "BoolStamped"
+    trigger: True
+  obstacle_cleared:
+    topic: "road_anomaly_watcher/obstacle_exists"
+    msg_type: "BoolStamped"
+    trigger: False
+
+# Define nodes
+nodes:
+  decoder_node: "decoder_node/switch"
+  anti_instagram: "anti_instagram_node/switch"
+  static_object_detector_node: "static_object_detector_node/switch"
+  line_detector_node: "line_detector_node/switch"
+  lane_filter_node: "lane_filter_node/switch"
+  framerate_high: "camera_node/framerate_high_switch"
+  # extras added
+
+  lane_controller_node: "lane_controller_node/switch"
+  vehicle_filter_node: "vehicle_filter_node/switch"
+  vehicle_avoidance_control_node: "vehicle_avoidance_control_node/switch"
+  vehicle_detection_node : "vehicle_detection_node/switch"
+
+# Define state transitions
+
+global_transitions:
+  joystick_override_on: "NORMAL_JOYSTICK_CONTROL"
+  joystick_override_off: "LANE_FOLLOWING"
+
+states:
+  NORMAL_JOYSTICK_CONTROL:
+    active_nodes:
+      - lane_filter_node
+      - line_detector_node
+      - stop_line_filter_node
+      - framerate_high
+      - decoder_node
+    lights: ["joystick"]
+    current_status: "implemented"
+  LANE_FOLLOWING:
+    transitions:
+      obstacle_exists: "OBSTACLE_STOP"
+    active_nodes:
+      - anti_instagram
+      - decoder_node
+      - line_detector_node
+      - lane_filter_node
+      - lane_controller_node
+      - vehicle_filter_node
+      - vehicle_detection_node
+      - vehicle_avoidance_control_node
+    lights: ["lane_following"]
+    current_status: "in_progress"
+  OBSTACLE_STOP:
+    transitions:
+      obstacle_cleared: "LANE_FOLLOWING"
+      
+    active_nodes:
+      - anti_instagram
+      - decoder_node
+      - line_detector_node
+      - lane_filter_node
+      - lane_controller_node
+      - stop_line_filter_node
+      - vehicle_filter_node
+      - vehicle_detection_node
+      - vehicle_avoidance_control_node
+    lights: ["lane_following"] #TODO: Add abonormal halt indicator state
+    current_status: "in_progress"
+
+
+

@@ -1,0 +1,34 @@
+description: Localization
+constructor: easy_regression.RegressionTest
+parameters:
+    logs:
+    - "yaf_ETHZ_2017-12-26-19-39-53/{1:1.3}"
+    - "yaf_ETHZ_2017-12-26-19-39-53/{5:6}"
+    processors:
+    - processor:
+        baseline:
+            constructor: easy_regression.LocalizationPipelineProcessor
+            parameters:
+                line_detector: baseline
+                image_prep: baseline
+                lane_filter: baseline
+                anti_instagram: baseline
+
+      prefix_out: /baseline
+    - processor:
+        classic:
+            constructor: easy_regression.LocalizationPipelineProcessor
+            parameters:
+                line_detector: baseline
+                image_prep: baseline
+                lane_filter: controllers17
+                anti_instagram: baseline
+      prefix_out: /controllers17
+
+
+    analyzers: []
+
+    checks:  []
+
+    topic_videos:
+    - /all

@@ -1,0 +1,16 @@
+<launch>
+    <arg name="veh" default="pontiac" doc="Name of vehicle. ex: megaman"/>
+    <arg name="pkg_name" value="visualization_tools"/>
+    <arg name="node_name" default="lane_pose_visualizer_node"/>
+
+    <group ns="$(arg veh)">
+        <remap from="$(arg node_name)/lane_pose" to="lane_filter_node/lane_pose"/>
+        <node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen" required="true"/>
+    </group>
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+
+
+</launch>

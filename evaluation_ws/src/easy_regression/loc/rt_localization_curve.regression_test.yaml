@@ -1,0 +1,16 @@
+description: Localization
+constructor: easy_regression.RegressionTest
+parameters:
+    logs:
+    - "yaf_ETHZ_2017-12-26-19-39-53/{2.5:9}" # curve
+    processors:
+    - processor: localization_pipeline_moregeneric_curve_left
+      prefix_in: ''
+      prefix_out: ''
+    analyzers:
+    - count_messages
+
+    checks:  []
+
+    topic_videos:
+    - "all"

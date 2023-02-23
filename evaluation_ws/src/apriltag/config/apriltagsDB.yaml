@@ -1,0 +1,3311 @@
+- tag_id: 0
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 1
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 2
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: yield
+
+- tag_id: 3
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: no-right-turn
+
+- tag_id: 4
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: no-left-turn
+
+- tag_id: 5
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: do-not-enter
+
+- tag_id: 6
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: oneway-right
+
+- tag_id: 7
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: oneway-left
+
+- tag_id: 8
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 9
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 10
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 11
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 12
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: pedestrian
+
+- tag_id: 13
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 14
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 15
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 16
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 17
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 18
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 19
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 20
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 21
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 22
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 23
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 24
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 25
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 26
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 27
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 28
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 29
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 30
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 31
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 32
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 33
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 34
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 35
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 36
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 37
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 38
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 39
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: yield
+
+- tag_id: 40
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: no-right-turn
+
+- tag_id: 41
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: no-left-turn
+
+- tag_id: 42
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: oneway-right
+
+- tag_id: 43
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: oneway-left
+
+- tag_id: 44
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 45
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 46
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 47
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 48
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 49
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 50
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 51
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 52
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 53
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 54
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 55
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 56
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 57
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 58
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 59
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 60
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 61
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 62
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 63
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 64
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 65
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 66
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 67
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 68
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 69
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: do-not-enter
+
+- tag_id: 70
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: pedestrian
+
+- tag_id: 71
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: pedestrian
+
+- tag_id: 72
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: pedestrian
+
+- tag_id: 73
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: pedestrian
+
+- tag_id: 74
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 75
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 76
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 77
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 78
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 79
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 80
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 81
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 82
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 83
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 84
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 85
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 86
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 87
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 88
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 89
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 90
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 91
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 92
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 93
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 94
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 95
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 96
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 97
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 98
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 99
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 100
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 101
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 102
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 103
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 104
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 105
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 106
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 107
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 108
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 109
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 110
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 111
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 112
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 113
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 114
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 115
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 116
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 117
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 118
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 119
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 120
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 121
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 122
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 123
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 124
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: duck-crossing
+
+- tag_id: 125
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: parking
+
+- tag_id: 126
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: parking
+
+- tag_id: 127
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: parking
+
+- tag_id: 128
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: parking
+
+- tag_id: 129
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: parking
+
+- tag_id: 130
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: parking
+
+- tag_id: 131
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: parking
+
+- tag_id: 132
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 133
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 134
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 135
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 136
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 137
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 138
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 139
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 140
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 141
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 142
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 143
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 144
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 145
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 146
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 147
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 148
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 149
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 150
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 151
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 152
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 153
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 154
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 155
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 156
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 157
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 158
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 159
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 160
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 161
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 162
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 163
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 164
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 165
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 166
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 167
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 168
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 169
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 170
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 171
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 172
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 173
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 174
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 175
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 176
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 177
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 178
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 179
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 180
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 181
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 182
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 183
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 184
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 185
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 186
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 187
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 188
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 189
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 190
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 191
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 192
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 193
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 194
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 195
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 196
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: stop
+
+- tag_id: 197
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 198
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 199
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 200
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 201
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 202
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 203
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 204
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 205
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 206
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 207
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 208
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 209
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 210
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 211
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 212
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 213
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 214
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 215
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 216
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 217
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 218
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 219
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 220
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 221
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 222
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 223
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 224
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 225
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 226
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 227
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 228
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 229
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 230
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type: t-light-ahead
+
+- tag_id: 231
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 232
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 233
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 234
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 235
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 236
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 237
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 238
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 239
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 240
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 241
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 242
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 243
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 244
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 245
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 246
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 247
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: T-intersection
+
+- tag_id: 248
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 249
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: left-T-intersect
+
+- tag_id: 250
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 251
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 252
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 253
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 254
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 255
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 256
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 257
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 258
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 259
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 260
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 261
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: right-T-intersect
+
+- tag_id: 262
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 263
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 264
+  tag_type: TrafficSign
+  street_name:
+  vehicle_name:
+  traffic_sign_type: 4-way-intersect
+
+- tag_id: 265
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 266
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 267
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 268
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 269
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 270
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 271
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 272
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 273
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 274
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 275
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 276
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 277
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 278
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 279
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 280
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 281
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 282
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 283
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 284
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 285
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 286
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 287
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 288
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 289
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 290
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 291
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 292
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 293
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 294
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 295
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 296
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 297
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 298
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 299
+  tag_type:
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 300
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 301
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 302
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 303
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 304
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 305
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 306
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 307
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 308
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 309
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 310
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 311
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 312
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 313
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 314
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 315
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 316
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 317
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 318
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 319
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 320
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 321
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 322
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 323
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 324
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 325
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 326
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 327
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 328
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 329
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 330
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 331
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 332
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 333
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 334
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 335
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 336
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 337
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 338
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 339
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 340
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 341
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 342
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 343
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 344
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 345
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 346
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 347
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 348
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 349
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 350
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 351
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 352
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 353
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 354
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 355
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 356
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 357
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 358
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 359
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 360
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 361
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 362
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 363
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 364
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 365
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 366
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 367
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 368
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 369
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 370
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 371
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 372
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 373
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 374
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 375
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 376
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 377
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 378
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 379
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 380
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 381
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 382
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 383
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 384
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 385
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 386
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 387
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 388
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 389
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 390
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 391
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 392
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 393
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 394
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 395
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 396
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 397
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 398
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 399
+  tag_type: Localization
+  street_name:
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 400
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot01
+  traffic_sign_type:
+
+- tag_id: 401
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot02
+  traffic_sign_type:
+
+- tag_id: 402
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot03
+  traffic_sign_type:
+
+- tag_id: 403
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot04
+  traffic_sign_type:
+
+- tag_id: 404
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot05
+  traffic_sign_type:
+
+- tag_id: 405
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot06
+  traffic_sign_type:
+
+- tag_id: 406
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot07
+  traffic_sign_type:
+
+- tag_id: 407
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot08
+  traffic_sign_type:
+
+- tag_id: 408
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot09
+  traffic_sign_type:
+
+- tag_id: 409
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot10
+  traffic_sign_type:
+
+- tag_id: 410
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot11
+  traffic_sign_type:
+
+- tag_id: 411
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot12
+  traffic_sign_type:
+
+- tag_id: 412
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot13
+  traffic_sign_type:
+
+- tag_id: 413
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot14
+  traffic_sign_type:
+
+- tag_id: 414
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot15
+  traffic_sign_type:
+
+- tag_id: 415
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot16
+  traffic_sign_type:
+
+- tag_id: 416
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot17
+  traffic_sign_type:
+
+- tag_id: 417
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot18
+  traffic_sign_type:
+
+- tag_id: 418
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot19
+  traffic_sign_type:
+
+- tag_id: 419
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot20
+  traffic_sign_type:
+
+- tag_id: 420
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot21
+  traffic_sign_type:
+
+- tag_id: 421
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot22
+  traffic_sign_type:
+
+- tag_id: 422
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot23
+  traffic_sign_type:
+
+- tag_id: 423
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot24
+  traffic_sign_type:
+
+- tag_id: 424
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot25
+  traffic_sign_type:
+
+- tag_id: 425
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot26
+  traffic_sign_type:
+
+- tag_id: 426
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot27
+  traffic_sign_type:
+
+- tag_id: 427
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot28
+  traffic_sign_type:
+
+- tag_id: 428
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot29
+  traffic_sign_type:
+
+- tag_id: 429
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot30
+  traffic_sign_type:
+
+- tag_id: 430
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot31
+  traffic_sign_type:
+
+- tag_id: 431
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot32
+  traffic_sign_type:
+
+- tag_id: 432
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot33
+  traffic_sign_type:
+
+- tag_id: 433
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot34
+  traffic_sign_type:
+
+- tag_id: 434
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot35
+  traffic_sign_type:
+
+- tag_id: 435
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot36
+  traffic_sign_type:
+
+- tag_id: 436
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot37
+  traffic_sign_type:
+
+- tag_id: 437
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot38
+  traffic_sign_type:
+
+- tag_id: 438
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot39
+  traffic_sign_type:
+
+- tag_id: 439
+  tag_type: Vehicle
+  street_name:
+  vehicle_name: megabot40
+  traffic_sign_type:
+
+- tag_id: 440
+  tag_type: StreetName
+  street_name: HERR AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 441
+  tag_type: StreetName
+  street_name: HERR AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 442
+  tag_type: StreetName
+  street_name: DUBOWSKY ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 443
+  tag_type: StreetName
+  street_name: DUBOWSKY ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 444
+  tag_type: StreetName
+  street_name: ASADA AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 445
+  tag_type: StreetName
+  street_name: ASADA AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 446
+  tag_type: StreetName
+  street_name: WILLIAMS ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 447
+  tag_type: StreetName
+  street_name: WILLIAMS ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 448
+  tag_type: StreetName
+  street_name: WILLIAMS ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 449
+  tag_type: StreetName
+  street_name: ROY AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 450
+  tag_type: StreetName
+  street_name: ROY AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 451
+  tag_type: StreetName
+  street_name: ROY AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 452
+  tag_type: StreetName
+  street_name: HOSOI AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 453
+  tag_type: StreetName
+  street_name: HOSOI AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 454
+  tag_type: StreetName
+  street_name: HOSOI AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 455
+  tag_type: StreetName
+  street_name: CHEN AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 456
+  tag_type: StreetName
+  street_name: CHEN AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 457
+  tag_type: StreetName
+  street_name: CHEN AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 458
+  tag_type: StreetName
+  street_name: PERAIRE ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 459
+  tag_type: StreetName
+  street_name: PERAIRE ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 460
+  tag_type: StreetName
+  street_name: PERAIRE ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 461
+  tag_type: StreetName
+  street_name: KAELBLING ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 462
+  tag_type: StreetName
+  street_name: KAELBLING ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 463
+  tag_type: StreetName
+  street_name: KAELBLING ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 464
+  tag_type: StreetName
+  street_name: IAGNEMMA ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 465
+  tag_type: StreetName
+  street_name: IAGNEMMA ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 466
+  tag_type: StreetName
+  street_name: IAGNEMMA ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 467
+  tag_type: StreetName
+  street_name: BREAZEAL ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 468
+  tag_type: StreetName
+  street_name: BREAZEAL ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 469
+  tag_type: StreetName
+  street_name: BREAZEAL ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 470
+  tag_type: StreetName
+  street_name: TEDRAKE ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 471
+  tag_type: StreetName
+  street_name: TEDRAKE ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 472
+  tag_type: StreetName
+  street_name: TEDRAKE ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 473
+  tag_type: StreetName
+  street_name: FRAZZOLI ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 474
+  tag_type: StreetName
+  street_name: FRAZZOLI ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 475
+  tag_type: StreetName
+  street_name: FRAZZOLI ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 476
+  tag_type: StreetName
+  street_name: KARAMAN ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 477
+  tag_type: StreetName
+  street_name: KARAMAN ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 478
+  tag_type: StreetName
+  street_name: KARAMAN ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 479
+  tag_type: StreetName
+  street_name: KARAMAN ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 480
+  tag_type: StreetName
+  street_name: KARAMAN ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 481
+  tag_type: StreetName
+  street_name: RUS AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 482
+  tag_type: StreetName
+  street_name: RUS AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 483
+  tag_type: StreetName
+  street_name: RUS AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 484
+  tag_type: StreetName
+  street_name: RUS AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 485
+  tag_type: StreetName
+  street_name: RUS AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 486
+  tag_type: StreetName
+  street_name: LEONARD ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 487
+  tag_type: StreetName
+  street_name: LEONARD ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 488
+  tag_type: StreetName
+  street_name: LEONARD ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 489
+  tag_type: StreetName
+  street_name: LEONARD ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 490
+  tag_type: StreetName
+  street_name: LEONARD ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 491
+  tag_type: StreetName
+  street_name: LEONARD ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 492
+  tag_type: StreetName
+  street_name: LEONARD ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 493
+  tag_type: StreetName
+  street_name: HOW AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 494
+  tag_type: StreetName
+  street_name: HOW AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 495
+  tag_type: StreetName
+  street_name: HOW AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 496
+  tag_type: StreetName
+  street_name: HOW AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 497
+  tag_type: StreetName
+  street_name: HOW AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 498
+  tag_type: StreetName
+  street_name: HOW AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 499
+  tag_type: StreetName
+  street_name: HOW AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 500
+  tag_type: StreetName
+  street_name: FRAZZOLI ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 501
+  tag_type: StreetName
+  street_name: TEDRAKE ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 502
+  tag_type: StreetName
+  street_name: ASADA AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 503
+  tag_type: StreetName
+  street_name: BREAZEAL ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 504
+  tag_type: StreetName
+  street_name: DUBOWSKY ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 505
+  tag_type: StreetName
+  street_name: HERR AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 506
+  tag_type: StreetName
+  street_name: HOBURG ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 507
+  tag_type: StreetName
+  street_name: HOGAN AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 508
+  tag_type: StreetName
+  street_name: IAGNEMMA ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 509
+  tag_type: StreetName
+  street_name: KAELBLING ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 510
+  tag_type: StreetName
+  street_name: LOZANO ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 511
+  tag_type: StreetName
+  street_name: KIM AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 512
+  tag_type: StreetName
+  street_name: REIF AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 513
+  tag_type: StreetName
+  street_name: WALTZ AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 514
+  tag_type: StreetName
+  street_name: PERAIRE ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 515
+  tag_type: StreetName
+  street_name: CHANDRA ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 516
+  tag_type: StreetName
+  street_name: KASAN ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 517
+  tag_type: StreetName
+  street_name: MICALI ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 518
+  tag_type: StreetName
+  street_name: CHEN AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 519
+  tag_type: StreetName
+  street_name: HOSOI AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 520
+  tag_type: StreetName
+  street_name: RUS AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 521
+  tag_type: StreetName
+  street_name: HOW AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 522
+  tag_type: StreetName
+  street_name: ROY AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 523
+  tag_type: StreetName
+  street_name: SHAH AVE
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 524
+  tag_type: StreetName
+  street_name: WILLIAMS ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 525
+  tag_type: StreetName
+  street_name: LEONARD ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 526
+  tag_type: StreetName
+  street_name: BROOKS ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 527
+  tag_type: StreetName
+  street_name: KARAMAN ST
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 528
+  tag_type: StreetName
+  street_name: MILFORD ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 529
+  tag_type: StreetName
+  street_name: TIDOR ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 530
+  tag_type: StreetName
+  street_name: BARFOOT ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 531
+  tag_type: StreetName
+  street_name: DUDEK ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 532
+  tag_type: StreetName
+  street_name: FORBES AVE.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 533
+  tag_type: StreetName
+  street_name: PINEAU AVE.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 534
+  tag_type: StreetName
+  street_name: KELLY ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 535
+  tag_type: StreetName
+  street_name: URTASUN RD.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 536
+  tag_type: StreetName
+  street_name: FIDLER ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 537
+  tag_type: StreetName
+  street_name: WASLANDER AVE.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 538
+  tag_type: StreetName
+  street_name: JENKIN AVE.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 539
+  tag_type: StreetName
+  street_name: VAUGHAN ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 540
+  tag_type: StreetName
+  street_name: BACHMAYER ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 541
+  tag_type: StreetName
+  street_name: SHARF ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 542
+  tag_type: StreetName
+  street_name: SHOELLIG ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 543
+  tag_type: StreetName
+  street_name: SREBRO ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 544
+  tag_type: StreetName
+  street_name: CHUZHOY ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 545
+  tag_type: StreetName
+  street_name: GIMPEL AVE.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 546
+  tag_type: StreetName
+  street_name: LIVNAROVIC ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 547
+  tag_type: StreetName
+  street_name: MCALLESTER ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 548
+  tag_type: StreetName
+  street_name: TULSIANI ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 549
+  tag_type: StreetName
+  street_name: MAKARYCHEV ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 550
+  tag_type: StreetName
+  street_name: BLUM ST.
+  vehicle_name:
+  traffic_sign_type:
+
+- tag_id: 551
+  tag_type: StreetName
+  street_name: FURUI ST.
+  vehicle_name:
+  traffic_sign_type:

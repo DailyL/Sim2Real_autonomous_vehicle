@@ -1,0 +1,14 @@
+<launch>
+    <arg name="pkg_name" value="sensor_suite"/>
+    <arg name="node_name" default="encoder_node"/>
+
+    <arg name="veh" doc="Name of vehicle. ex: dbv2sentinel"/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman"/>
+
+
+    <group ns="$(arg veh)">
+        <node  name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+            <rosparam command="load" file="$(find sensor_suite)/config/$(arg node_name)/$(arg param_file_name).yaml"/>
+        </node>
+    </group>
+</launch>

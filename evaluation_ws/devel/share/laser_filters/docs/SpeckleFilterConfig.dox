@@ -1,0 +1,9 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~filter_type" : \b [int] Filtering method selection min: 0, default: 0, max: 1
+- \b "~max_range" : \b [double] Only ranges smaller than this range are taken into account min: 0.0, default: 2.0, max: 100.0
+- \b "~max_range_difference" : \b [double] Distance: max distance between consecutive points - RadiusOutlier: max distance between points min: 0.0, default: 0.4, max: 100.0
+- \b "~filter_window" : \b [int] Minimum number of neighbors min: 0, default: 4, max: 100
+

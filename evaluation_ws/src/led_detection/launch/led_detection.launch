@@ -1,0 +1,18 @@
+<launch>
+	<arg name="pkg_name" value="led_detection"/>
+	<arg name="node_name" value="led_detector_node"/>
+	<arg name="veh" doc="Name of vehicle. ex: megaman"/>
+	<arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman"/>
+
+	<arg name="verbose" default="0" doc="0: Low, 1: Publish detection images and timings, 2: Publish debug info"/>
+
+    <!-- Run detector node -->
+    <group ns="$(arg veh)">
+
+        <node  pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen" required="true">
+		    <rosparam command="load" file="$(find duckietown_protocols)/config/LED_protocol.yaml"/>
+		    <rosparam command="load" file="$(find led_detection)/config/led_detector_node/$(arg param_file_name).yaml"/>
+			<param name="verbose" value="$(arg verbose)"/>
+	    </node>
+    </group>
+</launch>

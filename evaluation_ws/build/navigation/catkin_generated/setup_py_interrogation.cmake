@@ -1,0 +1,7 @@
+set(navigation_SETUP_PY_SETUP_MODULE "distutils.core")
+set(navigation_SETUP_PY_VERSION "1.0.0")
+set(navigation_SETUP_PY_SCRIPTS "")
+set(navigation_SETUP_PY_PACKAGES "navigation;rqt_navigation")
+set(navigation_SETUP_PY_PACKAGE_DIRS "include/navigation;include/rqt_navigation")
+set(navigation_SETUP_PY_MODULES "")
+set(navigation_SETUP_PY_MODULE_DIRS "")

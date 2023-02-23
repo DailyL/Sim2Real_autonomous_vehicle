@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/devel
+
+Name: duckietown_protocols
+Description: Description of duckietown_protocols
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,21 @@
+<launch>
+    <arg name="veh" default="oreo" doc="Name of vehicle. ex: megaman"/>
+    <arg name="config" default="baseline" doc="Specify a config."/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+    <!-- <arg name="testing" default="false" doc="using for test purposes." /> -->
+
+    <arg name="pkg_name" value="indefinite_navigation"/>
+    <arg name="node_name" default="detector"/>
+
+    <group ns="$(arg veh)">  
+        <node  name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+            <remap from="~image_compressed" to="/$(arg veh)/camera_node/image/compressed"/> 
+        </node>
+    </group>
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+
+    
+</launch>

@@ -1,0 +1,7 @@
+set(easy_logs_SETUP_PY_SETUP_MODULE "distutils.core")
+set(easy_logs_SETUP_PY_VERSION "1.0.0")
+set(easy_logs_SETUP_PY_SCRIPTS "")
+set(easy_logs_SETUP_PY_PACKAGES "easy_logs;easy_logs_tests")
+set(easy_logs_SETUP_PY_PACKAGE_DIRS "include/easy_logs;include/easy_logs_tests")
+set(easy_logs_SETUP_PY_MODULES "")
+set(easy_logs_SETUP_PY_MODULE_DIRS "")

@@ -1,0 +1,3 @@
+description: Shows the topics in the bag.
+constructor: easy_regression.ShowTopics
+parameters: {}

@@ -1,0 +1,8 @@
+prefix=/home/dianzhao/real_duckie_catkin_ws/install
+
+Name: easy_logs
+Description: Description of easy_logs
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

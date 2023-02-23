@@ -1,0 +1,17 @@
+<launch>
+    <arg name="veh" doc="Specify a vehicle name" default = "david"/>
+    <arg name="name" doc="Specify a sensor name, ex: `front_center`" default = "front_left"/>
+
+    <arg name="pkg_name" value="tof_driver_2"/>
+    <arg name="node_name" value="tof_node"/>
+    <arg name="required" default="false"/>
+
+    <group ns="$(arg veh)">
+        <node pkg="$(arg pkg_name)" name="$(arg name)_tof_driver_node" type="$(arg node_name).py"
+              output="screen" required="$(arg required)">
+            <param name="veh" value="$(arg veh)" />
+            <rosparam command="load"
+                      file="$(find tof_driver_2)/config/$(arg node_name)/$(arg name).yaml"/>
+        </node>
+    </group>
+</launch>

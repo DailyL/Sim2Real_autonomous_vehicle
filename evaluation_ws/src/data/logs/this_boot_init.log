@@ -1,0 +1,32 @@
++ echo 'Setting up the robot for this boot...'
+Setting up the robot for this boot...
++ cp /etc/avahi/services/dt.booting.service.disabled /etc/avahi/services/dt.booting.service
++ setup_etc_hosts
++ cat
+++ cat /etc/hostname
+++ cat /etc/hostname
++ dt-init-any-boot
++ rm -f /etc/avahi/services/dt.booting.service
++ '[' 0 -le 0 ']'
++ '[' -f /data/config/robot_type ']'
+++ cat /data/config/robot_type
++ ROBOT_TYPE=duckiebot
++ '[' 0 -le 0 ']'
++ '[' -f /data/config/robot_hardware ']'
+++ cat /data/config/robot_hardware
++ ROBOT_HARDWARE=jetson_nano
++ '[' duckiebot == duckiebot ']'
++ '[' jetson_nano == jetson_nano ']'
++ pin=gpio149
++ echo 149
++ echo out
++ echo 1
++ echo 149
++ dt-serve-triggers
++ store_event boot
++ type=boot
+++ date +%s%N
++ now=1651593405381967443
++ echo '{"type": "boot", "stamp": 1651593405381967443}'
++ echo 'Setting up completed!'
+Setting up completed!

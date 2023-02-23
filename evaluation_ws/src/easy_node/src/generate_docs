@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+# @create-shortcut-for-this
+
+import duckietown_code_utils as dtu
+from easy_node.node_description.doc_generation import generate_easy_node_docs
+
+if __name__ == "__main__":
+    dtu.wrap_script_entry_point(generate_easy_node_docs)

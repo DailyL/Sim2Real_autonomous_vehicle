@@ -1,0 +1,19 @@
+<launch>
+    <arg name="veh" doc="Specify a vehicle name"/>
+
+    <arg name="pkg_name" value="display_renderers"/>
+    <arg name="node_name" value="health_renderer_node"/>
+    <arg name="required" default="false"/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman"/>
+
+    <group ns="$(arg veh)">
+        <remap from="$(arg node_name)/fragments" to="display_driver_node/fragments"/>
+        <node pkg="$(arg pkg_name)" name="$(arg node_name)" type="$(arg node_name).py"
+              output="screen" required="$(arg required)">
+            <param name="veh" value="$(arg veh)" />
+            <param name="assets_dir" value="$(find duckiebot_interface)/images" />
+            <rosparam command="load"
+                      file="$(find display_renderers)/config/$(arg node_name)/$(arg param_file_name).yaml"/>
+        </node>
+    </group>
+</launch>

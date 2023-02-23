@@ -1,0 +1,28 @@
+<launch>
+    <arg name="pkg_name" value="explicit_coordinator"/>
+    <arg name="node_name" default="coordinator_node"/>
+    <arg name="src_name" value="coordinator_node.py"/>
+    <arg name="verbose" default="false" />
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="config" default="baseline" doc="Specify a config."/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+
+    <arg name="intersectionType" default="trafficLight" />
+    <arg name="use_priority_protocol" default="true" />
+
+    <!-- Run coordination node -->
+    <group ns="$(arg veh)">
+
+        <node  name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg src_name)" output="screen" required="true">
+            <!-- <rosparam command="load" file="$(find duckietown)/config/$(arg config)/explicit_coordination/$(arg node_name)/$(arg param_file_name).yaml"/> -->
+            <param name="verbose" value="$(arg verbose)"/>
+            <param name="intersectionType" value="$(arg intersectionType)"/>
+            <param name="use_priority_protocol" value="$(arg use_priority_protocol)"/>
+        </node>
+    </group>
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+
+</launch>

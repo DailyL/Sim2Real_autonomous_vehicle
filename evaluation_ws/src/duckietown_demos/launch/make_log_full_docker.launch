@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="veh"/>
+  <arg name="out_path" default="/data/logs"/>
+
+  <node pkg="rosbag" type="record" name="rosbag_record" args="-a -o $(arg out_path)/$(arg veh)"/>
+
+</launch>

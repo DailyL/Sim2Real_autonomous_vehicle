@@ -1,0 +1,84 @@
+description: |
+    **fsm_node**
+    
+    
+    This node handles the state transitions based on the defined state transition events. Below is a summary of the basic functionality of the `fsm_node`.
+    
+    * Each state is a mode that the Duckiebot can be in
+    * Each state has corresponding state transitions triggered by events
+    * Each event is triggered by a certain value of a certain topic message
+    * In each state, certain nodes are active
+    * Each node affected by the state machine can be switched active/inactive by a `~/switch` topic
+    
+    The current state is published to the `fsm_node/mode` topic. For each state, there is a list of nodes which should be active, which are switched by means of `node_name/switch` topics.
+
+    The FSM node publishes on many topics according to the configuration:
+
+        for node_name, topic_name in nodes.items():
+            self.pub_dict[node_name] = rospy.Publisher(topic_name, BoolStamped, ...)
+    
+    where `nodes.items()` is a list of all nodes affected by the FSM, and the `topic_name` is `node_name/switch`. The relevant nodes then subscribe to `~/switch`, and toggle their behaviour based on the value of the switch. Nodes can also subscribe to the `fsm_node/mode` topic if they need to change their behaviour based on the state. An example of how a node named `ExampleNode` can handle this is shown below:
+
+        class ExampleNode(object):
+            def \__init\__(self):
+            ...
+            self.sub_switch = rospy.Subscriber("~switch",BoolStamped, self.cbSwitch, queue_size=1)
+            self.sub_fsm_mode = rospy.Subscriber("fsm_node/mode",FSMState, self.cbMode, queue_size=1)
+            self.active = True
+            self.mode = None
+
+            def cbSwitch(self,switch_msg):
+                self.active = switch_msg.data # True or False
+
+            def cbMode(self,switch_msg):
+                self.mode = switch_msg.state # String of current FSM state
+
+            def someOtherFunc(self, msg):
+                if not self.active:
+                    return
+                # else normal functionality
+                ...
+                if self.mode == "LANE_FOLLOWING":
+                    ...
+                if self.mode == "INTERSECTION_CONTROL":
+                    ...
+parameters:
+    states:
+        desc: States are the modes that the system can be in. Each state has corresponding events (which trigger transitions to specific states), as well as a list of active nodes in the current state.
+        type: dict
+        default: {}
+    nodes:
+        desc: These are the nodes which are affected by the FSM, and also define the `~/switch` topics to switch them between active and inactive.
+        type: dict
+        default: {}
+    global_transitions:
+        desc: These are the state transition events (and corresponding topic) that can be triggered from all states.
+        type: dict
+        default: {}
+    initial_state:
+        desc: This is the initial state that the FSM will be in upon launch of the node.
+        type: str
+        default: 'LANE_FOLLOWING'
+    events:
+        desc: These are the events and the corresponding topics (and message values) which trigger them, which allow for transitions between states.
+        type: dict
+        default: {}
+
+subscriptions: {}
+
+publishers:
+    mode:
+        desc: This topic gives the current state of the FSM, and can have values from a set of strings indicating the possible state names.
+        topic: ~mode
+        type: duckietown_msgs/FSMState
+        queue_size: 1
+        latch: true
+
+contracts: {}
+
+# We don't support services yet.
+# TODO: add when done
+# services:
+#     set_state:
+#         topic: ~set_state
+#         type: duckietown_msgs/SetFSMState

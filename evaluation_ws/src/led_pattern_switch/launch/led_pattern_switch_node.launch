@@ -1,0 +1,12 @@
+<launch>
+    <arg name="veh"/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman"/>
+
+    <arg name="pkg_name" value="led_pattern_switch" doc="name of the package"/>
+    <arg name="node_name" default="led_pattern_switch_node" doc="name of the node"/>
+    <group ns="$(arg veh)">
+        <node  pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen">
+            <rosparam command="load" file="$(find led_pattern_switch)/config/$(arg node_name)/$(arg param_file_name).yaml"/>
+        </node>
+    </group>
+</launch>

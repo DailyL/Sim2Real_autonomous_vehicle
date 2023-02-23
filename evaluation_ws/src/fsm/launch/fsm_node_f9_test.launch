@@ -1,0 +1,17 @@
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="config" default="baseline" doc="Specify a config."/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman. Note that you will need a megaman.yaml in the config folder for every node you are launching. To test with only one megaman.yaml, the recommendation is to set this to default and then manually change the desired param file in the approprate rosparam tag below"/> 
+
+    <!-- intersection control -->
+    <node ns="$(arg veh)"  pkg="fsm" type="fsm_node.py" name="fsm_node" output="screen">
+        <remap from="~object_too_close" to="/$(arg veh)/obstacle_safety_node/object_too_close"/>
+        <rosparam command="load" file="$(find duckietown)/config/$(arg config)/fsm/fsm/$(arg param_file_name).yaml"/>
+    </node>
+
+    <!-- Publicaitons -->
+
+    <!-- Subscriptions -->
+
+    
+</launch>

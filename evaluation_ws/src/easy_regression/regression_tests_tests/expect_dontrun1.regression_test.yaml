@@ -1,0 +1,16 @@
+description: >
+    A regression test that fails abnormally because
+    the logs do not exist.
+
+constructor: easy_regression.RegressionTest
+parameters:
+    logs:
+    - NOT-existing
+    processors: []
+    analyzers:
+    - count_messages
+
+    checks:
+    - desc: The number of messages read should remain the same.
+      cond: |
+        v:count_messages/all/num_messages == 16202

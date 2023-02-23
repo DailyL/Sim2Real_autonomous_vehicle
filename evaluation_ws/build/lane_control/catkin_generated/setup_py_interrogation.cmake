@@ -1,0 +1,7 @@
+set(lane_control_SETUP_PY_SETUP_MODULE "distutils.core")
+set(lane_control_SETUP_PY_VERSION "1.0.0")
+set(lane_control_SETUP_PY_SCRIPTS "")
+set(lane_control_SETUP_PY_PACKAGES "lane_controller")
+set(lane_control_SETUP_PY_PACKAGE_DIRS "include/lane_controller")
+set(lane_control_SETUP_PY_MODULES "")
+set(lane_control_SETUP_PY_MODULE_DIRS "")

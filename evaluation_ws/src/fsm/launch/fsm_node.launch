@@ -1,0 +1,17 @@
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="param_file_name" default="default"/>
+    <arg name="pkg_name" default="fsm"/>
+    <arg name="node_name" default="fsm_node"/>
+
+
+    <!-- intersection control -->
+    <node ns="$(arg veh)"  pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen" required="true">
+        <rosparam command="load" file="$(find fsm)/config/fsm_node/$(arg param_file_name).yaml"/>
+    </node>
+
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+</launch>

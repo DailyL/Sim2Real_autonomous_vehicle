@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="veh" default="david" doc="Name of vehicle. ex: megaman"/>
+	
+	
+	<!-- Spawn the follower car with control node -->
+        <include file="$(find duckietown_demos)/launch/lane_following_real.launch">
+        <arg name="veh" default="david"/>
+  	</include>
+
+	<remap from="~cmd" to="/$(arg veh)/joy_mapper_node/car_cmd"/>
+	<remap from="~lane_pose" to="/$(arg veh)/lane_filter_node/lane_pose"/>
+	<remap from="~range" to="/$(arg veh)/front_center_tof_driver_node/range"/>
+	<remap from="~range2" to="/$(arg veh)/front_left_tof_driver_node/range"/>
+	<remap from="~range3" to="/$(arg veh)/right_tof_driver_node/range"/>
+	<remap from="~pub_cmd" to="/$(arg veh)/joy_mapper_node/car_cmd"/>
+	<remap from="~cmd_exec" to="/$(arg veh)/kinematics_node/velocity"/>
+	<remap from="~scan" to="/scan"/>
+	<node name="rl_lane_following_node" pkg="rl_duckietown" type="visualize_continuous_duckie_overtaking.py" output="screen" clear_params="true" required="true">
+	</node>
+
+
+</launch>	

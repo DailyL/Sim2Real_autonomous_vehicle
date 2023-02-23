@@ -1,0 +1,10 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~lower_threshold" : \b [double] Intensity values lower than this value will be filtered min: 0.0, default: 8000.0, max: 100000.0
+- \b "~upper_threshold" : \b [double] Intensity values greater than this value will be filtered min: 0.0, default: 100000.0, max: 100000.0
+- \b "~invert" : \b [bool] A Boolean to invert the filter min: False, default: False, max: True
+- \b "~filter_override_range" : \b [bool] Whether to set the filtered laser beam ranges to NaN min: False, default: True, max: True
+- \b "~filter_override_intensity" : \b [bool] Whether to set the filtered and non-filtered laser beam intensities to 0.0 and 1.0 respectively min: False, default: False, max: True
+

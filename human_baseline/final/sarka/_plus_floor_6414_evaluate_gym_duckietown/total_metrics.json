@@ -1,0 +1,69 @@
+{
+  "median_totals": {
+    "deviation-heading": 8.040660028983902,
+    "in-drivable-lane": 25.066666666666674,
+    "deviation-center-line": 1.7809487216211424,
+    "driving-distance": 7.160700984664359,
+    "driving-distance-consecutive": 6.237608529774341,
+    "survival_time": 50.233333333333036,
+    "distance-from-start": 3.65867388190933
+  },
+  "mean_totals": {
+    "deviation-heading": 7.481525542637129,
+    "in-drivable-lane": 23.077777777777555,
+    "deviation-center-line": 1.4240084353539828,
+    "driving-distance": 10.723330730157016,
+    "driving-distance-consecutive": 4.886921553674886,
+    "survival_time": 39.35555555555516,
+    "distance-from-start": 3.337681743041319
+  },
+  "stdev_totals": {
+    "deviation-heading": 4.932354527231839,
+    "in-drivable-lane": 13.017661317334738,
+    "deviation-center-line": 0.9670132303550778,
+    "driving-distance": 9.329741692005332,
+    "driving-distance-consecutive": 3.3027582798470454,
+    "survival_time": 22.64339219014081,
+    "distance-from-start": 0.4979946524068959
+  },
+  "episode_totals": {
+    "deviation-heading": [
+      13.223395689579988,
+      8.040660028983902,
+      1.1805209093474989
+    ],
+    "in-drivable-lane": [
+      25.066666666666674,
+      37.933333333332676,
+      6.2333333333333165
+    ],
+    "deviation-center-line": [
+      2.388830514511923,
+      1.7809487216211424,
+      0.10224606992888277
+    ],
+    "driving-distance": [
+      18.61831911249244,
+      6.237608529774341,
+      27.33725318382899,
+      8.083793439554379,
+      3.723647423596017,
+      0.3393626916959389
+    ],
+    "driving-distance-consecutive": [
+      6.237608529774341,
+      8.083793439554379,
+      0.3393626916959389
+    ],
+    "survival_time": [
+      50.233333333333036,
+      59.99999999999915,
+      7.833333333333315
+    ],
+    "distance-from-start": [
+      3.720067839300296,
+      3.65867388190933,
+      2.634303507914332
+    ]
+  }
+}

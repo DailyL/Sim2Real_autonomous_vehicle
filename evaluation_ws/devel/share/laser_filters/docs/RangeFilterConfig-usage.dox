@@ -1,0 +1,11 @@
+\subsubsection usage Usage
+\verbatim
+<node name="laser_filters" pkg="laser_filters" type="laser_filters">
+  <param name="lower_threshold" type="double" value="0.0" />
+  <param name="upper_threshold" type="double" value="100000.0" />
+  <param name="use_message_range_limits" type="bool" value="False" />
+  <param name="lower_replacement_value" type="double" value="0.0" />
+  <param name="upper_replacement_value" type="double" value="100000.0" />
+</node>
+\endverbatim
+

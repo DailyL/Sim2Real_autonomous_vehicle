@@ -1,0 +1,17 @@
+description: |
+    A regression test that should fail because the numebr is wrong
+
+constructor: easy_regression.RegressionTest
+parameters:
+    logs:
+    - 2016-04-29-dp3auto-neptunus-1
+    processors: []
+    analyzers:
+    - count_messages
+
+    checks:
+    - desc: The number of messages read should remain the same.
+      cond: |
+        v:count_messages/2016-04-29-dp3auto-neptunus-1/num_messages == 16202
+        v:count_messages/all/num_messages == 16201
+# fails because wrong

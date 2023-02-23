@@ -1,0 +1,12 @@
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="standalone" default="false"/>
+    
+    <include unless="$(arg standalone)" file="$(find duckietown)/launch/kinematics_calibration.launch">
+        <arg name="veh" value="$(arg veh)"/>
+    </include>
+
+    <test test-name="kinematics_test_node" pkg="indefinite_navigation" type="test_kinematics.py">
+    	  <param name="veh" value="$(arg veh)" />
+    </test>
+</launch>   

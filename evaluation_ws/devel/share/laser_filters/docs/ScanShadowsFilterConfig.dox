@@ -1,0 +1,10 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~min_angle" : \b [double] Minimum perpendicular angle min: 0.0, default: 10.0, max: 360.0
+- \b "~max_angle" : \b [double] Maximum perpendicular angle min: 0.0, default: 170.0, max: 360.0
+- \b "~window" : \b [int] Number of consecutive measurements to consider angles inside of min: 0, default: 1, max: 100
+- \b "~neighbors" : \b [int] Number of further-away neighbors to remove min: 0, default: 20, max: 100
+- \b "~remove_shadow_start_point" : \b [bool] Whether to remove the shadow start point min: False, default: False, max: True
+

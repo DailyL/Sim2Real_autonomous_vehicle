@@ -1,0 +1,21 @@
+<launch>
+    <arg name="veh" default="pontiac" doc="Name of vehicle. ex: megaman"/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+    <!-- <arg name="testing" default="false" doc="using for test purposes." /> -->
+
+    <arg name="pkg_name" value="navigation"/>
+    <arg name="node_name" value="random_april_tag_turns_node"/>
+
+    <group ns="$(arg veh)">
+        <node  name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen" required="true">
+            <rosparam command="load" file="$(find navigation)/config/$(arg node_name)/$(arg param_file_name).yaml"/>
+        </node>
+
+    </group>
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+
+
+</launch>

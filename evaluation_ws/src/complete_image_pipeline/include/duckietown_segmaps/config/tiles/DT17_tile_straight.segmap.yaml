@@ -1,0 +1,10 @@
+description: Straight lane without stop
+constructor: duckietown_segmaps.get_map_straight_lane
+parameters:
+  tile_size: 0.558 # outer white to outer white
+  tile_spacing: 0.584
+  width_yellow: 0.024
+  width_white: 0.048
+  gap_len: 0.024
+  dash_len: 0.048
+  width_red: null # no red stop

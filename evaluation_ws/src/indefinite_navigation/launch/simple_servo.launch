@@ -1,0 +1,27 @@
+<launch>
+    <arg name="veh" default="oreo" doc="Name of vehicle. ex: megaman"/>
+    <arg name="config" default="baseline" doc="Specify a config."/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+    <!-- <arg name="testing" default="false" doc="using for test purposes." /> -->
+
+    <arg name="pkg_name" value="indefinite_navigation"/>
+    <arg name="node_name" default="simple_servo"/>
+
+    <group ns="$(arg veh)">        
+        <node  name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+            <!--For making sure that it runs with bag files locally, when launched by itself, comment out later when conforming to duckietown standards-->
+            <remap from="~image_compressed" to="/$(arg veh)/camera_node/image/compressed"/> 
+            <remap from="~ibvs" to="/$(arg veh)/detector/ibvs"/> 
+            <remap from="~wheels_cmd" to="/$(arg veh)/wheels_driver_node/wheels_cmd"/> 
+            <remap from="~lane_pose" to="/$(arg veh)/lane_filter_node/lane_pose"/> 
+            <remap from="~stop_line_reading" to="/$(arg veh)/stop_line_filter_node/stop_line_reading"/> 
+        </node>
+
+    </group>
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+
+    
+</launch>

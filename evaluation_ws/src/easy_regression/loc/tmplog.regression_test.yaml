@@ -1,0 +1,85 @@
+description: Localization
+constructor: easy_regression.RegressionTest
+parameters:
+    logs:
+    #- "yaf_ETHZ_2017-12-26-19-39-53/{:30}"
+
+    # - "tori_ETHZ_2017-12-22-17-18-41/{:30}"
+    - "tori_ETHZ_2017-12-22-17-18-41/{0:0.5}"
+    # - "yaf_ETHZ_2017-12-26-19-39-53/{5:6}"
+    processors:
+    - prefix_out: /baseline
+      processor:
+        baseline:
+            constructor: easy_regression.LocalizationPipelineProcessor
+            parameters:
+                line_detector: baseline
+                image_prep: baseline
+                lane_filter: baseline
+                anti_instagram: baseline
+
+
+    - prefix_out: /classic
+      processor:
+        classic:
+            constructor: easy_regression.LocalizationPipelineProcessor
+            parameters:
+                line_detector: baseline
+                image_prep: baseline
+                lane_filter: classic
+                anti_instagram: baseline
+
+
+    - prefix_out: /moregeneric_straight
+      processor:
+        moregeneric_straight:
+            constructor: easy_regression.LocalizationPipelineProcessor
+            parameters:
+                line_detector: baseline
+                image_prep: baseline
+                lane_filter: moregeneric_straight
+                anti_instagram: baseline
+
+
+    - processor:
+        plot_quality:
+            constructor: easy_regression.processors.stats_plotter.StatsPlotterFromYaml
+            parameters:
+                plot_name: /plot_quality
+                signals:
+                - topic: /classic/quality
+                  units: unitless
+                  units_display: unitless
+                  label: "Classic Liam"
+                  color: 'r'
+                  min: 0
+                  max: 1
+
+                - topic: /baseline/quality
+                  units: unitless
+                  units_display: unitless
+                  label: "Controllers"
+                  color: 'g'
+                  min: 0
+                  max: 1
+
+                - topic: /moregeneric_straight/quality
+                  units: unitless
+                  units_display: unitless
+                  label: "More generic (Andrea)"
+                  color: 'b'
+                  min: 0
+                  max: 1
+
+
+    analyzers: []
+
+    checks:  []
+
+    topic_videos:
+    - /classic/all
+    - /baseline/all
+    - /moregeneric_straight/all
+
+    topic_images:
+    - /plot_quality

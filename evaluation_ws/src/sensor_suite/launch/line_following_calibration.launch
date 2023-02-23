@@ -1,0 +1,12 @@
+<launch>
+    <arg name="pkg_name" value="sensor_suite"/>
+    <arg name="node_name" default="line_following_calibration_node"/>
+
+    <arg name="veh" default="$(env VEHICLE_NAME)"/>
+
+
+    <group ns="$(arg veh)">
+        <node  name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+        </node>
+    </group>
+</launch>
