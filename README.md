@@ -11,9 +11,9 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 ## System Requirments
 
 * Operating System: Ubuntu 20.04
-* Programming Language: Python 3.8
+* Programming Language: Python 3.6+
 * [Software Dependencies](/requirements.txt)
-* ROS (Noetic) 
+* [ROS (Noetic)](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
 
 ## Hardware
