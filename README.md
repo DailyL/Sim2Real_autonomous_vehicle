@@ -45,7 +45,7 @@ $ pip install -e .
 
 ## Train the lane following and overtaking agent
 
-First set up the [catkin work space](https://wiki.ros.org/catkin#Installing_catkin) for ROS package (training_ws)
+* First set up the [catkin work space](https://wiki.ros.org/catkin#Installing_catkin) for ROS package (training_ws)
 
 ```bash
 $ cd ~/training_ws/
