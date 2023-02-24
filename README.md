@@ -1,4 +1,4 @@
-# **[Robust Sim2Real transfer with deep reinforcement learning for Autonomous vehicles](https://dailyl.github.io/sim2realVehicle.github.io/)**
+# **Robust Sim2Real transfer with deep reinforcement learning for Autonomous vehicles**
 
 ## About the work
 
@@ -9,6 +9,7 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 </p>
 
 
+[Project website](https://dailyl.github.io/sim2realVehicle.github.io/)
 
 ## Table of Contents
 
@@ -162,7 +163,7 @@ The recored results are in `human_baseline/final/`
 
 #### Evaluation in real-world environment
 
-Evaluation in the real world requires [Hardware](#Hardware) and prior knowledge of [running ROS across multiple machines](http://wiki.ros.org/ROS/Tutorials/MultipleMachines)
+Evaluation in the real world requires [Hardware](#Hardware) and prior knowledge of [running ROS across multiple machines](http://wiki.ros.org/ROS/Tutorials/MultipleMachines).
 
 First, set up the IP address of your local machine and vehicle, you can check the set up in `.bashrc`:
 
@@ -174,7 +175,9 @@ export ROS_MASTER_URI = http://192.168.0.2:11311
 
 Then, open a terminal on your laptop and run `rostopic`  to check if you can access to  the topic published by the vehicle.
 
-If you succeefully seen the topic, you can start to evaluate the trained DRL agent with real-world vehicle with:
+Additional, if you also use RPlidar, you need to set up the [rplidar ros package](https://github.com/Slamtec/rplidar_ros) and [laser filters](https://github.com/ros-perception/laser_filters) to read the lidar info from rplidar.
+
+If you succeefully seen the topic `/scan`, you can start to evaluate the trained DRL agent with real-world vehicle with:
 
 ```bash
 $ roslaunch rl_duckietown overtaking_test.launch
