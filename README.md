@@ -17,7 +17,17 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 1. [Introduction](#About-the-work)
 2. [Prerequisites](#Prerequisites)
 3. [Installation](#Installation)
-4. [Design](#Train-the-lane-following-and-overtaking-agent)
+4. [Training](#Train-the-lane-following-and-overtaking-agent)
+	1. [Workspace setup](#Workspace-for-ROS-package)
+	2. [Train](#Training)
+		1. [Configuration files](#Configuration-files)
+		2. [Train](#Start-training)
+	3. [Evaluation](#Evaluation)
+		1. [Evaluation in Gym environment](#Evaluation-in-gym-environment)
+		2. [Evaluation in real-world environment](#Evaluation-in-real-world-environment)
+5. [Results](#Results)
+6. [Hardware](#Hardware)
+7. [Copyright](#Copyright)
 
 
 ## Prerequisites
@@ -55,7 +65,7 @@ $ pip install -e .
 ```
 
 
-## Train-the-lane-following-and-overtaking-agent
+## Train the lane following and overtaking agent
 
 ### Workspace for ROS package
 
