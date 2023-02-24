@@ -137,7 +137,29 @@ $ python human_baseline.py -p Dave -m 2 -t yes
 ```
 #### Evaluation in real-world environment
 
-Evaluation in real world requires [Hardware](#Hardware)
+Evaluation in the real world requires [Hardware](#Hardware) and prior knowledge of [running ROS across multiple machines](http://wiki.ros.org/ROS/Tutorials/MultipleMachines)
+
+First, set up the IP address of your local machine and vehicle, you can check the set up in `.bashrc`:
+
+```bash
+export ROS_HOSTNAME = 192.168.0.1
+export ROS_MASTER_URI = http://192.168.0.2:11311
+```
+`192.168.0.1` is the IP address of your LOCAL machine (laptop), and `192.168.0.2` is the IP address of vehicle.
+
+Then, open a terminal on your laptop and run `rostopic`  to check if you can access to  the topic published by the vehicle.
+
+If you succeefully seen the topic, you can start to evaluate the trained DRL agent with real-world vehicle.
+
+```bash
+$ roslaunch rl_duckietown overtaking_test.launch
+```
+
+
+
+
+
+
 
 ## Hardware
 For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
