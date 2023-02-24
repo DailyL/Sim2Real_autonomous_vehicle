@@ -1,4 +1,4 @@
-# *Robust Sim2Real transfer with deep reinforcement learning for Autonomous vehicles*
+# **Robust Sim2Real transfer with deep reinforcement learning for Autonomous vehicles**
 
 ## About the work
 
@@ -157,6 +157,9 @@ Test mode or record mode, if `yes`, enter traning mode without recording results
 ```bash
 $ python human_baseline.py -p Dave -m 2 -t yes
 ```
+The recored results are in `human_baseline/final/`
+
+
 #### Evaluation in real-world environment
 
 Evaluation in the real world requires [Hardware](#Hardware) and prior knowledge of [running ROS across multiple machines](http://wiki.ros.org/ROS/Tutorials/MultipleMachines)
