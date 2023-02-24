@@ -84,13 +84,13 @@ In this work,  `duckietown.json` is used as configuration file
 
 #### Start training 
 
-##### Training locally 
+* 1.Training locally 
 
 ```bash
 roslaunch rl_duckietown overtaking.launch 
 ```
 
-##### Training with Singularity container
+* 2.Training with Singularity container
 
 First build the container
 
