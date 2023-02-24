@@ -1,0 +1,107 @@
+Bootstrap: docker
+From: nvidia/cuda:11.6.0-base-ubuntu20.04
+
+%help
+    ROS-noetic container - Gazebo simulation - HKUST Swarm
+
+%labels
+    Version v0.0.1
+
+%setup
+    mkdir -p ${SINGULARITY_ROOFS}/ws/
+
+%files
+    /home/dianzhaoli/container/duckie_catkin_ws/src/ /ws/src
+%post
+
+    . /.singularity.d/env/10-docker*.sh
+    export DEBIAN_FRONTEND=noninteractive
+    export SINGULARITY_BIND="$Home/data/:${SINGULARITY_ROOFS}/ws/"
+    echo 'export LANG=C.UTF-8' >> $SINGULARITY_ENVIRONMENT
+    echo 'export LC_ALL=C.UTF-8' >> $SINGULARITY_ENVIRONMENT
+    . $SINGULARITY_ENVIRONMENT
+    
+    apt-get update
+    apt-get install -y locales lsb-release
+    
+    apt-get -y install tzdata
+    dpkg-reconfigure locales
+    
+    sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' 
+    apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+    apt-get update \
+    && apt-get install -y --no-install-recommends ros-noetic-desktop-full
+    apt-get install -y --no-install-recommends python3-rosdep
+    rosdep init \
+    && rosdep fix-permissions \
+    && rosdep update
+    
+    
+    
+    
+    apt update && apt install -y dbus && dbus-uuidgen > /var/lib/dbus/machine-id
+    apt-get update
+    
+    apt-get install -y python3-pip
+    apt-get install -y libopenmpi-dev\
+    nano\
+    xvfb\
+    x11-apps
+     
+    apt-get install -y --no-install-recommends python3
+    apt-get -y install git
+    apt install python-is-python3
+    apt-get install -y python3-tk
+    
+    pip install mpi4py
+    pip install future
+    # Torch
+    pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+
+    # Gym
+    pip install gym
+
+    # YAML
+    pip install pyyaml
+    
+    # MinAtar
+    git clone https://github.com/kenjyoung/MinAtar.git
+    pip install MinAtar/
+
+    # Pygame and PLE
+    pip install pygame
+    pip install git+https://github.com/ntasfi/PyGame-Learning-Environment.git
+    pip install git+https://github.com/qlan3/gym-games.git
+
+    # Install PyBullet
+    pip install pybullet
+    pip install git+https://github.com/benelot/pybullet-gym
+    
+    
+    pip install humanfriendly
+    pip install -U scikit-learn scipy matplotlib
+    pip install shapely
+    
+    pip install duckietown-utils-daffy
+    apt-get update
+    apt-get install -y x11-apps
+    
+    rm -rf /var/lib/apt/lists/*
+    . /opt/ros/noetic/setup.sh
+    cd /ws
+    rosdep init && rosdep update && rosdep install --from-path src --ignore-src -r -y
+    catkin_make
+    cd /ws/src/rl_duckietown/src
+    pip install -e .
+    
+%runscript
+     . /opt/ros/noetic/setup.sh
+     . /ws/devel/setup.sh
+     roslaunch rl_duckietown lane_following_only_follower_taurus.launch 
+
+%startscript
+     . /opt/ros/noetic/setup.sh
+     . /ws/devel/setup.sh
+#     echo "launch simulation"
+     roslaunch rl_duckietown lane_following_only_follower_taurus.launch 
+
