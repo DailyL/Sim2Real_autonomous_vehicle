@@ -90,7 +90,7 @@ In this work,  `duckietown.json` is used as configuration file
 roslaunch rl_duckietown overtaking.launch 
 ```
 
-**2.Training with Singularity container**
+**2. Training with Singularity container**
 
 First build the container
 
@@ -136,6 +136,8 @@ Test mode or record mode, if `yes`, enter traning mode without recording results
 $ python human_baseline.py -p Dave -m 2 -t yes
 ```
 #### Evaluation in real-world environment
+
+Evaluation in real world requires [Hardware](#Hardware)
 
 ## Hardware
 For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
