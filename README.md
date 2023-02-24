@@ -115,3 +115,7 @@ With advanced function, we update this Duckiebot with Lidar (RPLIDAR A1). If you
 How the LSTM-SAC agent trained in the simulation -> [Video](https://youtu.be/Ypl9kf5JDdM)
 
 How it looks like in real world application -> [Video](https://youtu.be/GUzUrxf70FM)
+
+## Copyright
+
+DRL package from [TUD_RL](https://github.com/DailyL/TUD_RL) and evaluation environment from [Duckietown project](https://github.com/duckietown/gym-duckietown/tree/master).
