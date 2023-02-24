@@ -21,7 +21,7 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 	1. [Workspace setup](#Workspace-for-ROS-package)
 	2. [Train](#Training)
 		1. [Configuration files](#Configuration-files)
-		2. [Train](#Start-training)
+		2. [Start training](#Start-training)
 	3. [Evaluation](#Evaluation)
 		1. [Evaluation in Gym environment](#Evaluation-in-gym-environment)
 		2. [Evaluation in real-world environment](#Evaluation-in-real-world-environment)
@@ -180,7 +180,10 @@ $ roslaunch rl_duckietown overtaking_test.launch
 
 
 
+## Results
+How the LSTM-SAC agent trained in the simulation -> [Video](https://youtu.be/Ypl9kf5JDdM)
 
+How it looks like in real world application -> [Video](https://youtu.be/GUzUrxf70FM)
 
 
 ## Hardware
@@ -188,10 +191,7 @@ For real world application, we use the DB21 Duckiebot from [Duckietown](https://
 
 With advanced function, we update this Duckiebot with Lidar (RPLIDAR A1). If you are also interested in update your duckiebot withe Lidar, please check this [Blog](https://www.hackster.io/shahizat005/building-a-map-using-lidar-with-ros-melodic-on-jetson-nano-2f92dd).
 
-## Results
-How the LSTM-SAC agent trained in the simulation -> [Video](https://youtu.be/Ypl9kf5JDdM)
 
-How it looks like in real world application -> [Video](https://youtu.be/GUzUrxf70FM)
 
 ## Copyright
 
