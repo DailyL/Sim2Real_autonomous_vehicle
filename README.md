@@ -110,19 +110,19 @@ Change the catkin workspace to `~/evaluation_ws/`
 
 #### Evaluation in gym environment
 
-With the weights in `/evaluation_ws/src/rl_duckietown/src/tud_rl/weights/`
+1. For DRL agent, with the weights in `/evaluation_ws/src/rl_duckietown/src/tud_rl/weights/`
 
 ```bash
 $ roalaunch rl_duckietown overtaking_in_gym_testing.launch
 ```
 
-For PID baseline
+2. For PID baseline
 
 ```bash
 $ roalaunch rl_duckietown overtaking_in_gym_testing_pid_baseline.launch
 ```
 
-For Human baseline run `python human_baseline.py` with following flags:
+3. For Human baseline run `python human_baseline.py` with following flags:
 
 ##### -p [--playername]
 ##### -m [--map number]
