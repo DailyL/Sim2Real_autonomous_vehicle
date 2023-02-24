@@ -11,7 +11,7 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 ## Prerequisites
 
 * Operating System: Ubuntu 20.04
-* Programming Language: Python 3.6+
+* Programming Language: Python 3.8+
 * [Software Dependencies](/requirements.txt)
 * [ROS (Noetic)](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
@@ -31,6 +31,20 @@ Install gym-duckietown:
 $ cd gym-duckietown/
 $ pip install -e .
 ```
+
+Install RL package:
+
+```bash
+$ cd training_ws/src/rl_duckietown/src/
+$ pip install -e .
+```
+or 
+```bash
+$ cd evaluation_ws/src/rl_duckietown/src/
+$ pip install -e .
+```
+
+
 
 ## Hardware
 For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
