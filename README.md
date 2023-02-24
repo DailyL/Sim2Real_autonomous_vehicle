@@ -13,7 +13,7 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 * Operating System: Ubuntu 20.04
 * Programming Language: Python 3.8+
 * [Software Dependencies](/requirements.txt)
-* [ROS (Noetic)](http://wiki.ros.org/noetic/Installation/Ubuntu)
+* [ROS (Noetic)](http://wiki.ros.org/noetic/Installation/Ubuntu) with Gazebo
 * [Singularity](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html#) for training agents with container
 
 
@@ -45,6 +45,32 @@ $ pip install -e .
 
 ## Train the lane following and overtaking agent
 
+First set up the [catkin work space](https://wiki.ros.org/catkin#Installing_catkin) for ROS package (training_ws)
+
+```bash
+$ cd ~/training_ws/
+$ catkin_make
+```
+
+source your new setup.sh file:
+
+```bash
+$ source devel/setup.bash
+```
+
+Make sure ROS_PACKAGE_PATH environment variable includes the directory you're in.
+
+
+```bash
+$ echo $ROS_PACKAGE_PATH
+/home/youruser/training_ws/src:/opt/ros/noetic/share
+```
+
+Alternatively, set your workspace permanently, open your .bashrc file in a text editor, for example `gedit ~/.bashrc` and add
+
+```bash
+export ROS_PACKAGE_PATH=/your/path/to/workspace:$ROS_PACKAGE_PATH
+```
 
 
 
