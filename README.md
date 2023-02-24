@@ -1,12 +1,24 @@
 # *Robust Sim2Real transfer with deep reinforcement learning for Autonomous vehicles*
 
-## About the work
+## About-the-work
 
 Deep Reinforcement Learning (DRL) has provided inspiring solutions to various complex tasks in different research fields, but the application of DRL agents to the real world is still a challenge due to the established discrepancies between the simulation and the real world. In this work, we propose a robust DRL framework that uses task-relevant information from the platform-dependent perception module and trains a lane following and overtaking agent in the simulation. Afterward, the DRL agent can be transferred to another simulated environment as well as the real-world environment effectively with minimal effort. For evaluation, different driving scenarios in the evaluation simulator and real-world environment are designed to assess the lane following and overtaking capabilities of the DRL agent. Furthermore, the proposed agent is compared with human players and the PID baseline in the simulation. With the proposed framework, the gaps between different platforms as well as the sim2real gap are narrowed, thus, the trained agent can drive the vehicle with similar performance in simulation and its real counterpart.
 
 <p align = "center">
 <img src="/assets/overall_system_hor.jpg" width="600">
 </p>
+
+
+
+## Table of Contents
+
+
+
+1. [Introduction](#About-the-work)
+2. [Prerequisites](#Prerequisites)
+3. [Installation](#Installation)
+4. [Design](#Train-the-lane-following-and-overtaking-agent)
+
 
 ## Prerequisites
 
@@ -43,7 +55,7 @@ $ pip install -e .
 ```
 
 
-## Train the lane following and overtaking agent
+## Train-the-lane-following-and-overtaking-agent
 
 ### Workspace for ROS package
 
@@ -149,7 +161,7 @@ export ROS_MASTER_URI = http://192.168.0.2:11311
 
 Then, open a terminal on your laptop and run `rostopic`  to check if you can access to  the topic published by the vehicle.
 
-If you succeefully seen the topic, you can start to evaluate the trained DRL agent with real-world vehicle.
+If you succeefully seen the topic, you can start to evaluate the trained DRL agent with real-world vehicle with:
 
 ```bash
 $ roslaunch rl_duckietown overtaking_test.launch
