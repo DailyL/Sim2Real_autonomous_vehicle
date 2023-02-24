@@ -188,7 +188,7 @@ $ roslaunch rl_duckietown overtaking_test.launch
 
 ## Results
 
-The results for evluation in simulation and real world is on the [website](https://dailyl.github.io/sim2realVehicle.github.io/).
+The results (videos and tables) for evluation in simulation and real world is on the [website](https://dailyl.github.io/sim2realVehicle.github.io/).
 
 ## Hardware
 For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
