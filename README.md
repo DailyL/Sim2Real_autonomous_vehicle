@@ -14,6 +14,7 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 * Programming Language: Python 3.8+
 * [Software Dependencies](/requirements.txt)
 * [ROS (Noetic)](http://wiki.ros.org/noetic/Installation/Ubuntu)
+* [Singularity](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html#) for training agents with container
 
 
 ## Installation
@@ -26,14 +27,11 @@ $ git clone https://github.com/DailyL/Sim2Real_autonomous_vehicle.git
 ```
 
 Install gym-duckietown:
-
 ```bash
 $ cd gym-duckietown/
 $ pip install -e .
 ```
-
 Install RL package:
-
 ```bash
 $ cd training_ws/src/rl_duckietown/src/
 $ pip install -e .
@@ -43,6 +41,11 @@ or
 $ cd evaluation_ws/src/rl_duckietown/src/
 $ pip install -e .
 ```
+
+
+## Train the lane following and overtaking agent
+
+
 
 
 
