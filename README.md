@@ -130,6 +130,11 @@ There are 5 different maps (1-5)
 ##### -t [--test]
 Test mode or record mode, if `yes`, enter traning mode without recording results; if `no`, enter recording mode.
 
+#### Example:
+
+```bash
+$ python human_baseline.py -p Dave -m 2 -t yes
+```
 #### Evaluation in real-world environment
 
 ## Hardware
