@@ -187,10 +187,8 @@ $ roslaunch rl_duckietown overtaking_test.launch
 
 
 ## Results
-How the LSTM-SAC agent trained in the simulation -> [Video](https://youtu.be/Ypl9kf5JDdM)
 
-How it looks like in real world application -> [Video](https://youtu.be/GUzUrxf70FM)
-
+The results for evluation in simulation and real world is on the [website](https://dailyl.github.io/sim2realVehicle.github.io/).
 
 ## Hardware
 For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
