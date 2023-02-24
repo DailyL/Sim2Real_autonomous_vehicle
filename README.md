@@ -18,7 +18,19 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 
 ## Installation
 
+To run the training process or evaluation process, following set up should be installed:
 
+
+```bash
+$ git clone https://github.com/DailyL/Sim2Real_autonomous_vehicle.git
+```
+
+Install gym-duckietown:
+
+```bash
+$ cd gym-duckietown/
+$ pip install -e .
+```
 
 ## Hardware
 For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
