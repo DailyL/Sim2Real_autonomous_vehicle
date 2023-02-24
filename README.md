@@ -14,7 +14,7 @@ Deep Reinforcement Learning (DRL) has provided inspiring solutions to various co
 * Programming Language: Python 3.8+
 * [Software Dependencies](/requirements.txt)
 * [ROS (Noetic)](http://wiki.ros.org/noetic/Installation/Ubuntu) with Gazebo
-* [Singularity](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html#) for training agents with container
+* [Singularity](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html#) for training agents with container, you can also check the instruction from [ZIH TU Dresden](https://doc.zih.tu-dresden.de/software/containers/) 
 
 
 ## Installation
@@ -82,10 +82,26 @@ You can specify your training configuration .yaml file and place it in one of th
 
 In this work,  `duckietown.json` is used as configuration file
 
+#### Start training 
 
+##### Training locally 
 
 ```bash
-export ROS_PACKAGE_PATH=/your/path/to/workspace:$ROS_PACKAGE_PATH
+roslaunch rl_duckietown overtaking.launch 
+```
+
+##### Training with Singularity container
+
+First build the container
+
+```bash
+$ sudo singularity build container.sif container.def
+```
+
+And run the training process with container
+
+```bash
+$ singularity run container.sif
 ```
 
 
