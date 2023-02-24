@@ -74,6 +74,19 @@ Alternatively, set your workspace permanently, open your .bashrc file in a text 
 export ROS_PACKAGE_PATH=/your/path/to/workspace:$ROS_PACKAGE_PATH
 ```
 
+### Training 
+
+#### Configuration files
+
+You can specify your training configuration .yaml file and place it in one of the two folders in `training_ws/src/rl_duckietown/src/tud_rl/configs/` depending on the type of action space (discrete, continuous).
+
+In this work,  `duckietown.json` is used as configuration file
+
+
+
+```bash
+export ROS_PACKAGE_PATH=/your/path/to/workspace:$ROS_PACKAGE_PATH
+```
 
 
 
