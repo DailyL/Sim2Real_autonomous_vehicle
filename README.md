@@ -1,4 +1,4 @@
-# **Robust Sim2Real transfer with deep reinforcement learning for Autonomous vehicles**
+# **A Platform-Agnostic Deep Reinforcement Learning Framework for Effective Sim2Real Transfer in Autonomous Driving**
 
 ## About the work
 
