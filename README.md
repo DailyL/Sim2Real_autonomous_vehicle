@@ -9,7 +9,8 @@ Deep Reinforcement Learning (DRL) has shown remarkable success in solving comple
 </p>
 
 
-[Project website](https://dailyl.github.io/sim2realVehicle.github.io/)   [Paper](https://arxiv.org/abs/2304.08235)
+[Project website](https://dailyl.github.io/sim2realVehicle.github.io/)   
+[Paper](https://arxiv.org/abs/2304.08235)
 
 ## Table of Contents
 
