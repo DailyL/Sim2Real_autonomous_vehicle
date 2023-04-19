@@ -1,35 +1,0 @@
-Final score for map  Normal 1 :62.156868 
-With 
-Survival Time: 60.000000  
-Traveled distance: 25.475620  
-Lateral deviation: 4.378956  
-Orientation deviation: 11.479592  
-Major infractions: 8.800000  
-Final score for map  Normal 2 :76.478645 
-With 
-Survival Time: 60.000000  
-Traveled distance: 28.752334 
-Lateral deviation: 4.137370 
-Orientation deviation: 12.572639 
-Major infractions: 1.233333  
-Final score for map  _plus_floor :79.279622 
-With 
-Survival Time: 60.000000 
-Traveled distance: 30.070660 
-Lateral deviation: 3.749064  
-Orientation deviation: 10.883947  
-Major infractions: 1.066667  
-Final score for map  zigzag :78.950638 
-With 
-Survival Time: 60.000000  
-Traveled distance: 29.238012  
-Lateral deviation: 3.298406  
-Orientation deviation: 11.577934  
-Major infractions: 0.800000  
-Final score for map  v floor :79.261949 
-With 
-Survival Time: 60.000000  
-Traveled distance: 28.629833  
-Lateral deviation: 3.213039  
-Orientation deviation: 12.309689 
-Major infractions: 0.000000  
