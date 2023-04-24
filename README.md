@@ -201,3 +201,19 @@ With advanced function, we update this Duckiebot with Lidar (RPLIDAR A1). If you
 ## Copyright
 
 DRL package from [TUD_RL](https://github.com/DailyL/TUD_RL) and evaluation environment from [Duckietown project](https://github.com/duckietown/gym-duckietown/tree/master).
+
+
+Citation of this work:
+
+```bibtex
+@article{li2023platform,
+  title={A Platform-Agnostic Deep Reinforcement Learning Framework for Effective Sim2Real Transfer in Autonomous Driving},
+  author={Li, Dianzhao and Okhrin, Ostap},
+  journal={arXiv preprint arXiv:2304.08235},
+  year={2023}
+}
+```
+
+
+
+
