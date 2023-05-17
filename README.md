@@ -21,7 +21,7 @@ To achieve fully autonomous driving, vehicles must be capable of continuously pe
 
  
 [Paper](https://arxiv.org/abs/2304.08235)
-
+[Videos]([https://arxiv.org/abs/2304.08235](https://youtube.com/playlist?list=PLdRGvIlqDbozcdQcmgRj8Mnf-sBwx01yK))
 ## Table of Contents
 
 
