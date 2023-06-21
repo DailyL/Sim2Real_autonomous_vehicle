@@ -223,6 +223,13 @@ Citation of this work:
   journal={arXiv preprint arXiv:2304.08235},
   year={2023}
 }
+
+@article{li2023vision,
+  title={Vision-based DRL Autonomous Driving Agent with Sim2Real Transfer},
+  author={Li, Dianzhao and Okhrin, Ostap},
+  journal={arXiv preprint arXiv:2305.11589},
+  year={2023}
+}
 ```
 
 
