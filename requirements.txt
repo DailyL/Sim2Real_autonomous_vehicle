@@ -13,7 +13,7 @@ aiohttp==3.6.2
 base58==1.0.3
 cloudpickle==1.2.2
 GPUtil==1.4.0
-grpcio==1.27.2
+grpcio==1.53.0
 ray[rllib]==0.8.2
 ray[debug]==0.8.2
 pandas==1.0.1
