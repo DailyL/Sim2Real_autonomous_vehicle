@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/devel
-
-Name: hector_geotiff_launch
-Description: Description of hector_geotiff_launch
-Version: 0.5.2
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

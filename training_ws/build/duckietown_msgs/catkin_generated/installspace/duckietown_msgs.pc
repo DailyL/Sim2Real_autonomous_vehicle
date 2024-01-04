@@ -1,8 +1,0 @@
-prefix=/home/dianzhaoli/duckie_catkin_ws/install
-
-Name: duckietown_msgs
-Description: Description of duckietown_msgs
-Version: 1.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: geometry_msgs roscpp rospy sensor_msgs std_msgs message_runtime visualization_msgs

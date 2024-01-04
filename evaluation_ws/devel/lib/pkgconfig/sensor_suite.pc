@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/devel
-
-Name: sensor_suite
-Description: Description of sensor_suite
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

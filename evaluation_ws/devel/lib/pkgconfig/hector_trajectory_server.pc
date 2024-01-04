@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/devel
-
-Name: hector_trajectory_server
-Description: Description of hector_trajectory_server
-Version: 0.5.2
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: roscpp hector_nav_msgs nav_msgs hector_map_tools tf

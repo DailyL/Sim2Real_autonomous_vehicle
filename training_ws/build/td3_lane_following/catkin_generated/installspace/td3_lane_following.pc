@@ -1,8 +1,0 @@
-prefix=/home/dianzhaoli/duckie_catkin_ws/install
-
-Name: td3_lane_following
-Description: Description of td3_lane_following
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

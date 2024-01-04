@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/install
-
-Name: ground_projection
-Description: Description of ground_projection
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

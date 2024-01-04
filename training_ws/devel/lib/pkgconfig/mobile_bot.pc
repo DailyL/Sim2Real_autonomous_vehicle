@@ -1,8 +1,0 @@
-prefix=/home/dianzhaoli/duckie_catkin_ws/devel
-
-Name: mobile_bot
-Description: Description of mobile_bot
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

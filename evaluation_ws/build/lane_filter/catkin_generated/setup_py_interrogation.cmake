@@ -1,7 +1,0 @@
-set(lane_filter_SETUP_PY_SETUP_MODULE "distutils.core")
-set(lane_filter_SETUP_PY_VERSION "1.0.0")
-set(lane_filter_SETUP_PY_SCRIPTS "")
-set(lane_filter_SETUP_PY_PACKAGES "lane_filter;lane_filter_generic;lane_filter_generic_tests;grid_helper;grid_helper_tests;lane_filter_interface")
-set(lane_filter_SETUP_PY_PACKAGE_DIRS "include/lane_filter;include/lane_filter_generic;include/lane_filter_generic_tests;include/grid_helper;include/grid_helper_tests;include/lane_filter_interface")
-set(lane_filter_SETUP_PY_MODULES "")
-set(lane_filter_SETUP_PY_MODULE_DIRS "")

@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/devel
-
-Name: easy_node
-Description: Description of easy_node
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

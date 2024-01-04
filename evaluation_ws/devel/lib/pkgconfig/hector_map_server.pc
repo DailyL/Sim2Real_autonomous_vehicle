@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/devel
-
-Name: hector_map_server
-Description: Description of hector_map_server
-Version: 0.5.2
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: roscpp hector_map_tools hector_marker_drawing hector_nav_msgs nav_msgs tf

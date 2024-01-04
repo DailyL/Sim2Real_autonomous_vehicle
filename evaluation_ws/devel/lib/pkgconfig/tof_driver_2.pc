@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/devel
-
-Name: tof_driver_2
-Description: Description of tof_driver_2
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

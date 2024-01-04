@@ -1,8 +1,0 @@
-prefix=/home/dianzhaoli/duckie_catkin_ws/install
-
-Name: rosbag_to_csv
-Description: Description of rosbag_to_csv
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

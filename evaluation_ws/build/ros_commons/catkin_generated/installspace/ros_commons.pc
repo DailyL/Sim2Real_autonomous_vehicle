@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/install
-
-Name: ros_commons
-Description: Description of ros_commons
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

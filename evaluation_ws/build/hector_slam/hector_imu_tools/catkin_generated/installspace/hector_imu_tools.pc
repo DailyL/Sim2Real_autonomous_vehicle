@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/install
-
-Name: hector_imu_tools
-Description: Description of hector_imu_tools
-Version: 0.5.2
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: geometry_msgs nav_msgs roscpp sensor_msgs tf

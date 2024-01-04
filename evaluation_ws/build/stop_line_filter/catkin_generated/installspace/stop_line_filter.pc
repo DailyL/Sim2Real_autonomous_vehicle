@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/install
-
-Name: stop_line_filter
-Description: Description of stop_line_filter
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

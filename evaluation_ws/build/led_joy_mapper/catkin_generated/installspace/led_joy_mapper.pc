@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/install
-
-Name: led_joy_mapper
-Description: Description of led_joy_mapper
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,7 +1,0 @@
-set(lane_filter_SETUP_PY_SETUP_MODULE "distutils.core")
-set(lane_filter_SETUP_PY_VERSION "0.0.0")
-set(lane_filter_SETUP_PY_SCRIPTS "")
-set(lane_filter_SETUP_PY_PACKAGES "lane_filter")
-set(lane_filter_SETUP_PY_PACKAGE_DIRS "include/lane_filter")
-set(lane_filter_SETUP_PY_MODULES "")
-set(lane_filter_SETUP_PY_MODULE_DIRS "")

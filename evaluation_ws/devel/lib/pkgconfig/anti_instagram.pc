@@ -1,8 +1,0 @@
-prefix=/home/dianzhao/real_duckie_catkin_ws/devel
-
-Name: anti_instagram
-Description: Description of anti_instagram
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
