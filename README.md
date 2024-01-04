@@ -12,6 +12,17 @@ Deep Reinforcement Learning (DRL) has shown remarkable success in solving comple
 [Project website](https://dailyl.github.io/sim2realVehicle.github.io/)   
 [Paper](https://arxiv.org/abs/2304.08235)
 
+
+# **Vision-based DRL Autonomous Driving Agent with Sim2Real Transfer**
+
+## About the work
+
+To achieve fully autonomous driving, vehicles must be capable of continuously performing various driving tasks, including lane keeping and car following, both of which are fundamental and well-studied driving ones. However, previous studies have mainly focused on individual tasks, and car following tasks have typically relied on complete leader-follower information to attain optimal performance. To address this limitation, we propose a vision-based deep reinforcement learning (DRL) agent that can simultaneously perform lane keeping and car following maneuvers. To evaluate the performance of our DRL agent, we compare it with a baseline controller and use various performance metrics for quantitative analysis. Furthermore, we conduct a real-world evaluation to demonstrate the Sim2Real transfer capability of the trained DRL agent. To the best of our knowledge, our vision-based car following and lane keeping agent with Sim2Real transfer capability is the first of its kind.
+
+ 
+[Paper](https://arxiv.org/abs/2305.11589)\
+[Videos](https://youtube.com/playlist?list=PLdRGvIlqDbozcdQcmgRj8Mnf-sBwx01yK)
+
 ## Table of Contents
 
 
@@ -201,3 +212,26 @@ With advanced function, we update this Duckiebot with Lidar (RPLIDAR A1). If you
 ## Copyright
 
 DRL package from [TUD_RL](https://github.com/DailyL/TUD_RL) and evaluation environment from [Duckietown project](https://github.com/duckietown/gym-duckietown/tree/master).
+
+
+Citation of this work:
+
+```bibtex
+@article{li2023platform,
+  title={A Platform-Agnostic Deep Reinforcement Learning Framework for Effective Sim2Real Transfer in Autonomous Driving},
+  author={Li, Dianzhao and Okhrin, Ostap},
+  journal={arXiv preprint arXiv:2304.08235},
+  year={2023}
+}
+
+@inproceedings{li2023vision,
+  title={Vision-based DRL Autonomous Driving Agent with Sim2Real Transfer},
+  author={Li, Dianzhao and Okhrin, Ostap},
+  booktitle={2023 IEEE 26th International Conference on Intelligent Transportation Systems (ITSC)},
+  year={2023},
+  organization={IEEE}
+}
+```
+
+
+
