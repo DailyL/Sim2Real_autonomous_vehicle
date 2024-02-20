@@ -7,7 +7,7 @@ opencv-python>=3.4
 pyyaml>=3.11
 cloudpickle
 duckietown_slimremote>=2018.8.2
-pygeometry
+PyGeometry
 dataclasses
 aiohttp==3.6.2
 base58==1.0.3
