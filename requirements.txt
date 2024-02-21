@@ -9,7 +9,7 @@ cloudpickle
 duckietown_slimremote>=2018.8.2
 PyGeometry
 dataclasses
-aiohttp==3.6.2
+aiohttp==3.9.2
 base58==1.0.3
 cloudpickle==1.2.2
 GPUtil==1.4.0
