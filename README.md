@@ -148,13 +148,13 @@ Change the catkin workspace to `~/evaluation_ws/`
 1. For DRL agent, with the weights in `/evaluation_ws/src/rl_duckietown/src/tud_rl/weights/`
 
 ```bash
-$ roalaunch rl_duckietown overtaking_in_gym_testing.launch
+$ roslaunch rl_duckietown overtaking_in_gym_testing.launch
 ```
 
 2. For PID baseline
 
 ```bash
-$ roalaunch rl_duckietown overtaking_in_gym_testing_pid_baseline.launch
+$ roslaunch rl_duckietown overtaking_in_gym_testing_pid_baseline.launch
 ```
 
 3. For Human baseline run `python human_baseline.py` with following flags:
