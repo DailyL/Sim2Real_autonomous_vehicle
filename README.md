@@ -223,13 +223,13 @@ Citation of this work:
   journal={arXiv preprint arXiv:2304.08235},
   year={2023}
 }
-
 @inproceedings{li2023vision,
+  title={Vision-Based DRL Autonomous Driving Agent with Sim2Real Transfer},
   author={Li, Dianzhao and Okhrin, Ostap},
-  booktitle={2023 IEEE 26th International Conference on Intelligent Transportation Systems (ITSC)}, 
-  title={Vision-Based DRL Autonomous Driving Agent with Sim2Real Transfer}, 
+  booktitle={2023 IEEE 26th International Conference on Intelligent Transportation Systems (ITSC)},
+  pages={866--873},
   year={2023},
-  pages={866-873}
+  organization={IEEE}
 }
 ```
 
