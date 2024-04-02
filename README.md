@@ -203,7 +203,7 @@ $ roslaunch rl_duckietown overtaking_test.launch
 The results (videos and tables) for evluation in simulation and real world is on the [website](https://dailyl.github.io/sim2realVehicle.github.io/).
 
 ## Hardware
-For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.org/)
+For real world application, we use the DB21 Duckiebot from [Duckietown](https://www.duckietown.com/)
 
 With advanced function, we update this Duckiebot with Lidar (RPLIDAR A1). If you are also interested in update your duckiebot withe Lidar, please check this [Blog](https://www.hackster.io/shahizat005/building-a-map-using-lidar-with-ros-melodic-on-jetson-nano-2f92dd).
 
