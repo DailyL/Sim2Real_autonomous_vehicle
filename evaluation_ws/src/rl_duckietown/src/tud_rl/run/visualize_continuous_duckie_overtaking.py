@@ -3,10 +3,12 @@ import argparse
 import json
 import random
 import os
-import rospkg
+
 import numpy as np
 import torch
+from tud_rl.envs.MountainCar import MountainCar
 from tud_rl.envs.Duckie_Gazebo_overtaking import Duckie_Gazebo
+from tud_rl.wrappers.MinAtar_wrapper import MinAtar_wrapper
 from tud_rl.agents.continuous.DDPG import DDPGAgent
 from tud_rl.agents.continuous.TD3 import TD3Agent
 from tud_rl.agents.continuous.SAC import SACAgent
@@ -126,27 +128,16 @@ def test(c, agent_name, actor_weights, critic_weights):
 
 if __name__ == "__main__":
 
-    # get config and name of agent
-
-    rospack = rospkg.RosPack()
-    current_path = rospack.get_path("rl_duckietown")    
-
-
-    agent_name = "LSTMSAC"
-    #weights_name = "overtaking_one_direction"
-    weights_name = "LSTMSAC_Duckie_Gazebo__2022-08-26_23945"
-
-
-    actor_weights = current_path + "/src/tud_rl/weights/" + weights_name + "/" + agent_name + "_actor_weights.pth"
-    critic_weights = current_path + "/src/tud_rl/weights/" + weights_name + "/" + agent_name + "_critic_weights.pth"
-
-
+    # get config and name of agent    
+    agent_name = "LSTMTD3" 
+    actor_weights = os.getcwd() + "/experiments" + "/" + "LSTMTD3_Duckie_Gazebo__2022-06-03_64100/" + agent_name + "_actor_weights.pth"
+    critic_weights = os.getcwd() + "/experiments" + "/" + "LSTMTD3_Duckie_Gazebo__2022-06-03_64100/" + agent_name + "_critic_weights.pth"
     # read config file
-    with open(current_path + "/src/tud_rl/configs/continuous_actions/duckietown.json") as f:
+    with open("/home/dianzhaoli/duckie_catkin_ws/src/rl_duckietown/src/tud_rl/configs/continuous_actions/duckietown.json") as f:
         c = json.load(f)
         
         
-    c["seed"] = random.randint(0,10000)
+    c["seed"] = random.randint(0,20000)
     # convert certain keys in integers
     for key in ["seed", "timesteps", "epoch_length", "eval_episodes", "buffer_length", "act_start_step",\
          "upd_start_step", "upd_every", "batch_size"]:

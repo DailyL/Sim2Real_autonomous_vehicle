@@ -46,19 +46,17 @@ from duckietown_utils.trajectory_plot import correct_gym_duckietown_coordinates
 
 
 SEED = random.randint(0,20000)
-evaluate_map = "_huge_V_floor"
-
-results_path = "pid_baseline/good_results/" + evaluate_map + "_" + str(SEED) + "_evaluate_gym_duckietown_pid_baseline"
 
 logger = logging.getLogger(__name__)
 analyse_trajectories = True
 
-def launch_env(id=None):
+def launch_env(maps):
     env = None
+    id = None
     if id is None:
         env = DuckietownROSOvertaking_PID_Baseline(
             seed=SEED, # random seed
-            map_name=evaluate_map,
+            map_name=maps,
             max_steps=5000000001, # we don't want the gym to reset itself
             domain_rand=0,
             camera_width=640,
@@ -98,9 +96,9 @@ def visualize_policy(env, agent, c):
             if eval_epi_steps == c["env"]["max_episode_steps"]:
                 break
 
-def test(c, agent_name, actor_weights, critic_weights):
+def test(c, agent_name, actor_weights, critic_weights,maps):
     # init envs
-    env = launch_env()
+    env = launch_env(maps)
 
     # wrappers
     for wrapper in c["env"]["wrappers"]:
@@ -142,7 +140,7 @@ def test(c, agent_name, actor_weights, critic_weights):
 
     if analyse_trajectories:
     # Plot trajectories and evaluate performance    
-        evaluator = DuckietownWorldEvaluator(env = env, eval_map=evaluate_map, max_episode_steps=c["env"]["max_episode_steps"])
+        evaluator = DuckietownWorldEvaluator(env = env, eval_map=maps, max_episode_steps=c["env"]["max_episode_steps"])
         evaluator.evaluate(agent, results_path, episodes=c["eval_episodes"])
 
 
@@ -338,4 +336,11 @@ if __name__ == "__main__":
     # set number of torch threads
     torch.set_num_threads(torch.get_num_threads())
 
-    test(c, agent_name, actor_weights, critic_weights)
+
+    evaluate_map = ["loop_empty","ETHZ_autolab_technical_track","_plus_floor","LF-norm-zigzag","_huge_V_floor"]
+
+
+    for i in range(5):
+        map_name = evaluate_map[i]
+        results_path = "pid_baseline/100_episodes/" + map_name + "_" + str(SEED) + "_evaluate_gym_duckietown_pid_baseline"
+        test(c, agent_name, actor_weights, critic_weights,map_name)

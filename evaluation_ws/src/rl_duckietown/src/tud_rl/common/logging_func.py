@@ -147,7 +147,7 @@ class Logger:
             else:
                 self.output_dir = "experiments/" + alg_str + "_" + env_str + "_" + info + "_" + today + random_str
 
-        os.makedirs(self.output_dir)#, exist_ok=True)
+        os.makedirs(self.output_dir, exist_ok=True)#, exist_ok=True)
 
         # create output file and automated closing when file terminates
         self.output_file = open(osp.join(self.output_dir, output_fname), 'w')

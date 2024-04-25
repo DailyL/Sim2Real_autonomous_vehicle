@@ -3,6 +3,7 @@ TUD_RL.egg-info/PKG-INFO
 TUD_RL.egg-info/SOURCES.txt
 TUD_RL.egg-info/dependency_links.txt
 TUD_RL.egg-info/top_level.txt
+tud_rl/__init__.py
 tud_rl/agents/BaseAgent.py
 tud_rl/agents/__init__.py
 tud_rl/common/__init__.py
@@ -22,3 +23,4 @@ tud_rl/envs/FossenFnc.py
 tud_rl/envs/MountainCar.py
 tud_rl/envs/ObstacleAvoidance.py
 tud_rl/envs/Ski.py
+tud_rl/envs/__init__.py

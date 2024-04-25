@@ -2,7 +2,7 @@
    "env":
    {
       "name"              : "Duckie_Gazebo",
-      "max_episode_steps" : 2000,
+      "max_episode_steps" : 1800,
       "state_type"        : "feature",
       "env_kwargs"        : {},
       "wrappers"          : [],
@@ -27,19 +27,19 @@
   "seed"             : 12,
   "timesteps"        : 1e6,
   "epoch_length"     : 5e3,
-  "eval_episodes"    : 1000000,
+  "eval_episodes"    : 3,
   "actor_weights"    : null,
   "critic_weights"   : null,
   "input_norm"       : false,
   "input_norm_prior" : null, 
   "gamma"            : 0.99,
   "tau"              : 0.005,
-  "net_struc_actor"  : [[256, "relu"], [256, "relu"], "tanh"],
-  "net_struc_critic" : [[256, "relu"], [256, "relu"], "identity"],
+  "net_struc_actor"  : [[128, "relu"], [128, "relu"], "tanh"],
+  "net_struc_critic" : [[128, "relu"], [128, "relu"], "identity"],
   "optimizer"        : "Adam",
   "loss"             : "MSELoss",
-  "lr_actor"         : 0.0001,
-  "lr_critic"        : 0.0001,
+  "lr_actor"         : 0.00005,
+  "lr_critic"        : 0.00005,
   "buffer_length"    : 1e5,
   "grad_clip"        : false,
   "grad_rescale"     : false,
@@ -47,5 +47,5 @@
   "upd_start_step"   : 5000,
   "upd_every"        : 1,
   "batch_size"       : 100,
-  "device"           : "cpu"
+  "device"           : "cuda"
 }

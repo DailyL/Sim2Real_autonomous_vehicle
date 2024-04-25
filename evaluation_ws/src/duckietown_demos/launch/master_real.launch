@@ -42,8 +42,8 @@
 
     <arg name="show_bird_perspective" default="false"/>
 
-    <arg name="vehicle_avoidance" default="true"/>
-    <arg name="/vehicle_avoidance/detection" default="true" />
+    <arg name="vehicle_avoidance" default="false"/>
+    <arg name="/vehicle_avoidance/detection" default="false" />
     <arg name="/vehicle_avoidance/filter" default="false" />
     <arg name="/vehicle_avoidance/control" default="false"/>
 
@@ -105,7 +105,7 @@
         <!-- Line Detector -->
         <group if="$(arg /lane_following/line_detection)">
             <remap from="line_detector_node/thresholds" to="anti_instagram_node/thresholds"/>
-            <remap from="line_detector_node/image/compressed" to="camera_node/image/compressed"/>
+            <remap from="line_detector_node/image/compressed" to="camera_node/image/raw/compressed"/>
             <include file="$(find line_detector)/launch/line_detector_node.launch">
                 <arg name="veh" value="$(arg veh)"/>
                 <arg name="param_file_name" value="$(arg line_detector_param_file_name)"/>
@@ -184,7 +184,7 @@
     <group if="$(arg vehicle_avoidance)">
 
         <!-- Vehicle Avoidance Detection Node -->
-        <remap from="vehicle_detection_node/image" to="camera_node/image/compressed" />
+        <remap from="vehicle_detection_node/image" to="camera_node/image/raw/compressed" />
         <remap from="vehicle_detection_node/detection" to="road_anomaly_watcher/obstacle_exists" />
         <group if="$(arg /vehicle_avoidance/detection)">
             <include file="$(find vehicle_detection)/launch/vehicle_detection_node.launch">
@@ -361,7 +361,7 @@
 
     <!-- Start anti-instagram / LF, IN -->
     <group if="$(arg anti_instagram)">
-        <remap from="anti_instagram_node/uncorrected_image/compressed" to="camera_node/image/compressed"/>
+        <remap from="anti_instagram_node/uncorrected_image/compressed" to="camera_node/image/raw/compressed"/>
         <!-- NOT LOADING PARAMS FROM A YAML FILE -->
         <include file="$(find anti_instagram)/launch/anti_instagram_node.launch">
             <arg name="veh" value="$(arg veh)"/>

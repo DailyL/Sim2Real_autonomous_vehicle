@@ -2,22 +2,22 @@
 import sys
 import rospy
 import numpy as np
-
+from random import choice
 from std_msgs.msg import Header
 from gazebo_msgs.msg import ContactsState, ModelStates
 from tf import TransformListener
 from duckietown_msgs.msg import  Twist2DStamped, LanePose
 
 from scipy.stats import norm
-from gazebo_msgs.srv import SpawnModel, DeleteModel
+from gazebo_msgs.srv import SpawnModel, DeleteModel, SetModelStateRequest, SetModelState
 from std_srvs.srv import Empty
-from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Twist, Pose
 from shapely.geometry import Point
 from shapely.geometry.polygon import asPolygon
 from scipy.spatial import distance
 import math
 import shapely.geometry as geom
-
+from controller_manager_msgs.srv import LoadController, SwitchController,SwitchControllerRequest
 
 
 class Duckie_Gazebo(object):
@@ -30,16 +30,15 @@ class Duckie_Gazebo(object):
         self.leader_pose_y = 0.59
         self.follower_v = 0
         self.d = 0
-        self.rate = rospy.Rate(50)
-        self.yaw = 0                                     
-        self.sub_states = rospy.Subscriber("~cmd", Twist2DStamped, self.updateVelocity,queue_size = 1)
+        self.rate = rospy.Rate(50)                                     
+        self.sub_states = rospy.Subscriber("/gazebo/model_states", ModelStates, self.states_callback,queue_size = 1)
         self.sub_lane_pose = rospy.Subscriber("~lane_pose", LanePose, self.lane_pose_callback, queue_size=1)
         self.lanewidth = 0.23
         self.v_desired = 0.5
         self.lanePose_d = 0       #lateral offset
         self.lanePose_phi = 0   #heading error
         self.collision = False                
-        self.pub_car_twist = rospy.Publisher('~pub_cmd',Twist2DStamped,queue_size = 1)
+        self.pub_car_twist = rospy.Publisher('~cmd',Twist,queue_size = 1)
         
         self.out_road_x_max = 7.15
         self.out_road_y_max = 5.575
@@ -53,45 +52,184 @@ class Duckie_Gazebo(object):
         self.on_left = False
         self.follower_pose_x_pre = 1.0961583516695363
         self.follower_pose_y_pre = 0.7700045782607453
-        #self.coords = np.loadtxt('/home/dianzhaoli/duckie_catkin_ws/src/ddpg_lanefollowing/src/aver_trajectory_with_yaw.txt')
+        self.coords_big = np.loadtxt('/home/dianzhaoli/duckie_catkin_ws/src/rl_duckietown/src/tud_rl/run/opti_trajectory/aver_trajectory_with_yaw.txt')
+        self.coords_small = np.loadtxt('/home/dianzhaoli/duckie_catkin_ws/src/rl_duckietown/src/tud_rl/run/opti_trajectory/aver_trajectory_small_circle_with_yaw.txt')
         self.pi = 3.141592653589793
         self.follower_pose_orien_x = 0
         self.follower_pose_orien_y = 0
         self.follower_pose_orien_z = 0
-        self.follower_pose_orien_w = 0    
+        self.follower_pose_orien_w = 0
+        self.yaw = 0
         self.x_infi = 1
-        self.k = 0.5  
-        self.reset()
-        
-    def updateVelocity(self, msg):
-     
-        self.follower_v= msg.v
-        
-        #self.yaw = self.quaternion_to_euler(self.follower_pose_orien_x, self.follower_pose_orien_y, self.follower_pose_orien_z, self.follower_pose_orien_w)
+        self.k = 0.5 
+        self.goal_urdf = open("/home/dianzhaoli/duckie_catkin_ws/src/robot/mobile_bot/urdf/mobile_bot_david.urdf", "r").read()
+        self.target = SpawnModel
+        self.target.model_name = str('duckiebot_david')
+        self.target.model_xml = self.goal_urdf
 
+        """
+        set up initial position
+        later will choose from two different positions
+        """
+        self.position = np.zeros((7,2))
+        self.position[0,0] = 3.311
+        self.position[1,0] = 1.466
+        self.position[2,0] = 0.24
+        self.position[3,0] = 0
+        self.position[4,0] = 0
+        self.position[5,0] = 1
+        self.position[6,0] = 0
+
+        self.position[0,1] = 1.16
+        self.position[1,1] = 0.77
+        self.position[2,1] = 0.24
+        self.position[3,1] = 0
+        self.position[4,1] = 0
+        self.position[5,1] = 0
+        self.position[6,1] = 1
+        self.init_pose = Pose()
         
+        """
+        setup for reset of the environment
+        """
+
+        self.goal = rospy.ServiceProxy('/gazebo/spawn_urdf_model', SpawnModel)
+        self.del_model = rospy.ServiceProxy('/gazebo/delete_model', DeleteModel)
+        self.unpause = rospy.ServiceProxy('/gazebo/unpause_physics', Empty)
+        self.pause = rospy.ServiceProxy('/gazebo/pause_physics', Empty)
+        self.switch_srv = rospy.ServiceProxy('/david/controller_manager/switch_controller', SwitchController)
+        self.load_srv = rospy.ServiceProxy('/david/controller_manager/load_controller', LoadController)
+        self.reset_proxy = rospy.ServiceProxy('/gazebo/reset_world', Empty)
+        self.controller_load = LoadController()
+        self.controller_load.name = "david/velocity_controller"
+
+        self.controller_switch_on = SwitchControllerRequest()
+        self.controller_switch_on.start_controllers.append('david/velocity_controller')
+        self.controller_switch_on.start_controllers.append('david/joint_publisher')
+        self.controller_switch_on.strictness = 2
+        self.state_reset = rospy.ServiceProxy('gazebo/set_model_state', SetModelState)
+        self.set_state = SetModelStateRequest()
+
+
+        self.coords = None
         
+    def states_callback(self, msg):
+
+        if msg.pose != None:
+            try:
+                self.follower_pose_x = msg.pose[2].position.x
+                self.follower_pose_y = msg.pose[2].position.y
+                self.follower_v_x = msg.twist[2].linear.x
+                self.follower_v_y = msg.twist[2].linear.y
+                self.follower_pose_orien_x = msg.pose[2].orientation.x
+                self.follower_pose_orien_y = msg.pose[2].orientation.y
+                self.follower_pose_orien_z = msg.pose[2].orientation.z
+                self.follower_pose_orien_w = msg.pose[2].orientation.w
+                self.follower_v= pow((pow(self.follower_v_x,2) + pow(self.follower_v_y,2)),0.5)
+                self.yaw = self.quaternion_to_euler(self.follower_pose_orien_x, self.follower_pose_orien_y, self.follower_pose_orien_z, self.follower_pose_orien_w)
+            except:
+                pass
+     
     def lane_pose_callback(self, msg):
         if msg.d != None:
             self.lanePose_d = msg.d       #lateral offset
             self.lanePose_phi = msg.phi   #heading error
-            self.yaw = self.lanePose_phi
         else:
             self.on_left = True
             self.lanePose_d = -1
             self.lanePose_phi = -1
-    def reset(self):  
-    
-    #reseat function to reset simulation
-    #return the initial states after reset
-    #return: states                       
-        #reset_world = rospy.ServiceProxy('gazebo/reset_world', Empty)
+    def reset(self):
 
-        #rospy.wait_for_service('gazebo/reset_world')
-        #reset_world()
+        """
+        reset the whole environment can not spawn the robot in random position
+        """  
         
-        #get initial states
+        reset_world = rospy.ServiceProxy('gazebo/reset_world', Empty)
+
+        rospy.wait_for_service('gazebo/reset_world')
+        reset_world()
         
+        self.set_state.model_state.model_name = 'duckiebot_david'
+        index = choice([0,1])
+        
+        self.set_state.model_state.pose.position.x = self.position[0,index] 
+        self.set_state.model_state.pose.position.y = self.position[1,index]
+        self.set_state.model_state.pose.position.z = 0.24
+
+        self.set_state.model_state.pose.orientation.x = self.position[3,index]
+        self.set_state.model_state.pose.orientation.y = self.position[4,index]
+        self.set_state.model_state.pose.orientation.z = self.position[5,index]
+        self.set_state.model_state.pose.orientation.w = self.position[6,index]
+        
+        self.state_reset(self.set_state)
+
+
+
+ 
+
+
+        """
+        reset robot spawn the robot again in random position, first delete all model and then respawn model
+        controller also need to be recalled with controller_manager_msgs
+        """
+        
+        
+        """
+        controller_switch_off = SwitchControllerRequest()
+        controller_switch_off.stop_controllers.append('david/velocity_controller')
+        controller_switch_off.strictness = 2
+        """
+
+        
+        """
+        rospy.wait_for_service('/gazebo/delete_model')
+
+        self.del_model(str('duckiebot_david'))
+
+        
+
+
+
+        rospy.wait_for_service('/gazebo/spawn_urdf_model')
+        index = choice([0,1])
+        
+        self.init_pose.position.x = self.position[0,index] 
+        self.init_pose.position.y = self.position[1,index]
+        self.init_pose.position.z = 0.24
+
+        self.init_pose.orientation.x = self.position[3,index]
+        self.init_pose.orientation.y = self.position[4,index]
+        self.init_pose.orientation.z = self.position[5,index]
+        self.init_pose.orientation.w = self.position[6,index]
+
+        self.goal(self.target.model_name, self.target.model_xml, '/david', self.init_pose, 'world')
+    
+
+
+        rospy.wait_for_service("/david/controller_manager/load_controller")
+
+        self.load_srv(self.controller_load.name)
+
+        rospy.wait_for_service("/david/controller_manager/switch_controller")
+
+        try:
+            resp = self.switch_srv.call(self.controller_switch_on)
+        except:
+            print('/controller_manager/switch_controller call failed')
+
+        """
+
+
+
+        if index == 0:
+            self.coords = self.coords_small
+        elif index == 1:
+            self.coords = self.coords_big
+
+        """
+        get initial states
+        """
+
         status1 = self.lanePose_d/self.lanewidth
         status2 = self.lanePose_phi/1.0 
         status3 = self.follower_v/1.0
@@ -106,7 +244,7 @@ class Duckie_Gazebo(object):
         
         
         return np.array(self.state)
-     
+        
                            
     def setReward(self,action,r_yaw,e_y):
         
@@ -155,7 +293,7 @@ class Duckie_Gazebo(object):
         else:
             r_near_collision = 0 
         """
-        """get yaw
+        """
         r_d, closest_index = self.closest_node((self.follower_pose_x,self.follower_pose_y), self.coords[:,:2])
         
         yaw_offset = abs(self.yaw - self.coords[closest_index,2])
@@ -186,32 +324,38 @@ class Duckie_Gazebo(object):
         return reward, (off_road_done)
 
     def step(self,action):
+        """
+        step function
+        take an action and return updated states
+        return: state, reward, done
+        """
 
-    #step function
-    #take an action and return updated states
-    #return: state, reward, done
         done = False
-        car_twist_msg = Twist2DStamped()
-        car_twist_msg.v = ((action[0]+1)/2) *0.5  # into [0,1]
-        car_twist_msg.omega = action[1]*self.pi   # into [-4,4]  
+        car_twist_msg = Twist()
+        car_twist_msg.linear.x = (action[0]+1)/2  # into [0,1]
+        car_twist_msg.angular.z = action[1]*self.pi*(2/3)    # into [-4,4]  
         self.pub_car_twist.publish(car_twist_msg)     
         self.rate.sleep()
         
+        r_d, closest_index = self.closest_node((self.follower_pose_x,self.follower_pose_y), self.coords[:,:2])
         
-        x_path = 0
-        e_y = self.lanePose_d
-        #e_y = math.sin(x_path-math.atan((self.follower_pose_y-self.coords[closest_index,1])/(self.follower_pose_x-self.coords[closest_index,0])))*r_d
+        x_path = self.coords[closest_index,2]
+        
+        e_y = math.sin(x_path-math.atan((self.follower_pose_y-self.coords[closest_index,1])/(self.follower_pose_x-self.coords[closest_index,0])))*r_d
             
 
         x_d = self.x_infi * math.atan(self.k*e_y) + x_path
         
-        #r_yaw = abs(math.cos(x_d) - math.cos(self.yaw))
-        #r_yaw = abs(math.cos(self.yaw))
-        r_yaw = abs(abs(self.yaw) + self.x_infi * math.atan(self.k*e_y))
-        
+        r_yaw_to_reward = abs(math.cos(x_d) - math.cos(self.yaw))
+        if abs(x_d-self.yaw) > 6.0:
+            r_yaw = abs(abs(x_d-self.yaw)-6.28)
+        else:
+            r_yaw = abs(x_d-self.yaw)
+
+                
         status1 = self.lanePose_d/self.lanewidth
-        status2 = self.lanePose_phi/self.pi 
-        status3 = self.follower_v/0.5
+        status2 = self.lanePose_phi/self.pi  # changed from 09.05.2022   from 1.0 to pi
+        status3 = self.follower_v/1.0
         status4 = r_yaw/(2*self.pi)
         status5 = abs(e_y)/2.0
         status6 = 0
@@ -219,9 +363,9 @@ class Duckie_Gazebo(object):
         status8 = action[1]
                  
         state = [status1,status2,status3,status4,status5,status6,status7,status8]
-
-        reward, done = self.setReward(action,r_yaw,e_y)
-        #self.follower_pose_x_pre,self.follower_pose_y_pre = self.get_old_states()    
+        
+        reward, done = self.setReward(action,r_yaw_to_reward,e_y)
+        self.follower_pose_x_pre,self.follower_pose_y_pre = self.get_old_states()    
         return state, reward, done, {}
              
              
@@ -281,13 +425,38 @@ class Duckie_Gazebo(object):
         closest_distance = distance.euclidean([node], nodes[closest_index])
         return closest_distance, closest_index
 
+    def seed(self, seed):
+        pass
+
+    def render(self):
+        pass
+
+    def pause_physics(self):
+        rospy.wait_for_service('/gazebo/pause_physics')
+        try:
+            self.pause()
+        except (rospy.ServiceException) as e:
+            print('/gazebo/pause_physics service call failed')
 
 
-
-
-
+    def unpause_physics(self):
+        rospy.wait_for_service('/gazebo/unpause_physics')
+        try:
+            self.unpause()
+        except (rospy.ServiceException) as e:
+            print('/gazebo/unpause_physics service call failed')
 
         
+    def reset_env(self):
+        rospy.wait_for_service('gazebo/reset_simulation')
+        try:
+            self.reset_proxy()
+        except (rospy.ServiceException) as e:
+            print("gazebo/reset_simulation service call failed")
+
+
+
+
             
     
 if __name__ == "__main__":
@@ -295,4 +464,8 @@ if __name__ == "__main__":
             print (r.setReward())
             r.reset()
             print (r.setReward())
+
+
+
+
 

@@ -6,7 +6,7 @@ from typing import Optional
 import cv2
 import numpy as np
 import yaml
-import rospkg
+
 import rospy
 from cv_bridge import CvBridge
 from duckietown.dtros import DTROS, NodeType, TopicType
@@ -195,11 +195,8 @@ class GroundProjectionNode(DTROS):
 
         """
         # load intrinsic calibration
-        rospack = rospkg.RosPack()
-        current_path = rospack.get_path("ground_projection")
-
-        cali_file_folder = current_path + "/calibrations/camera_extrinsic/"
-        cali_file = cali_file_folder + rospy.get_namespace().strip("/") + ".yaml"
+        cali_file_folder = "/home/dianzhaoli/real_duckie_catkin_ws/src/data/config/calibrations/camera_extrinsic/"
+        cali_file = cali_file_folder + "default.yaml"
 
         # Locate calibration yaml file or use the default otherwise
         if not os.path.isfile(cali_file):

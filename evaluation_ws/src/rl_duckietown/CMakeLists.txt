@@ -18,6 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   image_geometry
   cv_bridge
   image_transport
+  OpenCV REQUIRED
 )
 
 ## System dependencies are found with CMake's conventions

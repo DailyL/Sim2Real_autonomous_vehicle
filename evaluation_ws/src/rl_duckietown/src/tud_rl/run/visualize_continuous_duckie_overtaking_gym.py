@@ -21,7 +21,7 @@ from tud_rl.agents.continuous.LSTMSAC import LSTMSACAgent
 from tud_rl.agents.continuous.TQC import TQCAgent
 from tud_rl.common.logging_plot import plot_from_progress
 from tud_rl.configs.continuous_actions import __path__
-from gym_duckietown.envs.duckietown_env import DuckietownROSOvertaking, DuckietownROSOvertaking_PID_Baseline, DuckietownROSLanefollowing
+from gym_duckietown.envs.duckietown_env import DuckietownROSOvertaking, DuckietownROSOvertaking_PID_Baseline, DuckietownROSLanefollowing, DuckietownROSCarfollowing
 from config.config import find_and_load_config_by_seed, update_config, print_config
 from config.paths import ArtifactPaths
 from duckietown_utils.duckietown_world_evaluator_new import DuckietownWorldEvaluator
@@ -30,20 +30,19 @@ from duckietown_utils.duckietown_world_evaluator_new import DuckietownWorldEvalu
 
 
 SEED = random.randint(0,20000)
-evaluate_map = "LF-norm-zigzag"
 
 
-results_path = "rl_agent/LSTM_SAC/lanefollowing/" + evaluate_map + "_" + str(SEED) + "_evaluate_gym_duckietown"
 
 
-analyse_trajectories = False
+analyse_trajectories = True
 
-def launch_env(id=None):
+def launch_env(maps):
     env = None
+    id = None
     if id is None:
         env = DuckietownROSLanefollowing(
             seed=SEED, # random seed
-            map_name=evaluate_map,
+            map_name=maps,
             max_steps=5000000001, # we don't want the gym to reset itself
             domain_rand=0,
             camera_width=640,
@@ -94,7 +93,6 @@ def visualize_policy(env, agent, c):
             
             # perform step
             s2, img2, r, d, _ = env.step(a)
-            time.sleep(0.02)
             env.render('top_down')
             env._publish_img(img2)
             env._publish_info()
@@ -129,9 +127,9 @@ def visualize_policy(env, agent, c):
 
 
 
-def test(c, agent_name, actor_weights, critic_weights):
+def test(c, agent_name, actor_weights, critic_weights,maps):
     # init envs
-    env = launch_env()
+    env = launch_env(maps)
 
     # wrappers
     for wrapper in c["env"]["wrappers"]:
@@ -174,8 +172,8 @@ def test(c, agent_name, actor_weights, critic_weights):
     if analyse_trajectories:
     # Plot trajectories and evaluate performance
         test = False    
-        evaluator = DuckietownWorldEvaluator(env = env, eval_map=evaluate_map, max_episode_steps=c["env"]["max_episode_steps"])
-        evaluator.evaluate(agent, results_path, test, episodes=c["eval_episodes"])
+        evaluator = DuckietownWorldEvaluator(env = env, eval_map=maps, max_episode_steps=c["env"]["max_episode_steps"])
+        evaluator.evaluate(agent, results_path, test, episodes=100)
 
 
 if __name__ == "__main__":
@@ -209,5 +207,9 @@ if __name__ == "__main__":
 
     # set number of torch threads
     torch.set_num_threads(torch.get_num_threads())
+    evaluate_map = ["loop_empty_new","ETHZ_autolab_technical_track","_plus_floor","LF-norm-zigzag","_huge_V_floor"]
 
-    test(c, agent_name, actor_weights, critic_weights)
+    for i in range(5):
+        map_name = evaluate_map[i]
+        results_path = "/home/dianzhaoli/revision_for_communications/proposed_100episodes/" + map_name
+        test(c, agent_name, actor_weights, critic_weights, map_name)

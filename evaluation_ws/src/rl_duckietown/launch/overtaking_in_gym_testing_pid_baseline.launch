@@ -14,11 +14,4 @@
   <node pkg="rl_duckietown" type="visualize_continuous_duckie_overtaking_gym_pid_baseline.py" name="gym_overtaking" output="screen" />
   <remap from="~image" to= "/$(arg veh)/camera_node/image/raw/compressed"/>
   
-
-
-  
-	
-
-
-
 </launch>	

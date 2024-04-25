@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="veh" default="david" doc="Name of vehicle. ex: megaman"/>
+  
+  
+  <!-- Spawn the follower car with control node -->
+        <include file="$(find duckietown_demos)/launch/lane_following_real.launch">
+        <arg name="veh" default="david"/>
+    </include>
+
+
+ <remap from="~lane_pose" to= "/$(arg veh)/lane_filter_node/lane_pose"/>
+  <node pkg="rl_duckietown" type="train_continuous_duckie_gym_lane_following.py" name="gym_overtaking" output="screen"/>
+  <remap from="~image" to= "/$(arg veh)/camera_node/image/raw/compressed"/>
+  
+
+
+  
+	
+
+
+
+</launch>	

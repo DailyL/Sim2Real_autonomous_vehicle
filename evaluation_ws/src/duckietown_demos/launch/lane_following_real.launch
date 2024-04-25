@@ -2,6 +2,8 @@
 <launch>
 	<arg name="veh" default="david"/>
     <arg name="demo_name" value="lane_following"/>
+    <arg name="pid_baseline" default="false"/>
+    <arg name="with_real_pose" default="true"/>
 	<!-- start basic args -->
 	<include file="$(find duckietown_demos)/launch/master_real.launch">
 	    <!-- Basic arguments -->
@@ -15,7 +17,7 @@
 	    <arg name="/fsm/logic_gate" value="false"/>
 
 		<!-- Camera and anti intagram -->
-		<arg name="anti_instagram" value="true" />
+		<arg name="anti_instagram" value="false" />
 
 		<!-- Deadreckoning (aka. Odometry)	-->
 <!--		<arg name="/localization" value="true"/>
@@ -24,11 +26,17 @@ LP removing for now
 -->
 	    <!-- Lane Following stack -->
 	    <arg name="lane_following" value="true"/>
-	    <arg name="/lane_following/line_detection" value="true"/>
+	    <arg name="/lane_following/line_detection" value="$(arg with_real_pose)"/>
 	    <arg name="line_detector_param_file_name" value="default" />
-	    <arg name="/lane_following/ground_projection" value="true"/>
-	    <arg name="/lane_following/lane_filter" value="true"/>
-	    <arg name="/lane_following/lane_controller" value="false"/>
+	    <arg name="/lane_following/ground_projection" value="$(arg with_real_pose)"/>
+	    <arg name="/lane_following/lane_filter" value="$(arg with_real_pose)"/>
+	    <arg name="/lane_following/lane_controller" value="$(arg pid_baseline)"/>
+	    
+	    <arg name="vehicle_avoidance" default="true"/>
+    	    <arg name="/vehicle_avoidance/detection" default="true" />
+            <arg name="/vehicle_avoidance/filter" default="false" />
+            <arg name="/vehicle_avoidance/control" default="false"/>
+            
 
   	</include>
         

@@ -94,8 +94,8 @@ class LSTMSACAgent(BaseAgent):
 
         # load prior weights if available
         if self.actor_weights is not None and self.critic_weights is not None:
-            self.actor.load_state_dict(torch.load(self.actor_weights, map_location=torch.device('cpu')))            
-            self.critic.load_state_dict(torch.load(self.critic_weights, map_location=torch.device('cpu')))
+            self.actor.load_state_dict(torch.load(self.actor_weights))            
+            self.critic.load_state_dict(torch.load(self.critic_weights))
 
         # init target net
         self.target_critic = copy.deepcopy(self.critic).to(self.device)

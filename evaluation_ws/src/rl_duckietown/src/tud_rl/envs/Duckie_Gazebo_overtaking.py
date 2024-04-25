@@ -2,23 +2,23 @@
 import sys
 import rospy
 import numpy as np
-
+from random import choice
 from std_msgs.msg import Header
-from sensor_msgs.msg import Range, LaserScan
 from gazebo_msgs.msg import ContactsState, ModelStates
 from tf import TransformListener
-from duckietown_msgs.msg import  Twist2DStamped, LanePose, VehicleCorners,WheelsCmdStamped
+from duckietown_msgs.msg import  Twist2DStamped, LanePose
 
 from scipy.stats import norm
-from gazebo_msgs.srv import SpawnModel, DeleteModel
+from gazebo_msgs.srv import SpawnModel, DeleteModel, SetModelStateRequest, SetModelState
 from std_srvs.srv import Empty
-from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Twist, Pose
 from shapely.geometry import Point
 from shapely.geometry.polygon import asPolygon
 from scipy.spatial import distance
 import math
 import shapely.geometry as geom
-from datetime import datetime
+
+
 
 class Duckie_Gazebo(object):
     def __init__(self):
@@ -29,28 +29,18 @@ class Duckie_Gazebo(object):
         self.leader_pose_x = 2.26
         self.leader_pose_y = 0.59
         self.follower_v = 0
-        self.d_left = 8.0
-        self.d_right = 8.0
-        self.d_side = 8.0
-        self.detection_= False
-        self.rate = rospy.Rate(50)
-        self.yaw = 0                                     
-        self.sub_states = rospy.Subscriber("~cmd", Twist2DStamped, self.updateVelocity,queue_size = 1)
-        self.sub_lane_pose = rospy.Subscriber("~lane_pose", LanePose, self.lane_pose_callback, queue_size=1)
-        self.sub_distance = rospy.Subscriber("~range", Range, self.tof_callback,queue_size = 1)
-        self.sub_distance_second = rospy.Subscriber("~range2", Range, self.tof_2_callback,queue_size = 1)
-        self.sub_distance_third = rospy.Subscriber("~range3", Range, self.tof_3_callback,queue_size = 1)
-        #self.sub_vehicle_detection = rospy.Subscriber("~detection", VehicleCorners, self.detection_callback,queue_size = 1)
-        self.sub_v_x = rospy.Subscriber("~cmd_exec", Twist2DStamped, self.cmd_exec_callback, queue_size=1)
-        self.sub_lidar_distance = rospy.Subscriber("~scan", LaserScan, self.lidar_distance_callback,queue_size = 1)
-        self.lidar_distance = []
-        self.min_lidar_distance = 0
+        self.d = 0
+        self.rate = rospy.Rate(50)                                     
+        self.sub_states = rospy.Subscriber("/gazebo/model_states", ModelStates, self.states_callback,queue_size = 10)
+        self.sub_lane_pose = rospy.Subscriber("~lane_pose", LanePose, self.lane_pose_callback, queue_size=10)
+        self.sub_collision = rospy.Subscriber("~collision", ContactsState, self.collision_callback,queue_size = 10)
+
         self.lanewidth = 0.23
-        self.v_desired = 0.5
+        self.v_desired = 0.75
         self.lanePose_d = 0       #lateral offset
         self.lanePose_phi = 0   #heading error
         self.collision = False                
-        self.pub_car_twist = rospy.Publisher('~pub_cmd',Twist2DStamped,queue_size = 1)
+        self.pub_car_twist = rospy.Publisher('~cmd',Twist,queue_size = 10)
         
         self.out_road_x_max = 7.15
         self.out_road_y_max = 5.575
@@ -64,63 +54,111 @@ class Duckie_Gazebo(object):
         self.on_left = False
         self.follower_pose_x_pre = 1.0961583516695363
         self.follower_pose_y_pre = 0.7700045782607453
-        #self.coords = np.loadtxt('/home/dianzhaoli/duckie_catkin_ws/src/ddpg_lanefollowing/src/aver_trajectory_with_yaw.txt')
+        self.coords_big = np.loadtxt('/home/dianzhaoli/duckie_catkin_ws/src/rl_duckietown/src/tud_rl/run/opti_trajectory/aver_trajectory_with_yaw.txt')
+        self.coords_small = np.loadtxt('/home/dianzhaoli/duckie_catkin_ws/src/rl_duckietown/src/tud_rl/run/opti_trajectory/aver_trajectory_small_circle_with_yaw.txt')
         self.pi = 3.141592653589793
         self.follower_pose_orien_x = 0
         self.follower_pose_orien_y = 0
         self.follower_pose_orien_z = 0
-        self.follower_pose_orien_w = 0    
+        self.follower_pose_orien_w = 0
+        self.yaw = 0
         self.x_infi = 1
         self.k = 0.5
-        self.ratio = 0.4
-        self.vr = 0
-        self.lane_following = False
+
+        """
+        set up initial position
+        later will choose from two different positions
+        """
+
+        """
+        follower position
+        """
+
+        self.position = np.zeros((14,2))
+        self.position[0,0] = 4.65
+        self.position[1,0] = 1.4
+        self.position[2,0] = 0.24
+        self.position[3,0] = 0
+        self.position[4,0] = 0
+        self.position[5,0] = 1
+        self.position[6,0] = 0
+
+        self.position[0,1] = 1.16
+        self.position[1,1] = 0.77
+        self.position[2,1] = 0.24
+        self.position[3,1] = 0
+        self.position[4,1] = 0
+        self.position[5,1] = 0
+        self.position[6,1] = 1
+
+        """
+        leader position
+        """
+
+        self.position[7,0] = 3.42
+        self.position[8,0] = 1.4
+        self.position[9,0] = 0.24
+        self.position[10,0] = 0
+        self.position[11,0] = 0
+        self.position[12,0] = 1
+        self.position[13,0] = 0
+
+        self.position[7,1] = 2.26
+        self.position[8,1] = 0.59
+        self.position[9,1] = 0.24
+        self.position[10,1] = 0
+        self.position[11,1] = 0
+        self.position[12,1] = 0
+        self.position[13,1] = 1
+
+
+        self.leader_init_pose = Pose()
+        self.follower_init_pose = Pose()
         
-    def cmd_exec_callback(self, msg):
-        self.vr = msg.v
-    """
+        """
+        setup for reset of the environment
+        """
 
-    def detection_callback(self, msg):
-
-        self.detection_ = msg.detection.data
-    """
-    def lidar_distance_callback(self, msg):
-
-        self.lidar_distance = msg.ranges
-        self.min_lidar_distance = min(self.lidar_distance)
-
-    def tof_callback(self, msg):
-        if msg.range <= 0 or msg.range is None:
-            self.d_left = 8.0
-        else:
-            self.d_left = msg.range
-
-
-    def tof_2_callback(self, msg):
-        if msg.range <= 0 or msg.range is None:
-            self.d_left = 8.0
-        else:
-            self.d_right = msg.range
-
-    def tof_3_callback(self, msg):
-        if msg.range <= 0 or msg.range is None:
-            self.d_left = 8.0
-        else:
-            self.d_side = msg.range
         
-    def updateVelocity(self, msg):
-     
-        self.follower_v= msg.v
-        
-        #self.yaw = self.quaternion_to_euler(self.follower_pose_orien_x, self.follower_pose_orien_y, self.follower_pose_orien_z, self.follower_pose_orien_w)
+        self.reset_proxy = rospy.ServiceProxy('/gazebo/reset_world', Empty)
 
+        self.follower_state_reset = rospy.ServiceProxy('gazebo/set_model_state', SetModelState)
+        self.leader_state_reset = rospy.ServiceProxy('gazebo/set_model_state', SetModelState)
+
+
+        self.set_leader_state = SetModelStateRequest()
+        self.set_follower_state = SetModelStateRequest()
+
+        self.coords = None
+
+    def collision_callback(self, msg):
+        if (msg.states != []):    
+            self.collision = True
+
+        
+    def states_callback(self, msg):
+        self.follower_pose_x = msg.pose[3].position.x
+        self.follower_pose_y = msg.pose[3].position.y
+        self.follower_v_x = msg.twist[3].linear.x
+        self.follower_v_y = msg.twist[3].linear.y
+        self.follower_pose_orien_x = msg.pose[3].orientation.x
+        self.follower_pose_orien_y = msg.pose[3].orientation.y
+        self.follower_pose_orien_z = msg.pose[3].orientation.z
+        self.follower_pose_orien_w = msg.pose[3].orientation.w
+
+        self.leader_pose_x = msg.pose[2].position.x
+        self.leader_pose_y = msg.pose[2].position.y
+        
+        self.follower_v= pow((pow(self.follower_v_x,2) + pow(self.follower_v_y,2)),0.5)
+        
+        self.yaw = self.quaternion_to_euler(self.follower_pose_orien_x, self.follower_pose_orien_y, self.follower_pose_orien_z, self.follower_pose_orien_w)
+        self.d = pow((pow((self.leader_pose_x-self.follower_pose_x),2) + pow((self.leader_pose_y-self.follower_pose_y),2)),0.5)
         
         
     def lane_pose_callback(self, msg):
         if msg.d != None:
             self.lanePose_d = msg.d       #lateral offset
             self.lanePose_phi = msg.phi   #heading error
-            self.yaw = self.lanePose_phi
         else:
             self.on_left = True
             self.lanePose_d = -1
@@ -130,10 +168,51 @@ class Duckie_Gazebo(object):
     #reseat function to reset simulation
     #return the initial states after reset
     #return: states                       
-        #reset_world = rospy.ServiceProxy('gazebo/reset_world', Empty)
+        reset_world = rospy.ServiceProxy('gazebo/reset_world', Empty)
 
-        #rospy.wait_for_service('gazebo/reset_world')
-        #reset_world()
+        rospy.wait_for_service('gazebo/reset_world')
+        reset_world()
+        
+        """
+        set initial position for both car
+        """
+
+        self.set_follower_state.model_state.model_name = 'duckiebot_david'
+        self.set_leader_state.model_state.model_name = 'duckiebot_rose'
+
+        index = choice([0,1])
+        
+        self.set_follower_state.model_state.pose.position.x = self.position[0,index] 
+        self.set_follower_state.model_state.pose.position.y = self.position[1,index]
+        self.set_follower_state.model_state.pose.position.z = 0.24
+
+        self.set_follower_state.model_state.pose.orientation.x = self.position[3,index]
+        self.set_follower_state.model_state.pose.orientation.y = self.position[4,index]
+        self.set_follower_state.model_state.pose.orientation.z = self.position[5,index]
+        self.set_follower_state.model_state.pose.orientation.w = self.position[6,index]
+
+
+        self.set_leader_state.model_state.pose.position.x = self.position[7,index] 
+        self.set_leader_state.model_state.pose.position.y = self.position[8,index]
+        self.set_leader_state.model_state.pose.position.z = 0.24
+
+        self.set_leader_state.model_state.pose.orientation.x = self.position[10,index]
+        self.set_leader_state.model_state.pose.orientation.y = self.position[11,index]
+        self.set_leader_state.model_state.pose.orientation.z = self.position[12,index]
+        self.set_leader_state.model_state.pose.orientation.w = self.position[13,index]
+        
+        self.follower_state_reset(self.set_follower_state)
+        self.leader_state_reset(self.set_leader_state)
+
+
+
+        if index == 0:
+            self.coords = self.coords_small
+        elif index == 1:
+            self.coords = self.coords_big
+
+
+
         
         #get initial states
         
@@ -151,11 +230,22 @@ class Duckie_Gazebo(object):
         
         
         return np.array(self.state)
-     
+	 
                            
     def setReward(self,action,r_yaw,e_y):
         
         off_road, in_small = self.off_road(self.follower_pose_x, self.follower_pose_y)
+
+        if self.collision:
+            collision_done = True
+            r_collision = -1
+            self.collision = False
+        else:
+            collision_done = False
+            r_collision = 0
+
+
+
         if off_road:
             off_road_done = True
             r_off_road = -1
@@ -174,11 +264,6 @@ class Duckie_Gazebo(object):
         else:
             r_cmd_phi = 0 
         r_v = (self.follower_v-self.v_desired) / self.v_desired
-
-         
-
-
-
         
         """
         if self.d > 0.05 and self.d < 0.1*self.follower_v:
@@ -205,7 +290,7 @@ class Duckie_Gazebo(object):
         else:
             r_near_collision = 0 
         """
-        """get yaw
+        """
         r_d, closest_index = self.closest_node((self.follower_pose_x,self.follower_pose_y), self.coords[:,:2])
         
         yaw_offset = abs(self.yaw - self.coords[closest_index,2])
@@ -215,10 +300,10 @@ class Duckie_Gazebo(object):
         x_d = self.x_infi * math.atan(self.k*e_y) + x_path
         r_yaw = abs(x_d - self.yaw)
         """
-        if off_road or in_small:
+        if off_road or in_small or collision_done:
             reward = -1 
         else:
-            reward = np.clip((0.5*math.pow(0.001,(abs(e_y)*0.6)) + 0.2*r_v - 0.1*r_yaw),-1,1)
+            reward = np.clip((0.3*math.pow(0.001,(abs(e_y)*0.6)) + 0.6*r_v - 0.1*r_yaw),-1,1)
         
         
          #rewards[i] = (0.15 + 0.4*((follow_velocity[0,i]-v_desired) / v_desired))
@@ -233,7 +318,7 @@ class Duckie_Gazebo(object):
         #self.follower_v*(math.cos(self.lanePose_phi)-self.lanePose_d)
         # + 0.5*r_d  - 1.0*abs(self.lanePose_phi) 0.8*r_on_left + + min(self.follower_v_x, self.follower_v_y) + r_near_collision *1.5 1.0*abs(self.lanePose_d)  + r_v + min(self.follower_v_x, self.follower_v_y) - r_near_collision *1.0   r_v*(np.cos(self.lanePose_phi)-self.lanePose_d)
 
-        return reward, (off_road_done)
+        return reward, (off_road_done or collision_done)
 
     def step(self,action):
 
@@ -241,57 +326,55 @@ class Duckie_Gazebo(object):
     #take an action and return updated states
     #return: state, reward, done
         done = False
-        car_twist_msg = Twist2DStamped()
-        car_twist_msg.v = ((action[0]+1)/2)*self.ratio  # into [0,1]
-        car_twist_msg.omega = action[1]*self.pi*1.5 # into [-4,4]
-
+        car_twist_msg = Twist()
+        car_twist_msg.linear.x = (action[0]+1)/2  # into [0,1]
+        car_twist_msg.angular.z = action[1]*self.pi   # into [-4,4]  
         self.pub_car_twist.publish(car_twist_msg)     
         self.rate.sleep()
         
+        r_d, closest_index = self.closest_node((self.follower_pose_x,self.follower_pose_y), self.coords[:,:2])
         
-        x_path = 0
-        e_y = self.lanePose_d
-        #e_y = math.sin(x_path-math.atan((self.follower_pose_y-self.coords[closest_index,1])/(self.follower_pose_x-self.coords[closest_index,0])))*r_d
+        x_path = self.coords[closest_index,2]
+        
+        e_y = math.sin(x_path-math.atan((self.follower_pose_y-self.coords[closest_index,1])/(self.follower_pose_x-self.coords[closest_index,0])))*r_d
             
 
         x_d = self.x_infi * math.atan(self.k*e_y) + x_path
         
-        #r_yaw = abs(math.cos(x_d) - math.cos(self.yaw))
-        #r_yaw = abs(math.cos(self.yaw))
-        r_yaw = abs(abs(self.lanePose_phi) + self.x_infi * math.atan(self.k*e_y))
+        r_yaw_to_reward = abs(math.cos(x_d) - math.cos(self.yaw))
+
+
+        if abs(x_d-self.yaw) > 6.0:
+            r_yaw = abs(abs(x_d-self.yaw)-6.28)
+        else:
+            r_yaw = abs(x_d-self.yaw)
+        
+        if self.d <= 1.5:
+            d_v = self.d/(self.follower_v + 0.00001)
+        else:
+            d_v = 0
+
 
         
-
-        if 0 < self.d_left <0.35 or 0< self.d_right <0.35 or 0< self.d_side <0.35 or self.min_lidar_distance-0.04 <= 0.35:
-            a = min(self.d_left, self.d_right, self.d_side, (self.min_lidar_distance-0.04))
-            d_v = a/((self.vr) + 0.00000000000000000001)
-            if self.min_lidar_distance -0.04 < 0 :
-                print("LIDAR offline")
-            print(self.d_left, self.d_right, self.d_side, (self.min_lidar_distance -0.04),a )
-        else:
-            d_v = 0
-
-        if self.lane_following:
-            d_v = 0
-        else:
-            pass
+        
         status1 = self.lanePose_d/self.lanewidth
-        status2 = self.lanePose_phi/self.pi 
-        status3 = self.vr/self.ratio
+        status2 = self.lanePose_phi/self.pi  # changed from 09.05.2022   from 1.0 to pi
+        status3 = self.follower_v/1.0
         status4 = r_yaw/(2*self.pi)
         status5 = abs(e_y)/2.0
-        status6 = d_v/3.5
+        status6 = d_v/15
         status7 = action[0]
         status8 = action[1]
+                 
         state = [status1,status2,status3,status4,status5,status6,status7,status8]
-
-        reward, done = self.setReward(action,r_yaw,e_y)
-        #self.follower_pose_x_pre,self.follower_pose_y_pre = self.get_old_states()    
+        
+        reward, done = self.setReward(action,r_yaw_to_reward,e_y)
         return state, reward, done, {}
              
              
              
     def off_road(self,x ,y):
+
         if (x < self.out_road_x_max and x > self.out_road_x_min) and (y < self.out_road_y_max and y > self.out_road_y_min):
             in_big = True
         else:
@@ -313,6 +396,7 @@ class Duckie_Gazebo(object):
         
         
     def distance_to_trajectory(self,x ,y):
+
         point = geom.Point(x, y)
             
         return point.distance(self.line)
@@ -354,8 +438,6 @@ class Duckie_Gazebo(object):
 
 
 
-
-
         
             
     
@@ -364,4 +446,8 @@ if __name__ == "__main__":
             print (r.setReward())
             r.reset()
             print (r.setReward())
+
+
+
+
 

@@ -12,6 +12,7 @@ import torch
 from tud_rl.envs.MountainCar import MountainCar
 #from tud_rl.envs.Duckie_Gazebo_follower_lane_following import Duckie_Gazebo
 from tud_rl.envs.Duckie_Gazebo_overtaking import Duckie_Gazebo
+import rospkg
 
 
 from tud_rl.wrappers.MinAtar_wrapper import MinAtar_wrapper
@@ -271,13 +272,15 @@ def train(c, agent_name):
 
 
 if __name__ == "__main__":
+    rospack = rospkg.RosPack()
+    current_path = rospack.get_path('rl_duckietown')
 
     # read config file
-    with open("/home/dianzhaoli/duckie_catkin_ws/src/rl_duckietown/src/tud_rl/configs/continuous_actions/duckietown.json") as f:
+    with open(current_path + "/src/tud_rl/configs/continuous_actions/duckietown.json") as f:
         c = json.load(f)
 
     # potentially overwrite seed
-    c["seed"] = random.randint(0,20)
+    c["seed"] = random.randint(0,10000)
 
     # convert certain keys in integers
     for key in ["seed", "timesteps", "epoch_length", "eval_episodes", "buffer_length", "act_start_step",\
@@ -293,4 +296,4 @@ if __name__ == "__main__":
     # set number of torch threads
     torch.set_num_threads(torch.get_num_threads())
 
-    train(c, "LSTMSAC")
+    train(c, "LSTMTD3")
