@@ -57,7 +57,9 @@ To achieve fully autonomous driving, vehicles must be capable of continuously pe
 First create conda environment
 
 ```bash
-$ conda env create -f environment.yml 
+$ conda env create -f environment.yml
+
+$ conda activate duckietown-ros 
 ```
 
 To run the training process or evaluation process, following set up should be installed:
