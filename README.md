@@ -80,11 +80,6 @@ Install RL package:
 $ cd training_ws/src/rl_duckietown/src/
 $ pip install -e .
 ```
-or 
-```bash
-$ cd evaluation_ws/src/rl_duckietown/src/
-$ pip install -e .
-```
 
 
 ## Train the lane following and overtaking agent
