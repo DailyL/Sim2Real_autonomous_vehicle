@@ -58,7 +58,6 @@ First create conda environment
 
 ```bash
 $ conda env create -f environment.yml
-
 $ conda activate duckietown-ros 
 ```
 
