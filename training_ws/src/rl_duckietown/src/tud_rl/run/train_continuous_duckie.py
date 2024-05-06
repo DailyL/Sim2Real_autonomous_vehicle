@@ -4,7 +4,7 @@ import json
 import pickle
 import random
 import time
-
+import os
 import gym
 import numpy as np
 
@@ -273,6 +273,10 @@ def train(c, agent_name):
 if __name__ == "__main__":
     rospack = rospkg.RosPack()
     current_path = rospack.get_path('rl_duckietown')
+    agent_name = "LSTMSAC"
+    continuous_training = True
+    actor_weights = os.getcwd() + "/experiments" + "/" + "LSTMSAC_Duckie_Gazebo__2022-08-26_23945/" + agent_name + "_actor_weights.pth"
+    critic_weights = os.getcwd() + "/experiments" + "/" + "LSTMSAC_Duckie_Gazebo__2022-08-26_23945/" + agent_name + "_critic_weights.pth"
 
     # read config file
     with open(current_path + "/src/tud_rl/configs/continuous_actions/duckietown.json") as f:
@@ -292,7 +296,15 @@ if __name__ == "__main__":
     else:
         c["env"]["max_episode_steps"] = int(c["env"]["max_episode_steps"])
 
+    # prior weights
+    if continuous_training:
+        c["actor_weights"]  = actor_weights
+        c["critic_weights"] = critic_weights
+        c["act_start_step"] = 0
+    else:
+        pass
+
     # set number of torch threads
     torch.set_num_threads(torch.get_num_threads())
 
-    train(c, "TD3")
+    train(c, agent_name)

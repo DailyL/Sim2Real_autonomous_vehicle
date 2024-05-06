@@ -15,6 +15,7 @@ tud_rl/common/logging_plot.py
 tud_rl/common/nets.py
 tud_rl/common/normalizer.py
 tud_rl/envs/Duckie_Gazebo_follower_lane_following.py
+tud_rl/envs/Duckie_Gazebo_overtaking.py
 tud_rl/envs/FossenCS2.py
 tud_rl/envs/FossenEnv.py
 tud_rl/envs/FossenEnvScenarioOne.py

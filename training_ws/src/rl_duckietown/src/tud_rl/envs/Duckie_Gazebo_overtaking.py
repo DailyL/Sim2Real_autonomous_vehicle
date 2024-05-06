@@ -2,6 +2,7 @@
 import sys
 import rospy
 import numpy as np
+import random
 from random import choice
 from std_msgs.msg import Header
 from gazebo_msgs.msg import ContactsState, ModelStates
@@ -349,10 +350,16 @@ class Duckie_Gazebo(object):
         else:
             r_yaw = abs(x_d-self.yaw)
         
-        if self.d <= 1.5:
-            d_v = self.d/(self.follower_v + 0.00001)
+        #noise = np.random.normal(0,0.3,1)
+        noise = 0
+        if (self.d + noise) <= 1.5:
+            if random.randint(0, 9) < 2:
+                d_v = 0
+            else:
+                d_v = (self.d + noise )/(self.follower_v + 0.00001)
         else:
             d_v = 0
+
 
 
         
