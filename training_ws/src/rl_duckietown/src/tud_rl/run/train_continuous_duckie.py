@@ -274,9 +274,8 @@ if __name__ == "__main__":
     rospack = rospkg.RosPack()
     current_path = rospack.get_path('rl_duckietown')
     agent_name = "LSTMSAC"
-    continuous_training = True
-    actor_weights = os.getcwd() + "/experiments" + "/" + "LSTMSAC_Duckie_Gazebo__2022-08-26_23945/" + agent_name + "_actor_weights.pth"
-    critic_weights = os.getcwd() + "/experiments" + "/" + "LSTMSAC_Duckie_Gazebo__2022-08-26_23945/" + agent_name + "_critic_weights.pth"
+    continuous_training = False
+    
 
     # read config file
     with open(current_path + "/src/tud_rl/configs/continuous_actions/duckietown.json") as f:
@@ -298,6 +297,8 @@ if __name__ == "__main__":
 
     # prior weights
     if continuous_training:
+        actor_weights = os.getcwd() + "/experiments" + "/" + "LSTMSAC_Duckie_Gazebo__2022-08-26_23945/" + agent_name + "_actor_weights.pth"
+        critic_weights = os.getcwd() + "/experiments" + "/" + "LSTMSAC_Duckie_Gazebo__2022-08-26_23945/" + agent_name + "_critic_weights.pth"
         c["actor_weights"]  = actor_weights
         c["critic_weights"] = critic_weights
         c["act_start_step"] = 0
